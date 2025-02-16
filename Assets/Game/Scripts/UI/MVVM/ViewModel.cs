@@ -1,7 +1,7 @@
 ﻿using System;
 using R3;
 
-namespace Game.Scripts.MVVM
+namespace Game.Scripts.UI.MVVM
 {
     public abstract class ViewModel : IViewModel, IDisposable
     {

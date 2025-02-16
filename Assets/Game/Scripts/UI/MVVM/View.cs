@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Game.Scripts.MVVM
+namespace Game.Scripts.UI.MVVM
 {
     public abstract class View<TViewModel> : MonoBehaviour, IView 
         where TViewModel : ViewModel

@@ -1,4 +1,4 @@
-﻿namespace Game.Scripts.MVVM
+﻿namespace Game.Scripts.UI.MVVM
 {
     public interface IViewModel
     {
