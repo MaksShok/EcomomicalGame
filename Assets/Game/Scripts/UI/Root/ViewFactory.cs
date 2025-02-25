@@ -13,16 +13,32 @@ namespace Game.Scripts.UI.Root
             _diContainer = diContainer;
         }
         
-        public IView InstantiateView(ViewModel viewModel, Transform root)
+        public IView InstantiateWindow(ViewModel viewModel, Transform root)
         {
-            GameObject prefab = Resources.Load<GameObject>(GetPrefabPath(viewModel));
+            GameObject prefab = Resources.Load<GameObject>(GetWindowPrefabPath(viewModel));
+            return Instantiate(prefab, root);
+        }
+        
+        public IView InstantiatePopup(ViewModel viewModel, Transform root)
+        {
+            GameObject prefab = Resources.Load<GameObject>(GetWindowPrefabPath(viewModel));
+            return Instantiate(prefab, root);
+        }
+
+        private IView Instantiate(GameObject prefab, Transform root)
+        {
             IView view = _diContainer.InstantiatePrefabForComponent<IView>(prefab, root);
             return view;
         }
         
-        private string GetPrefabPath(ViewModel viewModel)
+        private string GetWindowPrefabPath(ViewModel viewModel)
         {
             return $"Prefabs/Windows/{viewModel.PrefabName}";
+        }
+        
+        private string GetPopupPrefabPath(ViewModel viewModel)
+        {
+            return $"Prefabs/Popups/{viewModel.PrefabName}";
         }
     }
 }

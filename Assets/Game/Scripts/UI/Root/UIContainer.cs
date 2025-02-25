@@ -7,27 +7,53 @@ namespace Game.Scripts.UI.Root
 {
     public class UIContainer : MonoBehaviour
     {
+        [SerializeField] private Transform _windowContainer;
+        [SerializeField] private Transform _popupsContainer;
+
         [Inject] 
         private ViewFactory _viewFactory;
 
-        private Dictionary<ViewModel, IView> _openedViews = new();
+        private IView _openedWindow;
+        private Dictionary<ViewModel, IView> _openedPopups = new();
 
-        public void OpenView(ViewModel viewModel)
+        public void OpenWindow(ViewModel viewModel)
         {
-            IView view = _viewFactory.InstantiateView(viewModel, transform);
+            if (viewModel == null)
+                return;
+            
+            _openedWindow?.Unbind();
+
+            IView view = _viewFactory.InstantiateWindow(viewModel, _windowContainer);
+            view.Bind(viewModel);
+
+            _openedWindow = view;
+        }
+
+        private void CloseWindow()
+        {
+            if (_openedWindow == null)
+                return;
+            
+            _openedWindow.Unbind();
+            _openedWindow = null;
+        }
+
+        public void OpenPopup(ViewModel viewModel)
+        {
+            IView view = _viewFactory.InstantiatePopup(viewModel, _popupsContainer);
             view.Bind(viewModel);
             
-            _openedViews.Add(viewModel, view);
+            _openedPopups.Add(viewModel, view);
         }
-        
-        public void CloseView(ViewModel viewModel)
+
+        public void ClosePopup(ViewModel viewModel)
         {
-            IView view = _openedViews[viewModel];
+            IView view = _openedPopups[viewModel];
             
             view.Unbind();
-            viewModel.CloseRequest();
+            //viewModel.CloseRequest();
             
-            _openedViews.Remove(viewModel);
+            _openedPopups.Remove(viewModel);
         }
     }
 }

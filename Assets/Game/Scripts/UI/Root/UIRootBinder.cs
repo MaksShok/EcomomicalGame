@@ -18,16 +18,19 @@ namespace Game.Scripts.UI.Root
         {
             _rootViewModel = rootViewModel;
 
-            foreach (ViewModel viewModel in _rootViewModel.ActiveViewModels)
+            _subscriptions.Add(_rootViewModel.OpenedWindow
+                .Subscribe(w => _uiContainer.OpenWindow(w)));
+            
+            foreach (ViewModel viewModel in _rootViewModel.OpenedPopups)
             {
-                _uiContainer.OpenView(viewModel);
+                _uiContainer.OpenPopup(viewModel);
             }
 
-            _subscriptions.Add(_rootViewModel.ActiveViewModels.ObserveAdd()
-                .Subscribe(e => _uiContainer.OpenView(e.Value)));
+            _subscriptions.Add(_rootViewModel.OpenedPopups.ObserveAdd()
+                .Subscribe(p => _uiContainer.OpenPopup(p.Value)));
 
-            _subscriptions.Add(_rootViewModel.ActiveViewModels.ObserveRemove()
-                .Subscribe(e=> _uiContainer.CloseView(e.Value)));
+            _subscriptions.Add(_rootViewModel.OpenedPopups.ObserveRemove()
+                .Subscribe(p=> _uiContainer.ClosePopup(p.Value)));
             
         }
 

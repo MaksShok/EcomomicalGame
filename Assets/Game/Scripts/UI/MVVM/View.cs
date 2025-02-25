@@ -25,6 +25,6 @@ namespace Game.Scripts.UI.MVVM
 
         protected virtual void OnBindViewModel() { }
 
-        protected virtual void OnUnBindViewModel() { }
+        protected abstract void OnUnBindViewModel();
     }
 }

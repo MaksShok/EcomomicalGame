@@ -8,50 +8,61 @@ namespace Game.Scripts.UI.Root
 {
     public class UIRootViewModel : IDisposable
     {
-        public IObservableCollection<ViewModel> ActiveViewModels => _activeViewModels;
-        private ObservableList<ViewModel> _activeViewModels = new();
+        public ReadOnlyReactiveProperty<ViewModel> OpenedWindow => _openedWindow;
+        public IObservableCollection<ViewModel> OpenedPopups => _openedPopups;
 
-        private Dictionary<ViewModel, IDisposable> _subscriptions = new();
+        private ReactiveProperty<ViewModel> _openedWindow = new();
+        private ObservableList<ViewModel> _openedPopups = new();
+        
+        private Dictionary<ViewModel, IDisposable> _popupSubscriptions = new();
 
-        public void OpenView(ViewModel viewModel)
+        public void OpenWindow(ViewModel viewModel)
         {
-            if (_activeViewModels.Contains(viewModel))
+            _openedWindow.Value?.Dispose();
+            _openedWindow.Value = viewModel;
+        }
+        
+        public void OpenPopup(ViewModel viewModel)
+        {
+            if (_openedPopups.Contains(viewModel))
             {
                 return;
             }
 
-            _activeViewModels.Add(viewModel);
+            _openedPopups.Add(viewModel);
             
-            IDisposable subscription = viewModel.ClosedRequest.Subscribe(CloseView);
-            _subscriptions.Add(viewModel, subscription);
+            IDisposable subscription = viewModel.ClosedRequest.Subscribe(ClosePopup);
+            _popupSubscriptions.Add(viewModel, subscription);
         }
 
-        public void CloseView(ViewModel viewModel)
+        private void ClosePopup(ViewModel viewModel)
         {
-            if (!_activeViewModels.Contains(viewModel))
+            if (!_openedPopups.Contains(viewModel))
             {
                 return;
             }
             
             viewModel.Dispose();
-            _activeViewModels.Remove(viewModel);
+            _openedPopups.Remove(viewModel);
 
-            IDisposable subscription = _subscriptions[viewModel];
+            IDisposable subscription = _popupSubscriptions[viewModel];
             subscription?.Dispose();
-            _subscriptions.Remove(viewModel);
+            _popupSubscriptions.Remove(viewModel);
         }
 
-        public void CloseAllView()
+        public void CloseAllUI()
         {
-            foreach (ViewModel viewModel in _activeViewModels)
+            foreach (ViewModel viewModel in _openedPopups)
             {
-                CloseView(viewModel);
+                ClosePopup(viewModel);
             }
+
+            _openedWindow.Value?.Dispose();
         }
 
         public void Dispose()
         {
-            CloseAllView();
+            CloseAllUI();
         }
     }
 }
