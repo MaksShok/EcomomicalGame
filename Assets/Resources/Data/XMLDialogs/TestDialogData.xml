@@ -1,0 +1,71 @@
+<Story>
+    <Segment id = "0" mood = "None">
+        <Dialogs>
+            <Dialog>
+                <Speaker>Петя</Speaker>
+                <Text>Начало диалога</Text>
+            </Dialog>
+            <Dialog withChoice = "true">
+                <Speaker>Максим</Speaker>
+                <Text>Привет! Как твои дела?</Text>
+                <Choices>
+                    <Choice nextSegmentId="1" mood="Positive">
+                        <Text>У меня дела супер)</Text>
+                    </Choice>
+                    <Choice nextSegmentId="2" mood="Negative">
+                        <Text>Да что-то плохо с самого утра!</Text>
+                    </Choice>
+                </Choices>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Привет Ребята!!! Вы как?</Text>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+
+    //-------Positive
+    <Segment id = "1" nextId = "3" mood="Positive">
+        <Dialogs>
+            <Dialog>
+                <Speaker>Тимур</Speaker>
+                <Text>Обожаю, когда идет дождь!</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Тимур</Speaker>
+                <Text>Так легко на душе...и свежо</Text>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+    \\-------
+
+    //-------Negative
+    <Segment id = "2" nextId = "3" mood="Negative">
+        <Dialogs>
+            <Dialog>
+                <Speaker>Тимур</Speaker>
+                <Text>Ненавижу этот дождь. Сколько можно!?</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Максим</Speaker>
+                <Text>Ничего...думаю он скоро закончится. 
+                    Саша кстати очень любит звуки дождя, особенно золотого</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Тимур</Speaker>
+                <Text>Ничего себе!!!</Text>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+    \\-------
+
+    <Segment id = "3" nextId = "-1" mood = "None" end = "true">
+        <Dialogs>
+            <Dialog>
+                <Speaker>Максим</Speaker>
+                <Text>Хорошо, я был рад тебя услышал. До встречи!</Text>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+    
+</Story>

@@ -1,7 +1,7 @@
-﻿using Game.Scripts.UI.LevelMenuWindow;
-using Game.Scripts.UI.MVVM;
+﻿using Game.Scripts.UI.MVVM;
 using Game.Scripts.UI.Root;
-using Game.Scripts.UI.StartMenuWindow;
+using Game.Scripts.UI.Windows.LevelMenuWindow;
+using Game.Scripts.UI.Windows.StartMenuWindow;
 
 namespace Game.Scripts.UI.Controllers
 {
