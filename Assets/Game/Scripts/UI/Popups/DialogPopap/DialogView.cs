@@ -15,14 +15,14 @@ namespace Game.Scripts.UI.Popups.DialogPopap
 
         private CompositeDisposable _compositeDisposable = new CompositeDisposable();
 
-        protected override void OnBindViewModel()
+        private void Start()
         {
             _dialogChoiceView.Init(ViewModel);
 
             _compositeDisposable.Add(ViewModel.CurrentSpeakerName
                 .Subscribe(name => _speakerName.text = name));
             _compositeDisposable.Add(ViewModel.CurrentDialogText
-                .Subscribe(text =>  _textField.text = text));
+                .Subscribe(text =>  _textField.text = " - " + text));
             
             _compositeDisposable.Add(ViewModel.ChoiceIsActive.Where(f => f == true)
                 .Subscribe(f => ChangeUiForStartChoice()));
@@ -30,23 +30,6 @@ namespace Game.Scripts.UI.Popups.DialogPopap
                 .Subscribe(f => ChangeUiForEndChoice()));
             
             _nextButton.onClick.AddListener(NextButtonClicked);
-        }
-
-        private void Start()
-        {
-            // _dialogChoiceView.Init(ViewModel);
-            //
-            // _compositeDisposable.Add(ViewModel.CurrentSpeakerName
-            //     .Subscribe(name => _speakerName.text = name));
-            // _compositeDisposable.Add(ViewModel.CurrentDialogText
-            //     .Subscribe(text =>  _textField.text = text));
-            //
-            // _compositeDisposable.Add(ViewModel.ChoiceIsActive.Where(f => f == true)
-            //     .Subscribe(f => ChangeUiForStartChoice()));
-            // _compositeDisposable.Add(ViewModel.ChoiceIsActive.Where(f => f == false)
-            //     .Subscribe(f => ChangeUiForEndChoice()));
-            //
-            // _nextButton.onClick.AddListener(NextButtonClicked);
         }
 
         private void NextButtonClicked()
@@ -69,6 +52,7 @@ namespace Game.Scripts.UI.Popups.DialogPopap
         protected override void OnUnBindViewModel()
         {
             _compositeDisposable.Dispose();
+            _dialogChoiceView.OnUnBindViewModel();
             Destroy(gameObject);
         }
     }

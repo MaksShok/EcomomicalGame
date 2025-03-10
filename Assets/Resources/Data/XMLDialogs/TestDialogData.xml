@@ -2,24 +2,28 @@
     <Segment id = "0" mood = "None">
         <Dialogs>
             <Dialog>
-                <Speaker>Петя</Speaker>
-                <Text>Начало диалога</Text>
-            </Dialog>
-            <Dialog withChoice = "true">
-                <Speaker>Максим</Speaker>
-                <Text>Привет! Как твои дела?</Text>
-                <Choices>
-                    <Choice nextSegmentId="1" mood="Positive">
-                        <Text>У меня дела супер)</Text>
-                    </Choice>
-                    <Choice nextSegmentId="2" mood="Negative">
-                        <Text>Да что-то плохо с самого утра!</Text>
-                    </Choice>
-                </Choices>
+                <Speaker>Вы</Speaker>
+                <Text>Всем привет друзья!</Text>
             </Dialog>
             <Dialog>
-                <Speaker>Саша</Speaker>
-                <Text>Привет Ребята!!! Вы как?</Text>
+                <Speaker>Максим</Speaker>
+                <Text>Привет</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саня</Speaker>
+                <Text>Всем привет. Рад вас видеть)</Text>
+            </Dialog>
+            <Dialog withChoice = "true">
+                <Speaker>Тимур</Speaker>
+                <Text>Как думаете парни, успеем ли мы сделать проект?</Text>
+                <Choices>
+                    <Choice nextSegmentId="1" mood="Positive">
+                        <Text>Конечно успеем!!! Мы же крутые ребята</Text>
+                    </Choice>
+                    <Choice nextSegmentId="2" mood="Negative">
+                        <Text>Бляять походу нет(</Text>
+                    </Choice>
+                </Choices>
             </Dialog>
         </Dialogs>
     </Segment>
@@ -29,11 +33,11 @@
         <Dialogs>
             <Dialog>
                 <Speaker>Тимур</Speaker>
-                <Text>Обожаю, когда идет дождь!</Text>
+                <Text>Хорошо, что у нас такая крутая команда и мы сохраняем оптимизм, несмотря на сложность</Text>
             </Dialog>
             <Dialog>
-                <Speaker>Тимур</Speaker>
-                <Text>Так легко на душе...и свежо</Text>
+                <Speaker>Вы</Speaker>
+                <Text>Это факт!</Text>
             </Dialog>
         </Dialogs>
     </Segment>
@@ -44,16 +48,15 @@
         <Dialogs>
             <Dialog>
                 <Speaker>Тимур</Speaker>
-                <Text>Ненавижу этот дождь. Сколько можно!?</Text>
+                <Text>Эээх, пойду сварю тогда пельмени. Все равно не успеем</Text>
             </Dialog>
             <Dialog>
                 <Speaker>Максим</Speaker>
-                <Text>Ничего...думаю он скоро закончится. 
-                    Саша кстати очень любит звуки дождя, особенно золотого</Text>
+                <Text>Подожди! Я с тобой...</Text>
             </Dialog>
             <Dialog>
-                <Speaker>Тимур</Speaker>
-                <Text>Ничего себе!!!</Text>
+                <Speaker>Саня</Speaker>
+                <Text>Ну пиздец...</Text>
             </Dialog>
         </Dialogs>
     </Segment>
@@ -62,8 +65,8 @@
     <Segment id = "3" nextId = "-1" mood = "None" end = "true">
         <Dialogs>
             <Dialog>
-                <Speaker>Максим</Speaker>
-                <Text>Хорошо, я был рад тебя услышал. До встречи!</Text>
+                <Speaker>Вы</Speaker>
+                <Text>Хорошо парни. До-свидания!</Text>
             </Dialog>
         </Dialogs>
     </Segment>

@@ -59,7 +59,7 @@ namespace Game.Scripts.UI.Popups.DialogPopap
             _viewModel.NextDialog();
         }
 
-        private void OnDestroy()
+        public void OnUnBindViewModel()
         {
             _compositeDisposable.Dispose();
         }

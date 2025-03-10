@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0a6ce12bf5dee474b9a5ec41bb5c9750
+guid: 3436de0afdab95c41a4df21bae4ac976
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - AV Fontimer
+  - Moderustic
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
