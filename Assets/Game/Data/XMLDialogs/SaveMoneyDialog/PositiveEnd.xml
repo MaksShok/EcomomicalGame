@@ -3,12 +3,52 @@
     <Segment id = "0" mood = "None" end = "true">
         <Dialogs>
             <Dialog>
-                <Speaker>Диктор</Speaker>
-                <Text>Положительная конфовка!</Text>
+                <Speaker>_</Speaker>
+                <Text>**Саша с друзьями выходят из магазина**</Text>
             </Dialog>
             <Dialog>
-                <Speaker>Диктор</Speaker>
-                <Text>Вы отлично условили урок. Можете продвигатся к следующим уровням!</Text>
+                <Speaker>Саша</Speaker>
+                <Text>Знаете, я правильно сделал, что не купил. Потом дома поем.</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>А представляете, если бы я каждый день после школы покупал такие перекусы?</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Миша</Speaker>
+                <Text>Чего ты считаешь?</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Давайте посчитаем: шоколадка стоит 50 рублей, газировка 60 - это 110 рублей в день.</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>За месяц вышло бы больше 3000 рублей!</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Андрей</Speaker>
+                <Text>Вау, никогда не думал об этом!</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Андрей</Speaker>
+                <Text>Если бы я не тратил деньги на эти ежедневные покупки, я бы смог купить новый футбольный мяч!</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Миша</Speaker>
+                <Text>А я бы накопил на наушники, которые давно хочу!</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Вот именно!</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Лучше я буду копить эти деньги на что-то действительно важное.</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>И потом, дома полно еды, зачем переплачивать за эти перекусы?</Text>
             </Dialog>
         </Dialogs>
     </Segment>

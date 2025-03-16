@@ -37,8 +37,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 486, y: -75.5}
-  m_SizeDelta: {x: 900, y: 100}
+  m_AnchoredPosition: {x: 486, y: -260.84003}
+  m_SizeDelta: {x: 900, y: 115}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &312843569532553281
 CanvasRenderer:
@@ -385,8 +385,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 486, y: -190}
-  m_SizeDelta: {x: 900, y: 100}
+  m_AnchoredPosition: {x: 486, y: -107.17001}
+  m_SizeDelta: {x: 900, y: 115}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6447760101814996602
 CanvasRenderer:
@@ -637,7 +637,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 75}
   m_SizeDelta: {x: 400, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1787799494881843464
@@ -756,8 +756,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 60}
-  m_SizeDelta: {x: 972, y: 216}
+  m_AnchoredPosition: {x: 0, y: 75}
+  m_SizeDelta: {x: 972, y: 270}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3724205921017206968
 CanvasRenderer:
@@ -859,12 +859,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 65
+  m_fontSize: 68
   m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 65
+  m_fontSizeMax: 68
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
@@ -1001,7 +1001,7 @@ RectTransform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.05}
-  m_AnchorMax: {x: 1, y: 0.3}
+  m_AnchorMax: {x: 1, y: 0.3816042}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1307,7 +1307,7 @@ MonoBehaviour:
   m_text: "\u041F\u043E\u0437\u0438\u0442\u0438\u0432\u043D\u043E"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1f9d39c5139f9f14bb2030ee7a2e8300, type: 2}
-  m_sharedMaterial: {fileID: -1493875463357009715, guid: 2908838c773d4c244a07fa8eb576bbe9, type: 2}
+  m_sharedMaterial: {fileID: 5517907471761278205, guid: 1f9d39c5139f9f14bb2030ee7a2e8300, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1331,12 +1331,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
+  m_fontSize: 66
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 60
+  m_fontSizeMax: 66
   m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -1370,7 +1370,7 @@ MonoBehaviour:
   m_margin: {x: 15.349304, y: 10.963806, z: 13.156433, w: 6.5782776}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &7702509714164851439
@@ -1575,7 +1575,7 @@ MonoBehaviour:
   m_text: "\u041D\u0435\u0433\u0430\u0442\u0438\u0432\u043D\u043E\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1f9d39c5139f9f14bb2030ee7a2e8300, type: 2}
-  m_sharedMaterial: {fileID: -1493875463357009715, guid: 2908838c773d4c244a07fa8eb576bbe9, type: 2}
+  m_sharedMaterial: {fileID: 5517907471761278205, guid: 1f9d39c5139f9f14bb2030ee7a2e8300, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1599,12 +1599,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
+  m_fontSize: 66
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 60
+  m_fontSizeMax: 66
   m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -1638,7 +1638,7 @@ MonoBehaviour:
   m_margin: {x: 13.156677, y: 10.963745, z: 13.156433, w: 10.963898}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &8643982096313768307

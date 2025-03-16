@@ -3,12 +3,48 @@
     <Segment id = "0" mood = "None" end = "true">
         <Dialogs>
             <Dialog>
-                <Speaker>Диктор</Speaker>
-                <Text>Негтивная концовка</Text>
+                <Speaker>_</Speaker>
+                <Text>**Саша с друзьями выходят из магазина и садятся на лавочку**</Text>
             </Dialog>
             <Dialog>
-                <Speaker>Диктор</Speaker>
-                <Text>У вас что то не получилось</Text>
+                <Speaker>Саша</Speaker>
+                <Text>**Говорит про себя, открывая шоколадку**</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>*Хм... А стоило ли оно того?*</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>*Эта шоколадка и газировка уже заканчиваются, а денег на карманные расходы стало меньше.*</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Миша</Speaker>
+                <Text>Ух, какая вкусная шоколадка! Ты правильно сделал, что купил.</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Андрей</Speaker>
+                <Text>Да, но знаете что? Я вот подумал – если бы я копил эти деньги, то...</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Андрей</Speaker>
+                <Text>...то через месяц мог бы купить новую компьютерную игру.</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>(задумчиво): Да уж..</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Может, лучше бы я сохранил эти деньги?</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Говорят, что нужно учиться копить, а я опять поддался моменту.</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Особенно обидно, что я даже не был голодным...</Text>
             </Dialog>
         </Dialogs>
     </Segment>

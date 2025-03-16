@@ -1,0 +1,147 @@
+<Story>
+    <Segment id = "0" mood = "None">
+        <Dialogs>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**Сцена: После уроков, дети выходят из школы**</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Миша</Speaker>
+                <Text> Уф, наконец-то этот урок математики закончился! У меня от этих дробей голова раскалывается</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Миша</Speaker>
+                <Text>Вы видели лицо Сидорова, когда половина класса не решила последнюю задачу?</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Андрей</Speaker>
+                <Text>А я так вообще чуть не уснул.</Text>
+            </Dialog>
+            <Dialog withChoice = "true">
+                <Speaker>Андрей</Speaker>
+                <Text>Кстати, может зайдём в магазин? Я что-то проголодался. Эти бутерброды с утра уже не лезут.</Text>
+                <Choices>
+                    <Choice nextSegmentId="1" mood="Agree">
+                        <Text>Да, было бы здорово перекусить! Я тоже немного голодный.</Text>
+                    </Choice>
+                    <Choice nextSegmentId="2" mood="Refuse">
+                        <Text>Я не голоден, зачем тратить деньги? Дома поем.</Text>
+                    </Choice>
+                </Choices>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+
+    //-------Agree
+    <Segment id = "1" nextId = "3" mood="Agree">
+        <Dialogs>
+            <Dialog>
+                <Speaker>Миша</Speaker>
+                <Text>Вот это правильное решение! Давно пора подкрепиться.</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Миша</Speaker>
+                <Text>Ты только посмотри на Андрея – он же сейчас начнёт пожирать воздух!</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Андрей</Speaker>
+                <Text>Ха-ха, очень смешно</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Андрей</Speaker>
+                <Text>Но Миша прав, я реально готов съесть всё подряд.</Text>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+    \\-------
+
+    //-------Refuse
+    <Segment id = "2" nextId = "3" mood="Refuse">
+        <Dialogs>
+            <Dialog>
+                <Speaker>Миша</Speaker>
+                <Text>Да ладно тебе, Саш! Не каждый день же покупаем</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Миша</Speaker>
+                <Text>Иногда можно позволить себе маленькое удовольствие.</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Андрей</Speaker>
+                <Text>Это же мелочь, можно позволить себе иногда. Тем более там новая шоколадка появилась!</Text>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+    \\-------
+
+    <Segment id = "3" mood = "None">
+        <Dialogs>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**Ты с друзьями подходишь к магазину**</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Миша</Speaker>
+                <Text>О, смотрите! Новая вывеска!</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Миша</Speaker>
+                <Text>Теперь тут акция на напитки – вторая бутылка газировки со скидкой 50%!</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Андрей</Speaker>
+                <Text>Класс! Значит, берём две? Одну на всех хватит?</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**В магазине**</Text>
+            </Dialog>
+            <Dialog withChoice = "true">
+                <Speaker>_</Speaker>
+                <Text>**На прилавке стоит газировка и шоколад**</Text>
+                <Choices>
+                    <Choice nextSegmentId="4" mood="Positive">
+                        <Text>Не покупать</Text>
+                    </Choice>
+                    <Choice nextSegmentId="4" mood="Negative">
+                        <Text>Купить газировку с шоколадом</Text>
+                    </Choice>
+                </Choices>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+    
+    <Segment id = "4" mood="None" end = "true">
+        <Dialogs>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**Андрей роется в стойке с жвачками**</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Андрей</Speaker>
+                <Text>Смотрите, новая жевачка с тремя вкусами! Говорят, она дольше держит свежесть во рту.</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Миша</Speaker>
+                <Text>О, а мне нравится эта со вкусом колы.</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Миша</Speaker>
+                <Text>Помните, как мы в прошлом месяце собирали эти наклейки из жвачек?</Text>
+            </Dialog>
+            <Dialog withChoice = "true">
+                <Speaker>*Рассуждения*</Speaker>
+                <Text>Брать жвачку?</Text>
+                <Choices>
+                    <Choice mood="Agree">
+                        <Text>Да всего лишь жвачка. Возьму</Text>
+                    </Choice>
+                    <Choice mood="Refuse">
+                        <Text>Да чего мне эта жвачка. Я зубы почистил, а копейка рубль бережет!</Text>
+                    </Choice>
+                </Choices>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+    
+</Story>
