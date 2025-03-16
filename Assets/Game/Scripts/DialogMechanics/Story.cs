@@ -59,5 +59,7 @@ namespace Game.Scripts.DialogMechanics
         None = 0,
         Positive = 1,
         Negative = 2,
+        Agree = 3,
+        Refuse = 4,
     }
 }

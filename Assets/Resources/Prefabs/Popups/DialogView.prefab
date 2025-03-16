@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 411475984566380025}
   - component: {fileID: 7695188468965970684}
   m_Layer: 5
-  m_Name: NegativeDialog(Button)
+  m_Name: SecondChoice(Button)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 8511167269701679710}
   - component: {fileID: 2835283202369672387}
   m_Layer: 5
-  m_Name: PositiveDialog(Button)
+  m_Name: FirstChoice(Button)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -597,10 +597,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e5d42e485b46258391aaa39ff6cacd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _positiveTextField: {fileID: 8773240274802546071}
-  _negativeTextField: {fileID: 2870209835406560194}
-  _negativeButton: {fileID: 7695188468965970684}
-  _positiveButton: {fileID: 2835283202369672387}
+  _firstTextField: {fileID: 8773240274802546071}
+  _secondTextField: {fileID: 2870209835406560194}
+  _firstButton: {fileID: 2835283202369672387}
+  _secondButton: {fileID: 7695188468965970684}
 --- !u!1 &5682576134051217261
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,8 +930,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7271402641541002496}
   - {fileID: 1732174688897827823}
+  - {fileID: 7271402641541002496}
   m_Father: {fileID: 2817358376908481714}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.05, y: 0}
@@ -1251,7 +1251,7 @@ GameObject:
   - component: {fileID: 1994547328789484317}
   - component: {fileID: 8773240274802546071}
   m_Layer: 5
-  m_Name: PositiveTextButton(TMP)
+  m_Name: FirstTextButton(TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1519,7 +1519,7 @@ GameObject:
   - component: {fileID: 7005253160118587681}
   - component: {fileID: 2870209835406560194}
   m_Layer: 5
-  m_Name: NegativeTextButton(TMP)
+  m_Name: SecondTextButton(TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

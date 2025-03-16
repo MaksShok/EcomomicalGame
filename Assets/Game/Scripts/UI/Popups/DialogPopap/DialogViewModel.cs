@@ -14,15 +14,14 @@ namespace Game.Scripts.UI.Popups.DialogPopap
         public ReadOnlyReactiveProperty<string> CurrentDialogText => _currentDialogText;
         public ReadOnlyReactiveProperty<string> CurrentSpeakerName => _currentSpeakerName;
         public ReadOnlyReactiveProperty<bool> ChoiceIsActive => _choiceIsActive;
-        public ReadOnlyReactiveProperty<string> PositiveChoiceText => _positiveChoiceText;
-        public ReadOnlyReactiveProperty<string> NegativeChoiceText => _negativeChoiceText;
 
+        public ChoiceButtonViewModel FirstChoiceModel;
+        public ChoiceButtonViewModel SecondChoiceModel;
+        
         private ReactiveProperty<string> _currentDialogText = new();
         private ReactiveProperty<string> _currentSpeakerName = new();
         private ReactiveProperty<bool> _choiceIsActive = new(false);
-        private ReactiveProperty<string> _positiveChoiceText = new();
-        private ReactiveProperty<string> _negativeChoiceText = new();
-
+        
         private int _dialogIndex = 0;
 
         private DialogManager _dialogManager;
@@ -61,11 +60,9 @@ namespace Game.Scripts.UI.Popups.DialogPopap
         private void BuildChoice(Dialog dialog)
         {
             Choice[] choicesInf = dialog.Choices;
-            Choice negativeChoice = choicesInf.FirstOrDefault(e => e.Mood == DialogMood.Negative);
-            Choice positiveChoice = choicesInf.FirstOrDefault(e => e.Mood == DialogMood.Positive);
 
-            _positiveChoiceText.Value = positiveChoice.Text;
-            _negativeChoiceText.Value = negativeChoice.Text;
+            FirstChoiceModel = new ChoiceButtonViewModel(choicesInf[0]);
+            SecondChoiceModel = new ChoiceButtonViewModel(choicesInf[1]);
 
             _choiceIsActive.Value = true;
         }

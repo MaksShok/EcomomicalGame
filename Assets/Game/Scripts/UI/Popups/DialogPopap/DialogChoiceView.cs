@@ -1,18 +1,20 @@
 ﻿using System;
 using Game.Scripts.DialogMechanics;
+using Game.Scripts.UI.MVVM;
 using R3;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Game.Scripts.UI.Popups.DialogPopap
 {
     public class DialogChoiceView : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI _positiveTextField;
-        [SerializeField] private TextMeshProUGUI _negativeTextField;
-        [SerializeField] private Button _negativeButton;
-        [SerializeField] private Button _positiveButton;
+        [SerializeField] private TextMeshProUGUI _firstTextField;
+        [SerializeField] private TextMeshProUGUI _secondTextField;
+        [SerializeField] private Button _firstButton;
+        [SerializeField] private Button _secondButton;
 
         private DialogViewModel _viewModel;
 
@@ -21,41 +23,38 @@ namespace Game.Scripts.UI.Popups.DialogPopap
         public void Init(DialogViewModel viewModel)
         {
             _viewModel = viewModel;
-            
-            _compositeDisposable.Add(_viewModel.PositiveChoiceText
-                .Subscribe(text => _positiveTextField.text = text));
-            _compositeDisposable.Add(_viewModel.NegativeChoiceText
-                .Subscribe(text => _negativeTextField.text = text));
         }
 
         public void BuildChoiceView()
         {
-            _negativeButton.onClick.AddListener(NegativeButtonClicked);
-            _positiveButton.onClick.AddListener(PositiveButtonClicked);
-            
+            _firstButton.image.color = _viewModel.FirstChoiceModel.Color;
+            _firstTextField.text = _viewModel.FirstChoiceModel.ChoiceText;
+            _firstButton.onClick.AddListener(FirstButtonClicked);
+
+            _secondButton.image.color = _viewModel.SecondChoiceModel.Color;
+            _secondTextField.text = _viewModel.SecondChoiceModel.ChoiceText;
+            _secondButton.onClick.AddListener(SecondButtonClicked);
+
             gameObject.SetActive(true);
         }
 
         public void DestroyChoiceView()
         {
-            _positiveTextField.text = String.Empty;
-            _negativeTextField.text = String.Empty;
-            
-            _negativeButton.onClick.RemoveListener(NegativeButtonClicked);
-            _positiveButton.onClick.RemoveListener(PositiveButtonClicked);
-            
+            _firstButton.onClick.RemoveListener(FirstButtonClicked);
+            _secondButton.onClick.RemoveListener(SecondButtonClicked);
+
             gameObject.SetActive(false);
         }
 
-        private void NegativeButtonClicked()
+        private void FirstButtonClicked()
         {
-            _viewModel.ChoiceIsMade(DialogMood.Negative);
+            _viewModel.ChoiceIsMade(_viewModel.FirstChoiceModel.MoodType);
             _viewModel.NextDialog();
         }
 
-        private void PositiveButtonClicked()
+        private void SecondButtonClicked()
         {
-            _viewModel.ChoiceIsMade(DialogMood.Positive);
+            _viewModel.ChoiceIsMade(_viewModel.SecondChoiceModel.MoodType);
             _viewModel.NextDialog();
         }
 
