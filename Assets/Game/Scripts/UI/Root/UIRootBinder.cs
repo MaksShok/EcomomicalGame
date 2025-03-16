@@ -1,11 +1,12 @@
-﻿using Game.Scripts.UI.MVVM;
+﻿using Game.Scripts.Interfaces;
+using Game.Scripts.UI.MVVM;
 using ObservableCollections;
 using R3;
 using UnityEngine;
 
 namespace Game.Scripts.UI.Root
 {
-    public class UIRootBinder : MonoBehaviour
+    public class UIRootBinder : MonoBehaviour, ICoroutineRunner
     {
         [SerializeField] 
         private UIContainer _uiContainer;

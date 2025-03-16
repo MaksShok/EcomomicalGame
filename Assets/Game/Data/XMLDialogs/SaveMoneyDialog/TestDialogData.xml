@@ -62,7 +62,7 @@
     </Segment>
     \\-------
 
-    <Segment id = "3" nextId = "-1" mood = "None" end = "true">
+    <Segment id = "3" mood = "None" end = "true">
         <Dialogs>
             <Dialog>
                 <Speaker>Вы</Speaker>

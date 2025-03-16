@@ -1,11 +1,12 @@
 ﻿using Game.Scripts.Global;
+using Game.Scripts.Interfaces;
 using Game.Scripts.UI.Root;
 using UnityEngine;
 using Zenject;
 
-namespace Game.Scripts.Installers
+namespace Game.Scripts.Installers.Global
 {
-    public class ProjectInstaller : MonoInstaller
+    public class ServicesInstaller : MonoInstaller
     {
         [SerializeField] private UIRootBinder _uiRootPrefab;
 
@@ -14,6 +15,8 @@ namespace Game.Scripts.Installers
             Container.Bind<ViewFactory>().AsSingle();
             Container.Bind<UIRootViewModel>().AsSingle();
             Container.Bind<EventManager>().AsSingle();
+            Container.Bind<SceneLoader>().AsSingle();
+            Container.Bind<SceneProgressService>().AsSingle();
             
             CreateUIRoot();
         }
@@ -21,7 +24,9 @@ namespace Game.Scripts.Installers
         private void CreateUIRoot()
         {
             UIRootBinder uiRoot = Container.InstantiatePrefabForComponent<UIRootBinder>(_uiRootPrefab);
-            Container.Bind<UIRootBinder>().FromInstance(uiRoot).AsCached();
+            Container.Bind<UIRootBinder>().FromInstance(uiRoot).AsSingle();
+            
+            Container.Bind<ICoroutineRunner>().FromInstance(uiRoot).AsSingle();
         }
     }
 }

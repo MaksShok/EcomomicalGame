@@ -289,6 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5f8cd6c9c854ac59109de822119effb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _startMoneySaveLevelButton: {fileID: 3258555236235027420}
   _exitToStartMenuButton: {fileID: 2133019506058615016}
 --- !u!1 &1319190738730500487
 GameObject:
@@ -2115,6 +2116,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8266439771075181109, guid: 5c6f4297113a54b40bc0d806ffe0258a, type: 3}
   m_PrefabInstance: {fileID: 8359414987716795268}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3258555236235027420 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6429501021141645400, guid: 5c6f4297113a54b40bc0d806ffe0258a, type: 3}
+  m_PrefabInstance: {fileID: 8359414987716795268}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9110204268144336560
 PrefabInstance:
   m_ObjectHideFlags: 0

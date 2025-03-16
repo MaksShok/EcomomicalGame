@@ -1,29 +1,33 @@
-﻿using Game.Scripts.GameStates;
-using Game.Scripts.UI.Root;
+﻿using Game.Scripts.EntryPoints.Abstract;
+using Game.Scripts.UI.Controllers;
 using UnityEngine;
 using Zenject;
 
 namespace Game.Scripts.EntryPoints
 {
-    public class MenuSceneEntryPoint : MonoBehaviour
+    public class MenuSceneEntryPoint : SceneEntryPoint
     {
-        private GameLoopState _gameLoopState;
-        private UIRootViewModel _rootViewModel;
-        private UIRootBinder _uiRootBinder;
-            
+        private MenuUIController _uiController;
+
         [Inject]
-        private void Contructor(GameLoopState gameLoopState, UIRootViewModel rootViewModel,
-            UIRootBinder uiRootBinder)
+        private void Constructor(MenuUIController uiController)
         {
-            _uiRootBinder = uiRootBinder;
-            _rootViewModel = rootViewModel;
-            _gameLoopState = gameLoopState;
+            _uiController = uiController;
         }
 
-        private void Start()
+        public void OpenStartMenu()
         {
-            _uiRootBinder.Bind(_rootViewModel);
-            _gameLoopState.Enter();
+            _uiController.OpenStartMenu();
+        }
+
+        public override void RunScene()
+        {
+            _uiController.OpenLevelMenu();
+        }
+
+        public override void FinishScene()
+        {
+            
         }
     }
 }

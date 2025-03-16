@@ -1,10 +1,9 @@
 ﻿using Game.Scripts.EntryPoints;
-using Game.Scripts.GameStates;
 using Game.Scripts.UI.Controllers;
 using UnityEngine;
 using Zenject;
 
-namespace Game.Scripts.Installers
+namespace Game.Scripts.Installers.Local
 {
     public class MenuSceneInstaller : MonoInstaller
     {
@@ -13,17 +12,14 @@ namespace Game.Scripts.Installers
         public override void InstallBindings()
         {
             Container.Bind<MenuUIController>().AsSingle();
-            Container.Bind<GameLoopState>().AsSingle();
             
-            RunScene();
+            InstantiateEntryPoint();
         }
 
-        private void RunScene()
+        private void InstantiateEntryPoint()
         {
             MenuSceneEntryPoint entryPoint =
                 Container.InstantiatePrefabForComponent<MenuSceneEntryPoint>(_entryPointPrefab);
-
-            Container.Bind<MenuSceneEntryPoint>().FromInstance(entryPoint);
         }
     }
 }

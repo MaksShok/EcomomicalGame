@@ -1,0 +1,16 @@
+<Story>
+
+    <Segment id = "0" mood = "None" end = "true">
+        <Dialogs>
+            <Dialog>
+                <Speaker>Диктор</Speaker>
+                <Text>Положительная конфовка!</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Диктор</Speaker>
+                <Text>Вы отлично условили урок. Можете продвигатся к следующим уровням!</Text>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+
+</Story>

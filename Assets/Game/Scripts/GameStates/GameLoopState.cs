@@ -1,27 +1,33 @@
-﻿using Game.Scripts.UI.Controllers;
-using Game.Scripts.UI.Root;
-using Unity.VisualScripting;
+﻿using Game.Scripts.Global;
 using UnityEngine;
+using IState = Game.Scripts.Interfaces.IState;
 
 namespace Game.Scripts.GameStates
 {
-    public class GameLoopState
+    public class GameLoopState : IState
     {
-        private readonly MenuUIController _uiController;
+        private readonly SceneLoader _sceneLoader;
+        private readonly SceneProgressService _sceneProgressService;
 
-        public GameLoopState(MenuUIController uiController)
+        public GameLoopState(SceneLoader sceneLoader, SceneProgressService sceneProgressService)
         {
-            _uiController = uiController;
+            _sceneLoader = sceneLoader;
+            _sceneProgressService = sceneProgressService;
         }
         
         public void Enter()
         {
-            _uiController.OpenStartMenu();
+            _sceneLoader.LoadLevelScene(AfterLoadedScene);
         }
 
         public void Exit()
         {
-            
+            _sceneProgressService.CurrentSceneEntryPoint.FinishScene();
+        }
+
+        private void AfterLoadedScene()
+        {
+            _sceneProgressService.CurrentSceneEntryPoint.RunScene();
         }
     }
 }

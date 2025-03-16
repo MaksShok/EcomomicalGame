@@ -1,40 +1,26 @@
-﻿using System;
-using System.Collections;
-using Game.Scripts.Global;
+﻿using Game.Scripts.EntryPoints.Abstract;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Zenject;
 
 namespace Game.Scripts.EntryPoints
 {
-    public class BootEntryPoint : MonoBehaviour
+    public class BootEntryPoint : SceneEntryPoint
     {
         [Inject]
         private void Contructor()
         {
             
         }
-        
-        private void Start()
+
+        public override void RunScene()
         {
-            StartCoroutine(LoadMenuScene());
+            Debug.Log("Boot сцена стратовала");
         }
 
-        private IEnumerator LoadMenuScene()
+        public override void FinishScene()
         {
-            AsyncOperation sceneLoading = SceneManager.LoadSceneAsync("MenuScene");
-            
-            while (!sceneLoading.isDone)
-            {
-                yield return null;
-            }
-            
-            OnSceneLoaded();
-        }
-
-        private void OnSceneLoaded()
-        {
-            
+            Debug.Log("Boot сцена Завершилась");
+            Destroy(gameObject);
         }
     }
 }

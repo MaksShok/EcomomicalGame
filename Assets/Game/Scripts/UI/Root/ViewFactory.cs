@@ -21,7 +21,7 @@ namespace Game.Scripts.UI.Root
         
         public IView InstantiatePopup(ViewModel viewModel, Transform root)
         {
-            GameObject prefab = Resources.Load<GameObject>(GetWindowPrefabPath(viewModel));
+            GameObject prefab = Resources.Load<GameObject>(GetPopupPrefabPath(viewModel));
             return Instantiate(prefab, root);
         }
 

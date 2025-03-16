@@ -2,7 +2,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace Game.Scripts.Installers
+namespace Game.Scripts.Installers.Local
 {
     public class BootInstaller : MonoInstaller
     {

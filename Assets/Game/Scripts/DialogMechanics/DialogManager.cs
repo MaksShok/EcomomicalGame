@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
+using Game.Scripts.LevelEnterParams;
 using R3;
 using UnityEngine;
 
@@ -9,10 +10,16 @@ namespace Game.Scripts.DialogMechanics
 {
     public class DialogManager
     {
-        public static event Action OnStoryEnd;
-
         public ReadOnlyReactiveProperty<Dialog> Dialog => _dialog;
 
+        public Action GetNextStoryRequest
+        {
+            private get { return _getNextStoryRequest;}
+            set { _getNextStoryRequest = value; }
+        }
+
+        private Action _getNextStoryRequest;
+        
         private Story _story;
         private DialogSegment _dialogSegment;
         private ReactiveProperty<Dialog> _dialog = new();
@@ -20,17 +27,16 @@ namespace Game.Scripts.DialogMechanics
         private int _segmentId;
         private int _dialogId;
         private int _lastDialogIdInSegment;
-        
-        public DialogManager(string pathToDialogFile)
-        {
-            _story = Deserialize<Story>(pathToDialogFile);
-        }
 
-        public void StartDialog()
+        public void StartStory(Story story)
         {
+            _dialogId = 0;
+            _segmentId = 0;
+            
+            _story = story;
             _dialogSegment = _story.DialogSegments[0];
             _lastDialogIdInSegment = _dialogSegment.Dialogs.Length - 1;
-            
+
             UpdateDialog();
         }
 
@@ -46,7 +52,7 @@ namespace Game.Scripts.DialogMechanics
             _dialogId++;
         }
 
-        public void SendChoiceResult(DialogMood moodType)
+        public void RegisterChoiceResult(DialogMood moodType)
         {
             Choice choiceMade = _dialog.Value.Choices.FirstOrDefault(e => e.Mood == moodType);
             _dialogSegment.NextId = choiceMade.NextSegmentId;
@@ -56,7 +62,7 @@ namespace Game.Scripts.DialogMechanics
         {
             if (_dialogSegment.IsEnd)
             {
-                OnStoryEnd?.Invoke();
+                GetNextStoryRequest.Invoke();
                 return;
             }
             
@@ -67,16 +73,6 @@ namespace Game.Scripts.DialogMechanics
             _lastDialogIdInSegment = _dialogSegment.Dialogs.Length - 1;
             
             UpdateDialog();
-        }
-
-        private T Deserialize<T>(string path)
-        {
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(T));
-            TextAsset asset = Resources.Load<TextAsset>(path);
-            StringReader reader = new StringReader(asset.text);
-            T obj = (T)xmlSerializer.Deserialize(reader);
-            reader.Close();
-            return obj;
         }
     }
 }

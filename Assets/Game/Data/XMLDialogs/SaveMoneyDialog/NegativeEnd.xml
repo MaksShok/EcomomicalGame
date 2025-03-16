@@ -1,0 +1,16 @@
+<Story>
+    
+    <Segment id = "0" mood = "None" end = "true">
+        <Dialogs>
+            <Dialog>
+                <Speaker>Диктор</Speaker>
+                <Text>Негтивная концовка</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Диктор</Speaker>
+                <Text>У вас что то не получилось</Text>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+    
+</Story>

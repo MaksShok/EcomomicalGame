@@ -10,7 +10,7 @@ namespace Game.Scripts.UI.Popups.DialogPopap
 {
     public class DialogViewModel : ViewModel
     {
-        public override string PrefabName => "DialogPopup";
+        public override string PrefabName => "DialogView";
         public ReadOnlyReactiveProperty<string> CurrentDialogText => _currentDialogText;
         public ReadOnlyReactiveProperty<string> CurrentSpeakerName => _currentSpeakerName;
         public ReadOnlyReactiveProperty<bool> ChoiceIsActive => _choiceIsActive;
@@ -26,20 +26,19 @@ namespace Game.Scripts.UI.Popups.DialogPopap
         private int _dialogIndex = 0;
 
         private DialogManager _dialogManager;
+        private TextAssetsManager _textAssetsManager;
 
-        public DialogViewModel()
+        // Эту логику нужно перенести в Конструктор наверное
+        public void InitTextAssetManager(TextAssetsManager textAssetsManager)
         {
+            _textAssetsManager = textAssetsManager;
+            _dialogManager = _textAssetsManager.DialogManager;
             
-        }
-
-        public void InitDialogManager(DialogManager dialogManager)
-        {
-            _dialogManager = dialogManager;
-            _dialogManager.StartDialog();
+            _textAssetsManager.StartFromFirstStory();
             
             _dialogManager.Dialog.Subscribe(e => BuildDialog(e));
             _dialogManager.Dialog.Where(dialog => dialog.WithChoice)
-                 .Subscribe(e => BuildChoice(e));
+                .Subscribe(e => BuildChoice(e));
         }
 
         public void NextDialog()
@@ -50,8 +49,7 @@ namespace Game.Scripts.UI.Popups.DialogPopap
         public void ChoiceIsMade(DialogMood moodType)
         {
             _choiceIsActive.Value = false;
-            
-            _dialogManager.SendChoiceResult(moodType);
+            _textAssetsManager.RegisterChoiceResult(moodType);
         }
 
         private void BuildDialog(Dialog dialog)
