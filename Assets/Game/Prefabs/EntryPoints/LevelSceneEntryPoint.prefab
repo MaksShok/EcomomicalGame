@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 479c962be00e415b87c75c6d7e219cb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enterParams: {fileID: 11400000, guid: 93c2617cbac55314cac8d99d7168e46b, type: 2}
+  _dialogData: {fileID: 11400000, guid: 93c2617cbac55314cac8d99d7168e46b, type: 2}

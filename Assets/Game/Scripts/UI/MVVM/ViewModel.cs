@@ -15,6 +15,6 @@ namespace Game.Scripts.UI.MVVM
             _closedRequest.OnNext(this);
         }
 
-        public void Dispose() { }
+        public virtual void Dispose() { }
     }
 }

@@ -2,12 +2,18 @@
     <Segment id = "0" mood = "None">
         <Dialogs>
             <Dialog>
+                <Speaker>Тест</Speaker>
+                <Text>Тест</Text>
+            </Dialog>
+            <Dialog>
                 <Speaker>_</Speaker>
                 <Text>**Сцена: После уроков, дети выходят из школы**</Text>
+                <SpriteId>00</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Миша</Speaker>
                 <Text> Уф, наконец-то этот урок математики закончился! У меня от этих дробей голова раскалывается</Text>
+                <SpriteId>01</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Миша</Speaker>
@@ -38,6 +44,7 @@
             <Dialog>
                 <Speaker>Миша</Speaker>
                 <Text>Вот это правильное решение! Давно пора подкрепиться.</Text>
+                <SpriteId>10</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Миша</Speaker>
@@ -61,6 +68,7 @@
             <Dialog>
                 <Speaker>Миша</Speaker>
                 <Text>Да ладно тебе, Саш! Не каждый день же покупаем</Text>
+                <SpriteId>20</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Миша</Speaker>
@@ -79,6 +87,7 @@
             <Dialog>
                 <Speaker>_</Speaker>
                 <Text>**Ты с друзьями подходишь к магазину**</Text>
+                <SpriteId>30</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Миша</Speaker>
@@ -95,10 +104,12 @@
             <Dialog>
                 <Speaker>_</Speaker>
                 <Text>**В магазине**</Text>
+                <SpriteId>31</SpriteId>
             </Dialog>
             <Dialog withChoice = "true">
                 <Speaker>_</Speaker>
                 <Text>**На прилавке стоит газировка и шоколад**</Text>
+                <SpriteId>32</SpriteId>
                 <Choices>
                     <Choice nextSegmentId="4" mood="Positive">
                         <Text>Не покупать</Text>
@@ -116,6 +127,7 @@
             <Dialog>
                 <Speaker>_</Speaker>
                 <Text>**Андрей роется в стойке с жвачками**</Text>
+                <SpriteId>40</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Андрей</Speaker>
@@ -128,6 +140,7 @@
             <Dialog>
                 <Speaker>Миша</Speaker>
                 <Text>Помните, как мы в прошлом месяце собирали эти наклейки из жвачек?</Text>
+                <SpriteId>41</SpriteId>
             </Dialog>
             <Dialog withChoice = "true">
                 <Speaker>*Рассуждения*</Speaker>

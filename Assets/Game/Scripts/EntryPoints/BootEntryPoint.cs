@@ -14,12 +14,11 @@ namespace Game.Scripts.EntryPoints
 
         public override void RunScene()
         {
-            Debug.Log("Boot сцена стратовала");
+            
         }
 
         public override void FinishScene()
         {
-            Debug.Log("Boot сцена Завершилась");
             Destroy(gameObject);
         }
     }

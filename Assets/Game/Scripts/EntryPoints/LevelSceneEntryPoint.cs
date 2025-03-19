@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Game.Scripts.DialogDataParams;
 using Game.Scripts.DialogMechanics;
 using Game.Scripts.EntryPoints.Abstract;
-using Game.Scripts.LevelEnterParams;
 using Game.Scripts.UI.Controllers;
 using Game.Scripts.UI.Popups.DialogPopap;
 using UnityEngine;
@@ -11,7 +10,7 @@ namespace Game.Scripts.EntryPoints
 {
     public class LevelSceneEntryPoint : SceneEntryPoint
     {
-        [SerializeField] private LevelEnterParamsObject _enterParams;
+        [SerializeField] private DialogDataObject _dialogData;
 
         private DialogViewModel _dialogViewModel;
         private LevelUIController _uiController;
@@ -28,9 +27,9 @@ namespace Game.Scripts.EntryPoints
         {
             ShowUI();
 
-            _endingDialogManager = new EndingDialogManager(_uiController, _enterParams);
-            _textAssetsManager = new TextAssetsManager(_endingDialogManager, _enterParams);
-            _dialogViewModel.InitTextAssetManager(_textAssetsManager);
+            _endingDialogManager = new EndingDialogManager(_uiController, _dialogData);
+            _textAssetsManager = new TextAssetsManager(_endingDialogManager, _dialogData);
+            _dialogViewModel.Init(_textAssetsManager, _dialogData);
             
             _endingDialogManager.OnStoriesEnd += OnStoriesEnd;
         }

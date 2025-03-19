@@ -1,4 +1,5 @@
 ﻿using System.Xml.Serialization;
+using UnityEngine.UI;
 
 namespace Game.Scripts.DialogMechanics
 {
@@ -37,7 +38,10 @@ namespace Game.Scripts.DialogMechanics
     
         [XmlElement("Text")]
         public string Text;
-        
+
+        [XmlElement("SpriteId")]
+        public string SpriteId;
+
         [XmlAttribute("withChoice")]
         public bool WithChoice;
     }

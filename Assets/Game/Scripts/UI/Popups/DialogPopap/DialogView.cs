@@ -1,7 +1,9 @@
 ﻿using Game.Scripts.UI.MVVM;
+using Game.Scripts.UI.Popups.DialogPopap.DialogViewElements;
 using R3;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Game.Scripts.UI.Popups.DialogPopap
@@ -11,13 +13,15 @@ namespace Game.Scripts.UI.Popups.DialogPopap
         [SerializeField] private TextMeshProUGUI _textField;
         [SerializeField] private TextMeshProUGUI _speakerName;
         [SerializeField] private Button _nextButton;
-        [SerializeField] private DialogChoiceView _dialogChoiceView;
+        [SerializeField] private DialogChoiceView _choiceView;
+        [SerializeField] private DialogImageView _imageView;
 
         private CompositeDisposable _compositeDisposable = new CompositeDisposable();
 
         private void Start()
         {
-            _dialogChoiceView.Init(ViewModel);
+            _choiceView.Init(ViewModel);
+            _imageView.Init(ViewModel);
 
             _compositeDisposable.Add(ViewModel.CurrentSpeakerName
                 .Subscribe(name => _speakerName.text = name));
@@ -40,19 +44,20 @@ namespace Game.Scripts.UI.Popups.DialogPopap
         private void ChangeUiForStartChoice()
         {
             _nextButton.gameObject.SetActive(false);
-            _dialogChoiceView.BuildChoiceView();
+            _choiceView.BuildChoiceView();
         }
         
         private void ChangeUiForEndChoice()
         {
             _nextButton.gameObject.SetActive(true);
-            _dialogChoiceView.DestroyChoiceView();
+            _choiceView.DestroyChoiceView();
         }
 
         protected override void OnUnBindViewModel()
         {
             _compositeDisposable.Dispose();
-            _dialogChoiceView.OnUnBindViewModel();
+            _choiceView.OnUnBindViewModel();
+            _imageView.OnUnBindViewModel();
             Destroy(gameObject);
         }
     }

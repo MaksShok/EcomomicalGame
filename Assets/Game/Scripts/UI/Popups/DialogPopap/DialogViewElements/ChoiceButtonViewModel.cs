@@ -1,7 +1,7 @@
 ﻿using Game.Scripts.DialogMechanics;
 using UnityEngine;
 
-namespace Game.Scripts.UI.Popups.DialogPopap
+namespace Game.Scripts.UI.Popups.DialogPopap.DialogViewElements
 {
     public class ChoiceButtonViewModel
     {

@@ -5,10 +5,12 @@
             <Dialog>
                 <Speaker>_</Speaker>
                 <Text>**Саша с друзьями выходят из магазина и садятся на лавочку**</Text>
+                <SpriteId>50</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Саша</Speaker>
                 <Text>**Говорит про себя, открывая шоколадку**</Text>
+                <SpriteId>51</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Саша</Speaker>
@@ -35,8 +37,13 @@
                 <Text>(задумчиво): Да уж..</Text>
             </Dialog>
             <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**Парни доедают вкусняшки и собираются домой**</Text>
+            </Dialog>
+            <Dialog>
                 <Speaker>Саша</Speaker>
                 <Text>Может, лучше бы я сохранил эти деньги?</Text>
+                <SpriteId>53</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Саша</Speaker>

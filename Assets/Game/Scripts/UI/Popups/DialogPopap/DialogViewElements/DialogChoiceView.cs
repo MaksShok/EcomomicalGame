@@ -1,13 +1,9 @@
-﻿using System;
-using Game.Scripts.DialogMechanics;
-using Game.Scripts.UI.MVVM;
-using R3;
+﻿using R3;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace Game.Scripts.UI.Popups.DialogPopap
+namespace Game.Scripts.UI.Popups.DialogPopap.DialogViewElements
 {
     public class DialogChoiceView : MonoBehaviour
     {
@@ -17,8 +13,6 @@ namespace Game.Scripts.UI.Popups.DialogPopap
         [SerializeField] private Button _secondButton;
 
         private DialogViewModel _viewModel;
-
-        private CompositeDisposable _compositeDisposable = new CompositeDisposable();
         
         public void Init(DialogViewModel viewModel)
         {
@@ -60,7 +54,8 @@ namespace Game.Scripts.UI.Popups.DialogPopap
 
         public void OnUnBindViewModel()
         {
-            _compositeDisposable.Dispose();
+            _firstButton.onClick.RemoveListener(FirstButtonClicked);
+            _secondButton.onClick.RemoveListener(SecondButtonClicked);
         }
     }
 }

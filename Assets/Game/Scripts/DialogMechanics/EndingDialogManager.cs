@@ -1,5 +1,5 @@
 ﻿using System;
-using Game.Scripts.LevelEnterParams;
+using Game.Scripts.DialogDataParams;
 using Game.Scripts.UI.Controllers;
 using Game.Scripts.UI.Popups.DialogFinishPopup;
 using UnityEngine;
@@ -15,12 +15,12 @@ namespace Game.Scripts.DialogMechanics
         private LevelFinishViewModelAbstract _viewModel;
 
         private readonly LevelUIController _levelUIController;
-        private readonly LevelEnterParamsObject _enterParams;
+        private readonly DialogDataObject _dialogData;
 
-        public EndingDialogManager(LevelUIController levelUIController ,LevelEnterParamsObject enterParams)
+        public EndingDialogManager(LevelUIController levelUIController ,DialogDataObject dialogData)
         {
             _levelUIController = levelUIController;
-            _enterParams = enterParams;
+            _dialogData = dialogData;
         }
 
         public void ResetCoefficient() => _moodСoefficient = 0;
@@ -28,9 +28,9 @@ namespace Game.Scripts.DialogMechanics
         public TextAsset GetDefineEnding()
         {
             if (_moodСoefficient >= 0)
-                return _enterParams.positiveEndingTextAsset;
+                return _dialogData.positiveEndingTextAsset;
             else
-                return _enterParams.negativeEndingTextAsset;
+                return _dialogData.negativeEndingTextAsset;
         }
         
         public void RegisterChoiceResult(DialogMood moodType)

@@ -5,6 +5,7 @@
             <Dialog>
                 <Speaker>_</Speaker>
                 <Text>**Саша с друзьями выходят из магазина**</Text>
+                <SpriteId>50</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Саша</Speaker>
@@ -21,6 +22,7 @@
             <Dialog>
                 <Speaker>Саша</Speaker>
                 <Text>Давайте посчитаем: шоколадка стоит 50 рублей, газировка 60 - это 110 рублей в день.</Text>
+                <SpriteId>52</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Саша</Speaker>
@@ -35,8 +37,13 @@
                 <Text>Если бы я не тратил деньги на эти ежедневные покупки, я бы смог купить новый футбольный мяч!</Text>
             </Dialog>
             <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**Парни доедают вкусняшки и собираются домой**</Text>
+            </Dialog>
+            <Dialog>
                 <Speaker>Миша</Speaker>
                 <Text>А я бы накопил на наушники, которые давно хочу!</Text>
+                <SpriteId>53</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Саша</Speaker>

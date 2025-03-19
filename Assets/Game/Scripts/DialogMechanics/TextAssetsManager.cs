@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Xml.Serialization;
-using Game.Scripts.LevelEnterParams;
+using Game.Scripts.DialogDataParams;
 using UnityEngine;
 
 namespace Game.Scripts.DialogMechanics
@@ -19,15 +19,15 @@ namespace Game.Scripts.DialogMechanics
 
         private readonly DialogManager _dialogManager;
         private readonly EndingDialogManager _endingManager;
-        private readonly LevelEnterParamsObject _enterParams;
+        private readonly DialogDataObject _dialogData;
 
-        public TextAssetsManager(EndingDialogManager endingManager, LevelEnterParamsObject enterParams)
+        public TextAssetsManager(EndingDialogManager endingManager, DialogDataObject dialogData)
         {
             _dialogManager = new DialogManager();
             _endingManager = endingManager;
-            _enterParams = enterParams;
+            _dialogData = dialogData;
             
-            _textAssetsCount = _enterParams.defaultTextAssets.Count + 1;
+            _textAssetsCount = _dialogData.defaultTextAssets.Count + 1;
             _dialogManager.GetNextStoryRequest = RunNextStory;
         }
 
@@ -45,7 +45,7 @@ namespace Game.Scripts.DialogMechanics
             
             if (_index < _textAssetsCount - 1)
             {
-                story = Deserialize(_enterParams.defaultTextAssets[_index]);
+                story = Deserialize(_dialogData.defaultTextAssets[_index]);
             }
             else if (_index == _textAssetsCount - 1)
             {
