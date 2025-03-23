@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Game.Scripts.DialogDataParams;
+using Game.Scripts.DialogData;
 using Game.Scripts.DialogMechanics;
 using Game.Scripts.UI.MVVM;
 using Game.Scripts.UI.Popups.DialogPopap.DialogViewElements;
@@ -31,19 +31,18 @@ namespace Game.Scripts.UI.Popups.DialogPopap
         private DialogManager _dialogManager;
         private TextAssetsManager _textAssetsManager;
         private Dictionary<string, Sprite> _spritesDict;
-
-        // Эту логику нужно перенести в Конструктор наверное
-        public void Init(TextAssetsManager textAssetsManager, DialogDataObject dialogData)
+        
+        public DialogViewModel(TextAssetsManager textAssetsManager)
         {
             _textAssetsManager = textAssetsManager;
+            _spritesDict = textAssetsManager.DialogData.SpritesDict;
             _dialogManager = _textAssetsManager.DialogManager;
-            _spritesDict = dialogData.SpritesDict;
 
             _textAssetsManager.StartFromFirstStory();
             
             _compositeDisposable.Add(_dialogManager.Dialog.Subscribe(e => BuildDialog(e)));
             _compositeDisposable.Add(_dialogManager.Dialog.Where(dialog => dialog.WithChoice)
-                .Subscribe(e => BuildChoice(e)));
+                .Subscribe(e => BuildChoice(e))); 
         }
 
         public void NextDialog()
@@ -62,7 +61,8 @@ namespace Game.Scripts.UI.Popups.DialogPopap
             _currentDialogText.OnNext(dialog.Text);
             _currentSpeakerName.OnNext(dialog.SpeakerName);
 
-            if (_spritesDict.TryGetValue(dialog.SpriteId, out Sprite sprite))
+            if (dialog.SpriteId != null && 
+                _spritesDict.TryGetValue(dialog.SpriteId, out Sprite sprite))
             {
                 _sprite.OnNext(sprite); 
             }

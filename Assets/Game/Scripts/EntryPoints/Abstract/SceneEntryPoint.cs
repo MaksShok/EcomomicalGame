@@ -7,14 +7,12 @@ namespace Game.Scripts.EntryPoints.Abstract
     public abstract class SceneEntryPoint : MonoBehaviour
     {
         [Inject] 
-        private SceneProgressService _sceneProgressService;
+        protected CurrentSceneEntryPointService _currentSceneEntryPointService;
 
         private void Awake()
         {
-            _sceneProgressService.InitializeEntryPoint(this);
+            _currentSceneEntryPointService.InitializeEntryPoint(this);
         }
-
-        public abstract void RunScene();
 
         public abstract void FinishScene();
     }

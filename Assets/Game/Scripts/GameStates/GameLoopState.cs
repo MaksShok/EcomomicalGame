@@ -7,9 +7,9 @@ namespace Game.Scripts.GameStates
     public class GameLoopState : IState
     {
         private readonly SceneLoader _sceneLoader;
-        private readonly SceneProgressService _sceneProgressService;
+        private readonly CurrentSceneEntryPointService _sceneProgressService;
 
-        public GameLoopState(SceneLoader sceneLoader, SceneProgressService sceneProgressService)
+        public GameLoopState(SceneLoader sceneLoader, CurrentSceneEntryPointService sceneProgressService)
         {
             _sceneLoader = sceneLoader;
             _sceneProgressService = sceneProgressService;
@@ -17,17 +17,17 @@ namespace Game.Scripts.GameStates
         
         public void Enter()
         {
-            _sceneLoader.LoadLevelScene(AfterLoadedScene);
+            //_sceneLoader.LoadLevelScene(AfterLoadedScene);
         }
 
         public void Exit()
         {
-            _sceneProgressService.CurrentSceneEntryPoint.FinishScene();
+            //_sceneProgressService.CurrentSceneEntryPoint.FinishScene();
         }
 
         private void AfterLoadedScene()
         {
-            _sceneProgressService.CurrentSceneEntryPoint.RunScene();
+            //_sceneProgressService.CurrentSceneEntryPoint.RunScene();
         }
     }
 }

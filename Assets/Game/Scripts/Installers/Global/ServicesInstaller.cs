@@ -16,7 +16,7 @@ namespace Game.Scripts.Installers.Global
             Container.Bind<UIRootViewModel>().AsSingle();
             Container.Bind<EventManager>().AsSingle();
             Container.Bind<SceneLoader>().AsSingle();
-            Container.Bind<SceneProgressService>().AsSingle();
+            Container.Bind<CurrentSceneEntryPointService>().AsSingle();
             
             CreateUIRoot();
         }

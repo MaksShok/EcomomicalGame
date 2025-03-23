@@ -1,4 +1,8 @@
-﻿using Game.Scripts.Global;
+﻿using Game.Scripts.EnterExitParams.GameplayScene;
+using Game.Scripts.EnterExitParams.MenuScene;
+using Game.Scripts.EntryPoints;
+using Game.Scripts.GameStates;
+using Game.Scripts.Global;
 
 namespace Game.Scripts.UI.Popups.DialogFinishPopup
 {
@@ -8,11 +12,19 @@ namespace Game.Scripts.UI.Popups.DialogFinishPopup
         public override string MainText => positiveMainText;
 
         private string positiveTitleText = "Ты отлично усвоил урок!";
-        private string positiveMainText = "Ты реально молодец";
 
-        public PositiveEndingViewModel(GameStateMachine stateMachine) : base(stateMachine) 
+        private string positiveMainText = "Можешь переходить к следующим уровням. И не забывай читать теорию!";
+
+        public PositiveEndingViewModel(GameplayEntryPoint entryPoint) : base(entryPoint) 
         {
+        }
+
+        public override void GoToLevelMenuRequest()
+        {
+            MenuEnterParams menuEnterParams = new MenuEnterParams(true);
+            GameplayExitParams gameplayExitParams = new GameplayExitParams(menuEnterParams);
             
+            GameplayEntryPoint.ExitSceneRequest(gameplayExitParams);
         }
     }
 }

@@ -1,12 +1,12 @@
 ﻿using System;
-using Game.Scripts.DialogDataParams;
+using Game.Scripts.DialogData;
 using Game.Scripts.UI.Controllers;
 using Game.Scripts.UI.Popups.DialogFinishPopup;
 using UnityEngine;
 
 namespace Game.Scripts.DialogMechanics
 {
-    public class EndingDialogManager
+    public class EndingStoryManager
     {
         public event Action OnStoriesEnd;
 
@@ -15,13 +15,14 @@ namespace Game.Scripts.DialogMechanics
         private LevelFinishViewModelAbstract _viewModel;
 
         private readonly LevelUIController _levelUIController;
-        private readonly DialogDataObject _dialogData;
+        private  DialogDataObject _dialogData;
 
-        public EndingDialogManager(LevelUIController levelUIController ,DialogDataObject dialogData)
+        public EndingStoryManager(LevelUIController levelUIController)
         {
             _levelUIController = levelUIController;
-            _dialogData = dialogData;
         }
+
+        public void InitDialogData(DialogDataObject dialogData) => _dialogData = dialogData;
 
         public void ResetCoefficient() => _moodСoefficient = 0;
 
@@ -56,9 +57,11 @@ namespace Game.Scripts.DialogMechanics
             OnStoriesEnd?.Invoke();
         }
 
-        public void KillLevelFinishView()
+        public void StopDialog()
         {
-            _viewModel.CloseRequest();
+            OnStoriesEnd?.Invoke();
+            OnStoriesEnd = null;
+            _viewModel?.CloseRequest();
         }
     }
 }

@@ -210,6 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _exitToLevelMenuButton: {fileID: 7613162000726586352}
+  _restartDialogButton: {fileID: 8639292727107455320}
 --- !u!1 &8302366127427974754
 GameObject:
   m_ObjectHideFlags: 0

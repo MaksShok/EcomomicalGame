@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Xml.Serialization;
-using Game.Scripts.DialogDataParams;
+using Game.Scripts.DialogData;
 using UnityEngine;
 
 namespace Game.Scripts.DialogMechanics
@@ -13,19 +13,30 @@ namespace Game.Scripts.DialogMechanics
             get { return _dialogManager; }
             private set { }
         }
+        
+        public DialogDataObject DialogData
+        {
+            get { return _dialogData; }
+            private set { }
+        }
 
         private int _textAssetsCount;
         private int _index;
 
+        private DialogDataObject _dialogData;
         private readonly DialogManager _dialogManager;
-        private readonly EndingDialogManager _endingManager;
-        private readonly DialogDataObject _dialogData;
+        private readonly EndingStoryManager _endingManager;
 
-        public TextAssetsManager(EndingDialogManager endingManager, DialogDataObject dialogData)
+        public TextAssetsManager(EndingStoryManager endingManager)
         {
             _dialogManager = new DialogManager();
             _endingManager = endingManager;
+        }
+
+        public void InitDialogData(DialogDataObject dialogData)
+        {
             _dialogData = dialogData;
+            _endingManager.InitDialogData(_dialogData);
             
             _textAssetsCount = _dialogData.defaultTextAssets.Count + 1;
             _dialogManager.GetNextStoryRequest = RunNextStory;
@@ -37,6 +48,12 @@ namespace Game.Scripts.DialogMechanics
             _endingManager.ResetCoefficient();
             
             RunNextStory();
+        }
+
+        public void RegisterChoiceResult(DialogMood moodType)
+        {
+            _endingManager.RegisterChoiceResult(moodType);
+            _dialogManager.RegisterChoiceResult(moodType);
         }
 
         private void RunNextStory()
@@ -60,12 +77,6 @@ namespace Game.Scripts.DialogMechanics
             
             _dialogManager.StartStory(story);
             _index++;
-        }
-
-        public void RegisterChoiceResult(DialogMood moodType)
-        {
-            _endingManager.RegisterChoiceResult(moodType);
-            _dialogManager.RegisterChoiceResult(moodType);
         }
 
         private Story Deserialize(TextAsset asset)

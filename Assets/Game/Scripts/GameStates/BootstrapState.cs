@@ -9,11 +9,11 @@ namespace Game.Scripts.GameStates
     public class BootstrapState : IState
     {
         private readonly GameStateMachine _stateMachine;
-        private readonly SceneProgressService _sceneProgressService;
+        private readonly CurrentSceneEntryPointService _sceneProgressService;
         private readonly UIRootViewModel _rootViewModel;
         private readonly UIRootBinder _uiRootBinder;
 
-        public BootstrapState(GameStateMachine stateMachine, SceneProgressService sceneProgressService,
+        public BootstrapState(GameStateMachine stateMachine, CurrentSceneEntryPointService sceneProgressService,
             UIRootViewModel rootViewModel, UIRootBinder uiRootBinder)
         {
             _stateMachine = stateMachine;
@@ -25,13 +25,13 @@ namespace Game.Scripts.GameStates
         public void Enter()
         {
             _uiRootBinder.Bind(_rootViewModel);
-            _sceneProgressService.CurrentSceneEntryPoint.RunScene();
+            //_sceneProgressService.CurrentSceneEntryPoint.RunScene();
             _stateMachine.Enter<ShowStartMenuState>();
         }
 
         public void Exit()
         {
-            _sceneProgressService.CurrentSceneEntryPoint.FinishScene();
+            //_sceneProgressService.CurrentSceneEntryPoint.FinishScene();
         }
     }
 }

@@ -9,16 +9,16 @@ namespace Game.Scripts.UI.Windows.StartMenuWindow
     {
         public override string PrefabName => "StartMenu";
 
-        private readonly GameStateMachine _stateMachine;
+        private readonly MenuUIController _uiController;
 
-        public StartMenuViewModel(GameStateMachine stateMachine)
+        public StartMenuViewModel(MenuUIController uiController)
         {
-            _stateMachine = stateMachine;
+            _uiController = uiController;
         }
         
         public void OpenLevelMenuRequest()
         {
-            _stateMachine.Enter<LevelSelectState>();
+            _uiController.OpenLevelMenu();
         }
     }
 }

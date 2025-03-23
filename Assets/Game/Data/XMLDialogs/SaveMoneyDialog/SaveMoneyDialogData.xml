@@ -2,10 +2,6 @@
     <Segment id = "0" mood = "None">
         <Dialogs>
             <Dialog>
-                <Speaker>Тест</Speaker>
-                <Text>Тест</Text>
-            </Dialog>
-            <Dialog>
                 <Speaker>_</Speaker>
                 <Text>**Сцена: После уроков, дети выходят из школы**</Text>
                 <SpriteId>00</SpriteId>

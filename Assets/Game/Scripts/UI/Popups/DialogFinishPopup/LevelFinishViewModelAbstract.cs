@@ -1,4 +1,5 @@
-﻿using Game.Scripts.GameStates;
+﻿using Game.Scripts.EntryPoints;
+using Game.Scripts.GameStates;
 using Game.Scripts.Global;
 using Game.Scripts.UI.MVVM;
 
@@ -11,16 +12,13 @@ namespace Game.Scripts.UI.Popups.DialogFinishPopup
         public abstract string TitleText { get; }
         public abstract string MainText { get; }
 
-        protected readonly GameStateMachine _stateMachine;
+        protected readonly GameplayEntryPoint GameplayEntryPoint;
 
-        public LevelFinishViewModelAbstract(GameStateMachine stateMachine)
+        public LevelFinishViewModelAbstract(GameplayEntryPoint gameplayEntryPoint)
         {
-            _stateMachine = stateMachine;
+            GameplayEntryPoint = gameplayEntryPoint;
         }
 
-        public void GoToLevelMenuRequest()
-        {
-            _stateMachine.Enter<LevelSelectState>();
-        }
+        public abstract void GoToLevelMenuRequest();
     }
 }

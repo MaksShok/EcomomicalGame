@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Game.Scripts.GameStates;
-using UnityEngine;
 using Zenject;
 using IState = Game.Scripts.Interfaces.IState;
 
-namespace Game.Scripts.Global
+namespace Game.Scripts.GameStates
 {
     public class GameStateMachine : IInitializable
     {

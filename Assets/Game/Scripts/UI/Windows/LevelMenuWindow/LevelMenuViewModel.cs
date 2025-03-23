@@ -1,7 +1,11 @@
-﻿using Game.Scripts.GameStates;
-using Game.Scripts.Global;
+﻿using Game.Scripts.DialogData;
+using Game.Scripts.EnterExitParams.GameplayScene;
+using Game.Scripts.EnterExitParams.MenuScene;
+using Game.Scripts.EntryPoints;
 using Game.Scripts.UI.Controllers;
 using Game.Scripts.UI.MVVM;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace Game.Scripts.UI.Windows.LevelMenuWindow
 {
@@ -10,23 +14,26 @@ namespace Game.Scripts.UI.Windows.LevelMenuWindow
         public override string PrefabName => "LevelMenu";
 
         private readonly MenuUIController _uiController;
-        private readonly GameStateMachine _stateMachine;
+        private readonly MenuEntryPoint _entryPoint;
 
-        public LevelMenuViewModel(MenuUIController uiController, GameStateMachine stateMachine)
+        public LevelMenuViewModel(MenuUIController uiController, MenuEntryPoint entryPoint)
         {
             _uiController = uiController;
-            _stateMachine = stateMachine;
+            _entryPoint = entryPoint;
         }
 
         public void StartMoneySaveLevelRequest()
         {
-            // Тут по идеи должна быть передача параметра - ScriptableObject который ))))
-            _stateMachine.Enter<GameLoopState>();
+            DialogDataObject dialogDataObject = Resources.Load<DialogDataObject>("DialogObjects/SaveMoneyDialogData");
+            GameplayEnterParams gameplayEnterParams = new GameplayEnterParams(dialogDataObject);
+            MenuExitParams menuExitParams = new MenuExitParams(gameplayEnterParams);
+            
+            _entryPoint.ExitSceneRequest(menuExitParams);
         }
 
         public void ExitToStartMenuRequest()
         {
-            _stateMachine.Enter<ShowStartMenuState>();
+            _uiController.OpenStartMenu();
         }
     }
 }

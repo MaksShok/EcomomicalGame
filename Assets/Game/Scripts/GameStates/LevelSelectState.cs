@@ -5,10 +5,10 @@ namespace Game.Scripts.GameStates
 {
     public class LevelSelectState : IState
     {
-        private readonly SceneProgressService _sceneProgressService;
+        private readonly CurrentSceneEntryPointService _sceneProgressService;
         private readonly SceneLoader _sceneLoader;
 
-        public LevelSelectState(SceneProgressService sceneProgressService, SceneLoader sceneLoader)
+        public LevelSelectState(CurrentSceneEntryPointService sceneProgressService, SceneLoader sceneLoader)
         {
             _sceneProgressService = sceneProgressService;
             _sceneLoader = sceneLoader;
@@ -16,13 +16,13 @@ namespace Game.Scripts.GameStates
         
         public void Enter()
         {
-            _sceneLoader.LoadMenuScene(() => 
-                {_sceneProgressService.CurrentSceneEntryPoint.RunScene();});
+            // _sceneLoader.LoadMenuScene(() => 
+            //     {_sceneProgressService.CurrentSceneEntryPoint.RunScene();});
         }
 
         public void Exit()
         {
-            _sceneProgressService.CurrentSceneEntryPoint.FinishScene();
+           // _sceneProgressService.CurrentSceneEntryPoint.FinishScene();
         }
     }
 }

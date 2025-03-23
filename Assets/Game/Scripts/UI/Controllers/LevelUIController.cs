@@ -1,8 +1,11 @@
-﻿using Game.Scripts.Global;
+﻿using Game.Scripts.DialogData;
+using Game.Scripts.DialogMechanics;
+using Game.Scripts.EntryPoints;
 using Game.Scripts.UI.Popups.DialogFinishPopup;
 using Game.Scripts.UI.Popups.DialogPopap;
 using Game.Scripts.UI.Root;
 using Game.Scripts.UI.Windows.GameplayWindow;
+using UnityEngine.Rendering;
 using Zenject;
 
 namespace Game.Scripts.UI.Controllers
@@ -20,7 +23,8 @@ namespace Game.Scripts.UI.Controllers
 
         public GameplayWindowViewModel OpenGameplayWindow()
         {
-            GameplayWindowViewModel viewModel = new GameplayWindowViewModel();
+            GameplayWindowViewModel viewModel = new GameplayWindowViewModel(_container.Resolve<GameplayEntryPoint>(),
+                _container.Resolve<TextAssetsManager>());
             _rootViewModel.OpenWindow(viewModel);
 
             return viewModel;
@@ -28,7 +32,8 @@ namespace Game.Scripts.UI.Controllers
 
         public DialogViewModel OpenDialogPopup()
         {
-            DialogViewModel viewModel = new DialogViewModel();
+            DialogViewModel viewModel = new DialogViewModel(
+                _container.Resolve<TextAssetsManager>());
             _rootViewModel.OpenPopup(viewModel);
 
             return viewModel;
@@ -37,7 +42,7 @@ namespace Game.Scripts.UI.Controllers
         public NegativeEndingViewModel OpenNegativeEndingPopup()
         {
             NegativeEndingViewModel viewModel = new NegativeEndingViewModel(
-                _container.Resolve<GameStateMachine>());
+                _container.Resolve<GameplayEntryPoint>());
             _rootViewModel.OpenPopup(viewModel);
 
             return viewModel;
@@ -46,7 +51,7 @@ namespace Game.Scripts.UI.Controllers
         public PositiveEndingViewModel OpenPositiveEndingPopup()
         {
             PositiveEndingViewModel viewModel = new PositiveEndingViewModel(
-                _container.Resolve<GameStateMachine>());
+                _container.Resolve<GameplayEntryPoint>());
             _rootViewModel.OpenPopup(viewModel);
 
             return viewModel;

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Game.Scripts.DialogDataParams
+namespace Game.Scripts.DialogData
 {
     public class SpriteIndicator : MonoBehaviour
     {

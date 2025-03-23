@@ -7,7 +7,7 @@ namespace Game.Scripts.Installers.Local
 {
     public class MenuSceneInstaller : MonoInstaller
     {
-        [SerializeField] private MenuSceneEntryPoint _entryPointPrefab;
+        [SerializeField] private MenuEntryPoint _entryPointPrefab;
         
         public override void InstallBindings()
         {
@@ -18,8 +18,10 @@ namespace Game.Scripts.Installers.Local
 
         private void InstantiateEntryPoint()
         {
-            MenuSceneEntryPoint entryPoint =
-                Container.InstantiatePrefabForComponent<MenuSceneEntryPoint>(_entryPointPrefab);
+            MenuEntryPoint entryPoint =
+                Container.InstantiatePrefabForComponent<MenuEntryPoint>(_entryPointPrefab);
+            
+            Container.Bind<MenuEntryPoint>().FromInstance(entryPoint).AsSingle();
         }
     }
 }

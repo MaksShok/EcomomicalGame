@@ -1,5 +1,4 @@
-﻿using Game.Scripts.Global;
-using Game.Scripts.UI.MVVM;
+﻿using Game.Scripts.EntryPoints;
 using Game.Scripts.UI.Root;
 using Game.Scripts.UI.Windows.LevelMenuWindow;
 using Game.Scripts.UI.Windows.StartMenuWindow;
@@ -20,7 +19,7 @@ namespace Game.Scripts.UI.Controllers
 
         public StartMenuViewModel OpenStartMenu()
         {
-            StartMenuViewModel viewModel = new StartMenuViewModel(_container.Resolve<GameStateMachine>());
+            StartMenuViewModel viewModel = new StartMenuViewModel(this);
             _rootViewModel.OpenWindow(viewModel);
 
             return viewModel;
@@ -28,7 +27,8 @@ namespace Game.Scripts.UI.Controllers
 
         public LevelMenuViewModel OpenLevelMenu()
         {
-            LevelMenuViewModel viewModel = new LevelMenuViewModel(this, _container.Resolve<GameStateMachine>());
+            LevelMenuViewModel viewModel = new LevelMenuViewModel(this, 
+                _container.Resolve<MenuEntryPoint>());
             _rootViewModel.OpenWindow(viewModel);
 
             return viewModel;

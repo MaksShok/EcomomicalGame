@@ -9,10 +9,10 @@ namespace Game.Scripts.GameStates
     public class ShowStartMenuState : IState
     {
         private readonly GameStateMachine _stateMachine;
-        private readonly SceneProgressService _sceneProgressService;
+        private readonly CurrentSceneEntryPointService _sceneProgressService;
         private readonly SceneLoader _sceneLoader;
 
-        public ShowStartMenuState(GameStateMachine stateMachine, SceneProgressService sceneProgressService,
+        public ShowStartMenuState(GameStateMachine stateMachine, CurrentSceneEntryPointService sceneProgressService,
             SceneLoader sceneLoader)
         {
             _stateMachine = stateMachine;
@@ -22,7 +22,7 @@ namespace Game.Scripts.GameStates
         
         public void Enter()
         {
-            _sceneLoader.LoadMenuScene(RequestToOpenStartMenu);
+            //_sceneLoader.LoadMenuScene(RequestToOpenStartMenu);
         }
 
         public void Exit()
@@ -32,15 +32,15 @@ namespace Game.Scripts.GameStates
 
         private void RequestToOpenStartMenu()
         {
-            SceneEntryPoint entryPoint = _sceneProgressService.CurrentSceneEntryPoint;
-            if (entryPoint is MenuSceneEntryPoint menuSceneEntryPoint)
-            {
-                menuSceneEntryPoint.OpenStartMenu(); 
-            }
-            else
-            {
-                Debug.LogError("CurrentSceneEntryPoint is not of type MenuSceneEntryPoint.");
-            }
+            //SceneEntryPoint entryPoint = _sceneProgressService.CurrentSceneEntryPoint;
+            // if (entryPoint is MenuEntryPoint menuSceneEntryPoint)
+            // {
+            //     menuSceneEntryPoint.OpenStartMenu(); 
+            // }
+            // else
+            // {
+            //     Debug.LogError("CurrentSceneEntryPoint is not of type MenuSceneEntryPoint.");
+            // }
         }
     }
 }
