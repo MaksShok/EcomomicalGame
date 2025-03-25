@@ -41,8 +41,6 @@ namespace Game.Scripts.UI.Popups.DialogPopap
             _textAssetsManager.StartFromFirstStory();
             
             _compositeDisposable.Add(_dialogManager.Dialog.Subscribe(e => BuildDialog(e)));
-            _compositeDisposable.Add(_dialogManager.Dialog.Where(dialog => dialog.WithChoice)
-                .Subscribe(e => BuildChoice(e))); 
         }
 
         public void NextDialog()
@@ -60,7 +58,16 @@ namespace Game.Scripts.UI.Popups.DialogPopap
         {
             _currentDialogText.OnNext(dialog.Text);
             _currentSpeakerName.OnNext(dialog.SpeakerName);
-
+            
+            if (dialog.WithChoice)
+            {
+               BuildChoice(dialog); 
+            }
+            else
+            {
+                _choiceIsActive.OnNext(false);
+            }
+            
             if (dialog.SpriteId != null && 
                 _spritesDict.TryGetValue(dialog.SpriteId, out Sprite sprite))
             {
@@ -75,7 +82,7 @@ namespace Game.Scripts.UI.Popups.DialogPopap
             FirstChoiceModel = new ChoiceButtonViewModel(choicesInf[0]);
             SecondChoiceModel = new ChoiceButtonViewModel(choicesInf[1]);
 
-            _choiceIsActive.Value = true;
+            _choiceIsActive.OnNext(true);
         }
 
         public override void Dispose()
