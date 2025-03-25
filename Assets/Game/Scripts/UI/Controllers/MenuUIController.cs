@@ -1,4 +1,5 @@
 ﻿using Game.Scripts.EntryPoints;
+using Game.Scripts.UI.Popups.TeoryPopup;
 using Game.Scripts.UI.Root;
 using Game.Scripts.UI.Windows.LevelMenuWindow;
 using Game.Scripts.UI.Windows.StartMenuWindow;
@@ -30,6 +31,14 @@ namespace Game.Scripts.UI.Controllers
             LevelMenuViewModel viewModel = new LevelMenuViewModel(this, 
                 _container.Resolve<MenuEntryPoint>());
             _rootViewModel.OpenWindow(viewModel);
+
+            return viewModel;
+        }
+
+        public TeoryPopupViewModel OpenTeoryPopup()
+        {
+            TeoryPopupViewModel viewModel = new TeoryPopupViewModel();
+            _rootViewModel.OpenPopup(viewModel);
 
             return viewModel;
         }

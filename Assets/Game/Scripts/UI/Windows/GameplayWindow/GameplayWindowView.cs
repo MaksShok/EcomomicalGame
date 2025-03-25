@@ -54,7 +54,10 @@ namespace Game.Scripts.UI.Windows.GameplayWindow
         
         public void ExitToLevelMenu()
         {
-            _entryPoint.ExitSceneRequest();
+            MenuEnterParams menuEnterParams = new MenuEnterParams(false);
+            GameplayExitParams gameplayExitParams = new GameplayExitParams(menuEnterParams);
+            
+            _entryPoint.ExitSceneRequest(gameplayExitParams);
         }
 
         public void RestartDialog()

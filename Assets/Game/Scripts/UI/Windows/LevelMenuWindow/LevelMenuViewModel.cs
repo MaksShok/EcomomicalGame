@@ -30,6 +30,11 @@ namespace Game.Scripts.UI.Windows.LevelMenuWindow
             
             _entryPoint.ExitSceneRequest(menuExitParams);
         }
+        
+        public void ShowSaveMoneyLevelTeoryRequest()
+        {
+            _uiController.OpenTeoryPopup();
+        }
 
         public void ExitToStartMenuRequest()
         {
