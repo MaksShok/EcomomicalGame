@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine.UI;
 
 namespace Game.Scripts.DialogMechanics
@@ -22,7 +23,7 @@ namespace Game.Scripts.DialogMechanics
         public int NextId;
 
         [XmlAttribute("mood")]
-        public DialogMood Mood;
+        public ChoiceMood Mood;
 
         [XmlAttribute("end")] 
         public bool IsEnd;
@@ -55,10 +56,34 @@ namespace Game.Scripts.DialogMechanics
         public int NextSegmentId;
 
         [XmlAttribute("mood")]
-        public DialogMood Mood;
+        public ChoiceMood Mood;
+        
+        [XmlArray("Conditions")] [XmlArrayItem("Condition")]
+        public Condition[] Conditions;//
+
+        [XmlArray("Consequences")] [XmlArrayItem("Consequence")]
+        public Consequence[] Consequences;//
+    }
+    
+    public class Condition//
+    {
+        [XmlAttribute("parameter")]
+        public string Parameter;
+        
+        [XmlAttribute("minValue")]
+        public int MinValue;
+    }
+    
+    public class Consequence//
+    {
+        [XmlAttribute("parameter")]
+        public string Parameter;
+        
+        [XmlAttribute("value")]
+        public int Value;
     }
 
-    public enum DialogMood
+    public enum ChoiceMood
     {
         None = 0,
         Positive = 1,
