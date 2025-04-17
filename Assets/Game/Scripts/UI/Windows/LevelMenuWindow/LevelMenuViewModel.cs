@@ -22,16 +22,16 @@ namespace Game.Scripts.UI.Windows.LevelMenuWindow
             _entryPoint = entryPoint;
         }
 
-        public void StartMoneySaveLevelRequest()
+        public void StartFirstLevelRequest()
         {
             DialogDataObject dialogDataObject = Resources.Load<DialogDataObject>("DialogObjects/SaveMoneyDialogData");
-            GameplayEnterParams gameplayEnterParams = new GameplayEnterParams(dialogDataObject);
+            GameplayEnterParams gameplayEnterParams = new GameplayEnterParams("FirstLevel" ,dialogDataObject);
             MenuExitParams menuExitParams = new MenuExitParams(gameplayEnterParams);
             
             _entryPoint.ExitSceneRequest(menuExitParams);
         }
         
-        public void ShowSaveMoneyLevelTeoryRequest()
+        public void ShowFirstLevelTeoryRequest()
         {
             _uiController.OpenTeoryPopup();
         }

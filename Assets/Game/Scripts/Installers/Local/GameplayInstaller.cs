@@ -8,7 +8,7 @@ namespace Game.Scripts.Installers.Local
 {
     public class GameplayInstaller : MonoInstaller
     {
-        [SerializeField] private GameplayEntryPoint _entryPoint;
+        [SerializeField] private FirstLevelEntryPoint _entryPoint;
         
         public override void InstallBindings()
         {
@@ -21,10 +21,10 @@ namespace Game.Scripts.Installers.Local
 
         private void InstantiateEntryPoint()
         {
-            GameplayEntryPoint entryPoint = Container
-                .InstantiatePrefabForComponent<GameplayEntryPoint>(_entryPoint);
+            FirstLevelEntryPoint entryPoint = Container
+                .InstantiatePrefabForComponent<FirstLevelEntryPoint>(_entryPoint);
 
-            Container.Bind<GameplayEntryPoint>().FromInstance(entryPoint).AsSingle();
+            Container.Bind<FirstLevelEntryPoint>().FromInstance(entryPoint).AsSingle();
         }
     }
 }

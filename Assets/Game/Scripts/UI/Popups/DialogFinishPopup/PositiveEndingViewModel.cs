@@ -15,7 +15,7 @@ namespace Game.Scripts.UI.Popups.DialogFinishPopup
 
         private string positiveMainText = "Можешь переходить к следующим уровням. И не забывай читать теорию!";
 
-        public PositiveEndingViewModel(GameplayEntryPoint entryPoint) : base(entryPoint) 
+        public PositiveEndingViewModel(FirstLevelEntryPoint entryPoint) : base(entryPoint) 
         {
         }
 

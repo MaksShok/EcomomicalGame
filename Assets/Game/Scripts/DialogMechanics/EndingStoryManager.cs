@@ -34,14 +34,14 @@ namespace Game.Scripts.DialogMechanics
                 return _dialogData.negativeEndingTextAsset;
         }
         
-        public void RegisterChoiceResult(DialogMood moodType)
+        public void RegisterChoiceResult(ChoiceMood moodType)
         {
             switch (moodType)
             {
-                case DialogMood.Positive:
+                case ChoiceMood.Positive:
                     _moodСoefficient += 1;
                     break;
-                case DialogMood.Negative:
+                case ChoiceMood.Negative:
                     _moodСoefficient -= 1;
                     break;
             }

@@ -178,6 +178,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7088889580157395491, guid: 27d2b816fc0d64c48a9c73a6801b867a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 80.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7088889580157395491, guid: 27d2b816fc0d64c48a9c73a6801b867a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 99.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -199,6 +207,18 @@ PrefabInstance:
     - target: {fileID: 27382743004828850, guid: 5c6f4297113a54b40bc0d806ffe0258a, type: 3}
       propertyPath: m_Name
       value: LevelButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 2522803808703782509, guid: 5c6f4297113a54b40bc0d806ffe0258a, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2522803808703782509, guid: 5c6f4297113a54b40bc0d806ffe0258a, type: 3}
+      propertyPath: m_Color.g
+      value: 0.62449133
+      objectReference: {fileID: 0}
+    - target: {fileID: 2522803808703782509, guid: 5c6f4297113a54b40bc0d806ffe0258a, type: 3}
+      propertyPath: m_Color.r
+      value: 0.2295596
       objectReference: {fileID: 0}
     - target: {fileID: 8266439771075181109, guid: 5c6f4297113a54b40bc0d806ffe0258a, type: 3}
       propertyPath: m_Pivot.x
@@ -381,6 +401,18 @@ PrefabInstance:
     - target: {fileID: 3153067821234963520, guid: 900c320b6abd8e040b3e417a626a0935, type: 3}
       propertyPath: m_Name
       value: TeoryButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 8190610704337665633, guid: 900c320b6abd8e040b3e417a626a0935, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8190610704337665633, guid: 900c320b6abd8e040b3e417a626a0935, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8190610704337665633, guid: 900c320b6abd8e040b3e417a626a0935, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

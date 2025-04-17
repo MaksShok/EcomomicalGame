@@ -50,7 +50,7 @@ namespace Game.Scripts.DialogMechanics
             RunNextStory();
         }
 
-        public void RegisterChoiceResult(DialogMood moodType)
+        public void RegisterChoiceResult(ChoiceMood moodType)
         {
             _endingManager.RegisterChoiceResult(moodType);
             _dialogManager.RegisterChoiceResult(moodType);

@@ -9,7 +9,7 @@ using Zenject;
 
 namespace Game.Scripts.EntryPoints
 {
-    public class GameplayEntryPoint : SceneEntryPoint
+    public class FirstLevelEntryPoint : SceneEntryPoint
     {
         private Subject<GameplayExitParams> _exitSceneSignalSubj;
         

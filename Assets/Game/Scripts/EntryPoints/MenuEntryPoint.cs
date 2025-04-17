@@ -1,9 +1,7 @@
 ﻿using Game.Scripts.EnterExitParams.MenuScene;
 using Game.Scripts.EntryPoints.Abstract;
-using Game.Scripts.Global;
 using Game.Scripts.UI.Controllers;
 using R3;
-using UnityEngine;
 using Zenject;
 
 namespace Game.Scripts.EntryPoints

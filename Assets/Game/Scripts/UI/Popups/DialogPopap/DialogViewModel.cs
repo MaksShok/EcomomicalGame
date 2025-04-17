@@ -48,7 +48,7 @@ namespace Game.Scripts.UI.Popups.DialogPopap
             _dialogManager.UpdateDialog();
         }
 
-        public void ChoiceIsMade(DialogMood moodType)
+        public void ChoiceIsMade(ChoiceMood moodType)
         {
             _choiceIsActive.Value = false;
             _textAssetsManager.RegisterChoiceResult(moodType);

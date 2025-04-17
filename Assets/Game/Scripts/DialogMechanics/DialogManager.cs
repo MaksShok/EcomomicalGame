@@ -18,10 +18,9 @@ namespace Game.Scripts.DialogMechanics
         }
 
         private Action _getNextStoryRequest;
-        
+        private ReactiveProperty<Dialog> _dialog = new();
         private Story _story;
         private DialogSegment _dialogSegment;
-        private ReactiveProperty<Dialog> _dialog = new();
 
         private int _segmentId;
         private int _dialogId;
@@ -51,7 +50,7 @@ namespace Game.Scripts.DialogMechanics
             _dialogId++;
         }
 
-        public void RegisterChoiceResult(DialogMood moodType)
+        public void RegisterChoiceResult(ChoiceMood moodType)
         {
             Choice choiceMade = _dialog.Value.Choices.FirstOrDefault(e => e.Mood == moodType);
             _dialogSegment.NextId = choiceMade.NextSegmentId;

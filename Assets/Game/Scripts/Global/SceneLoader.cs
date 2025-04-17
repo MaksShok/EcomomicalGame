@@ -5,7 +5,6 @@ using Game.Scripts.EnterExitParams.MenuScene;
 using Game.Scripts.EntryPoints;
 using Game.Scripts.Interfaces;
 using R3;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 using AsyncOperation = UnityEngine.AsyncOperation;
 
@@ -14,7 +13,7 @@ namespace Game.Scripts.Global
     public class SceneLoader
     {
         private const string MenuSceneName = "Menu";
-        private const string GameplaySceneName = "Gameplay";
+        private const string FirstLevel = "FirstLevel";
 
         private readonly CurrentSceneEntryPointService _currentSceneEntryPointService;
         private readonly ICoroutineRunner _coroutineRunner;
@@ -56,21 +55,21 @@ namespace Game.Scripts.Global
         
         private IEnumerator LoadAndStartGameplayScene(GameplayEnterParams gameplayEnterParams, Action onSceneLoaded = null)
         {
-            if (SceneManager.GetActiveScene().name == GameplaySceneName)
+            if (SceneManager.GetActiveScene().name == FirstLevel)
             {
                 onSceneLoaded?.Invoke();
                 yield break;
             }
             
             _currentSceneEntryPointService.FinishSceneRequest();
-            AsyncOperation sceneLoading = SceneManager.LoadSceneAsync(GameplaySceneName);
+            AsyncOperation sceneLoading = SceneManager.LoadSceneAsync(FirstLevel);
 
             while (!sceneLoading.isDone)
             {
                 yield return null;
             }
 
-            GameplayEntryPoint entryPoint = _currentSceneEntryPointService.GetEntryPoint<GameplayEntryPoint>();
+            FirstLevelEntryPoint entryPoint = _currentSceneEntryPointService.GetEntryPoint<FirstLevelEntryPoint>();
             
             entryPoint.RunScene(gameplayEnterParams).Subscribe(gameplayExitParams 
                 => _coroutineRunner.StartCoroutine(LoadAndStartMenuScene(gameplayExitParams?.MenuEnterParams)));
