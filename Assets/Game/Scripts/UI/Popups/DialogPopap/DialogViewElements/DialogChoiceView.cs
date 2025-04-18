@@ -23,11 +23,13 @@ namespace Game.Scripts.UI.Popups.DialogPopap.DialogViewElements
         {
             _firstButton.image.color = _viewModel.FirstChoiceModel.Color;
             _firstTextField.text = _viewModel.FirstChoiceModel.ChoiceText;
-            _firstButton.onClick.AddListener(FirstButtonClicked);
-
+            if (_viewModel.FirstChoiceModel.IsAvailable)
+                _firstButton.onClick.AddListener(FirstButtonClicked);
+            
             _secondButton.image.color = _viewModel.SecondChoiceModel.Color;
             _secondTextField.text = _viewModel.SecondChoiceModel.ChoiceText;
-            _secondButton.onClick.AddListener(SecondButtonClicked);
+            if (_viewModel.SecondChoiceModel.IsAvailable)
+                _secondButton.onClick.AddListener(SecondButtonClicked);
 
             gameObject.SetActive(true);
         }
@@ -42,14 +44,12 @@ namespace Game.Scripts.UI.Popups.DialogPopap.DialogViewElements
 
         private void FirstButtonClicked()
         {
-            _viewModel.ChoiceIsMade(_viewModel.FirstChoiceModel.MoodType);
-            _viewModel.NextDialog();
+            _viewModel.ChoiceIsMade(_viewModel.FirstChoiceModel);
         }
 
         private void SecondButtonClicked()
         {
-            _viewModel.ChoiceIsMade(_viewModel.SecondChoiceModel.MoodType);
-            _viewModel.NextDialog();
+            _viewModel.ChoiceIsMade(_viewModel.SecondChoiceModel);
         }
 
         public void OnUnBindViewModel()

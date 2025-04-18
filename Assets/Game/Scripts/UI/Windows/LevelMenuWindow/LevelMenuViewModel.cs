@@ -2,6 +2,7 @@
 using Game.Scripts.EnterExitParams.GameplayScene;
 using Game.Scripts.EnterExitParams.MenuScene;
 using Game.Scripts.EntryPoints;
+using Game.Scripts.Global;
 using Game.Scripts.UI.Controllers;
 using Game.Scripts.UI.MVVM;
 using UnityEngine;
@@ -25,7 +26,7 @@ namespace Game.Scripts.UI.Windows.LevelMenuWindow
         public void StartFirstLevelRequest()
         {
             DialogDataObject dialogDataObject = Resources.Load<DialogDataObject>("DialogObjects/SaveMoneyDialogData");
-            GameplayEnterParams gameplayEnterParams = new GameplayEnterParams("FirstLevel" ,dialogDataObject);
+            GameplayEnterParams gameplayEnterParams = new GameplayEnterParams(Scenes.FirstLevel ,dialogDataObject);
             MenuExitParams menuExitParams = new MenuExitParams(gameplayEnterParams);
             
             _entryPoint.ExitSceneRequest(menuExitParams);

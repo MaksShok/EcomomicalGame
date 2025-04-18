@@ -2,6 +2,7 @@
 using Game.Scripts.DialogMechanics;
 using Game.Scripts.EnterExitParams.GameplayScene;
 using Game.Scripts.EntryPoints.Abstract;
+using Game.Scripts.PlayerStatMechanics;
 using Game.Scripts.UI.Controllers;
 using Game.Scripts.UI.Popups.DialogPopap;
 using R3;

@@ -109,9 +109,15 @@
                 <Choices>
                     <Choice nextSegmentId="4" mood="Positive">
                         <Text>Не покупать</Text>
+                        <Consequences>
+                            <Consequence stat="Mood" value="1"/>
+                        </Consequences>
                     </Choice>
                     <Choice nextSegmentId="4" mood="Negative">
                         <Text>Купить газировку с шоколадом</Text>
+                        <Consequences>
+                            <Consequence stat="Mood" value="-1"/>
+                        </Consequences>
                     </Choice>
                 </Choices>
             </Dialog>
@@ -152,5 +158,4 @@
             </Dialog>
         </Dialogs>
     </Segment>
-    
 </Story>

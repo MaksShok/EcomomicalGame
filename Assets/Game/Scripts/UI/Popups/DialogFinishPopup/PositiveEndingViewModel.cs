@@ -1,8 +1,6 @@
 ﻿using Game.Scripts.EnterExitParams.GameplayScene;
 using Game.Scripts.EnterExitParams.MenuScene;
 using Game.Scripts.EntryPoints;
-using Game.Scripts.GameStates;
-using Game.Scripts.Global;
 
 namespace Game.Scripts.UI.Popups.DialogFinishPopup
 {

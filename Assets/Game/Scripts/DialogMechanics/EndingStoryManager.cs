@@ -1,5 +1,6 @@
 ﻿using System;
 using Game.Scripts.DialogData;
+using Game.Scripts.PlayerStatMechanics;
 using Game.Scripts.UI.Controllers;
 using Game.Scripts.UI.Popups.DialogFinishPopup;
 using UnityEngine;
@@ -8,48 +9,47 @@ namespace Game.Scripts.DialogMechanics
 {
     public class EndingStoryManager
     {
+        private const string PositiveEnd = "Positive";
+        private const string NegativeEnd = "Negative";
+
+        
         public event Action OnStoriesEnd;
 
-        private int _moodСoefficient;
-        
-        private LevelFinishViewModelAbstract _viewModel;
-
         private readonly LevelUIController _levelUIController;
+        private readonly PlayerStatsManager _statsManager;
+        private LevelFinishViewModelAbstract _viewModel;
         private  DialogDataObject _dialogData;
+        private bool _isVictory;
 
-        public EndingStoryManager(LevelUIController levelUIController)
+        public EndingStoryManager(LevelUIController levelUIController, PlayerStatsManager statsManager)
         {
             _levelUIController = levelUIController;
+            _statsManager = statsManager;
         }
 
         public void InitDialogData(DialogDataObject dialogData) => _dialogData = dialogData;
-
-        public void ResetCoefficient() => _moodСoefficient = 0;
-
+        
         public TextAsset GetDefineEnding()
         {
-            if (_moodСoefficient >= 0)
-                return _dialogData.positiveEndingTextAsset;
-            else
-                return _dialogData.negativeEndingTextAsset;
-        }
-        
-        public void RegisterChoiceResult(ChoiceMood moodType)
-        {
-            switch (moodType)
+            TextAsset endAsset;
+            
+            if (_statsManager.MoodCoefficient.Value >= 0)
             {
-                case ChoiceMood.Positive:
-                    _moodСoefficient += 1;
-                    break;
-                case ChoiceMood.Negative:
-                    _moodСoefficient -= 1;
-                    break;
+                _isVictory = true;
+                _dialogData.EndingsDict.TryGetValue(PositiveEnd, out endAsset);
             }
+            else
+            {
+                _isVictory = false;
+                _dialogData.EndingsDict.TryGetValue(NegativeEnd, out endAsset);
+            }
+
+            return endAsset;
         }
 
         public void End()
         {
-            if (_moodСoefficient >= 0)
+            if (_isVictory)
                 _viewModel = _levelUIController.OpenPositiveEndingPopup();
             else
                 _viewModel = _levelUIController.OpenNegativeEndingPopup();

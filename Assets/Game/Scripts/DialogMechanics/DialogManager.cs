@@ -1,9 +1,5 @@
 ﻿using System;
-using System.IO;
-using System.Linq;
-using System.Xml.Serialization;
 using R3;
-using UnityEngine;
 
 namespace Game.Scripts.DialogMechanics
 {
@@ -26,7 +22,7 @@ namespace Game.Scripts.DialogMechanics
         private int _dialogId;
         private int _lastDialogIdInSegment;
 
-        public void StartStory(Story story)
+        public void StartStory(Story story) 
         {
             _dialogId = 0;
             _segmentId = 0;
@@ -50,9 +46,8 @@ namespace Game.Scripts.DialogMechanics
             _dialogId++;
         }
 
-        public void RegisterChoiceResult(ChoiceMood moodType)
+        public void RegisterChoiceResult(Choice choiceMade)
         {
-            Choice choiceMade = _dialog.Value.Choices.FirstOrDefault(e => e.Mood == moodType);
             _dialogSegment.NextId = choiceMade.NextSegmentId;
         }
 

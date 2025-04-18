@@ -35,7 +35,7 @@ namespace Game.Scripts.UI.Popups.DialogPopap
         public DialogViewModel(TextAssetsManager textAssetsManager)
         {
             _textAssetsManager = textAssetsManager;
-            _spritesDict = textAssetsManager.DialogData.SpritesDict;
+            _spritesDict = _textAssetsManager.DialogData.SpritesDict;
             _dialogManager = _textAssetsManager.DialogManager;
 
             _textAssetsManager.StartFromFirstStory();
@@ -48,10 +48,12 @@ namespace Game.Scripts.UI.Popups.DialogPopap
             _dialogManager.UpdateDialog();
         }
 
-        public void ChoiceIsMade(ChoiceMood moodType)
+        public void ChoiceIsMade(ChoiceButtonViewModel choiceButtonViewModel)
         {
-            _choiceIsActive.Value = false;
-            _textAssetsManager.RegisterChoiceResult(moodType);
+            _choiceIsActive.OnNext(false);
+            _textAssetsManager.RegisterChoiceResult(choiceButtonViewModel.Choice);
+            
+            NextDialog();
         }
 
         private void BuildDialog(Dialog dialog)
@@ -75,7 +77,7 @@ namespace Game.Scripts.UI.Popups.DialogPopap
             }
         }
 
-        private void BuildChoice(Dialog dialog)
+        private void BuildChoice(Dialog dialog) // функцию нужно изменить если будет больше 2-x выборов)
         {
             Choice[] choicesInf = dialog.Choices;
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Serialization;
+using Game.Scripts.PlayerStatMechanics;
 using UnityEngine.UI;
 
 namespace Game.Scripts.DialogMechanics
@@ -67,8 +68,8 @@ namespace Game.Scripts.DialogMechanics
     
     public class Condition//
     {
-        [XmlAttribute("parameter")]
-        public string Parameter;
+        [XmlAttribute("stat")]
+        public PlayerStat Stat;
         
         [XmlAttribute("minValue")]
         public int MinValue;
@@ -76,8 +77,8 @@ namespace Game.Scripts.DialogMechanics
     
     public class Consequence//
     {
-        [XmlAttribute("parameter")]
-        public string Parameter;
+        [XmlAttribute("stat")]
+        public PlayerStat Stat;
         
         [XmlAttribute("value")]
         public int Value;

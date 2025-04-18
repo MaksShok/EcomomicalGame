@@ -1,5 +1,6 @@
 ﻿using Game.Scripts.DialogMechanics;
 using Game.Scripts.EntryPoints;
+using Game.Scripts.PlayerStatMechanics;
 using Game.Scripts.UI.Controllers;
 using UnityEngine;
 using Zenject;
@@ -15,6 +16,7 @@ namespace Game.Scripts.Installers.Local
             Container.Bind<LevelUIController>().AsSingle();
             Container.Bind<TextAssetsManager>().AsSingle();
             Container.Bind<EndingStoryManager>().AsSingle();
+            Container.Bind<PlayerStatsManager>().AsSingle();
             
             InstantiateEntryPoint();
         }

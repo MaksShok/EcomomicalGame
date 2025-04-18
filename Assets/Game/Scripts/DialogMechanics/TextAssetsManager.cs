@@ -2,6 +2,8 @@
 using System.IO;
 using System.Xml.Serialization;
 using Game.Scripts.DialogData;
+using Game.Scripts.PlayerStatMechanics;
+using Game.Scripts.UI.Popups.DialogPopap.DialogViewElements;
 using UnityEngine;
 
 namespace Game.Scripts.DialogMechanics
@@ -26,11 +28,15 @@ namespace Game.Scripts.DialogMechanics
         private DialogDataObject _dialogData;
         private readonly DialogManager _dialogManager;
         private readonly EndingStoryManager _endingManager;
+        private readonly PlayerStatsManager _statsManager;
 
-        public TextAssetsManager(EndingStoryManager endingManager)
+        public TextAssetsManager(EndingStoryManager endingManager, PlayerStatsManager statsManager)
         {
-            _dialogManager = new DialogManager();
             _endingManager = endingManager;
+            _statsManager = statsManager;
+            _dialogManager = new DialogManager();
+
+            ChoiceButtonViewModel.PlayerStatsManager = _statsManager;
         }
 
         public void InitDialogData(DialogDataObject dialogData)
@@ -45,15 +51,23 @@ namespace Game.Scripts.DialogMechanics
         public void StartFromFirstStory()
         {
             _index = 0;
-            _endingManager.ResetCoefficient();
+            _statsManager.ResetStats();
             
             RunNextStory();
         }
 
-        public void RegisterChoiceResult(ChoiceMood moodType)
+        public void RegisterChoiceResult(Choice choiceMade)
         {
-            _endingManager.RegisterChoiceResult(moodType);
-            _dialogManager.RegisterChoiceResult(moodType);
+            if (choiceMade.Consequences != null)
+            {
+                foreach (Consequence consequence in choiceMade.Consequences)
+                {
+                    _statsManager.ChangeStat(consequence.Stat, consequence.Value);
+                    Debug.Log(_statsManager.MoodCoefficient.Value);
+                }
+            }
+            
+            _dialogManager.RegisterChoiceResult(choiceMade);
         }
 
         private void RunNextStory()

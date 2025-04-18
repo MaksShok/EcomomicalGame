@@ -1,6 +1,4 @@
-﻿using Game.Scripts.GameStates;
-using Game.Scripts.Global;
-using Game.Scripts.UI.Controllers;
+﻿using Game.Scripts.UI.Controllers;
 using Game.Scripts.UI.MVVM;
 
 namespace Game.Scripts.UI.Windows.StartMenuWindow
