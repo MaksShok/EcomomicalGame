@@ -26,6 +26,9 @@
                     <Choice nextSegmentId="1" mood="Agree">
                         <Text>Да, было бы здорово перекусить! Я тоже немного голодный.</Text>
                     </Choice>
+                    <Choice nextSegmentId="1" mood="Agree">
+                        <Text>Конечно! Только Ярче на повороте закрылся.</Text>
+                    </Choice>
                     <Choice nextSegmentId="2" mood="Refuse">
                         <Text>Я не голоден, зачем тратить деньги? Дома поем.</Text>
                     </Choice>

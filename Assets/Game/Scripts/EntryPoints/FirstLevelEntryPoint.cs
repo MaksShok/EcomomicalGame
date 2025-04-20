@@ -1,10 +1,12 @@
 ﻿using Game.Scripts.DialogData;
 using Game.Scripts.DialogMechanics;
+using Game.Scripts.DialogMechanics.EndManagers;
 using Game.Scripts.EnterExitParams.GameplayScene;
 using Game.Scripts.EntryPoints.Abstract;
 using Game.Scripts.PlayerStatMechanics;
 using Game.Scripts.UI.Controllers;
 using Game.Scripts.UI.Popups.DialogPopap;
+using ModestTree;
 using R3;
 using Zenject;
 
@@ -15,12 +17,13 @@ namespace Game.Scripts.EntryPoints
         private Subject<GameplayExitParams> _exitSceneSignalSubj;
         
         private DialogViewModel _dialogViewModel;
-        private LevelUIController _uiController;
-        private EndingStoryManager _endingStoryManager;
+        private DialogDataObject _dialogData;
+        private FirstLevelUIController _uiController;
+        private EndingManager _endingStoryManager;
         private TextAssetsManager _textAssetsManager;
 
         [Inject]
-        private void Constructor(LevelUIController uiController, EndingStoryManager endingStoryManager,
+        private void Constructor(FirstLevelUIController uiController, EndingManager endingStoryManager,
             TextAssetsManager textAssetsManager)
         {
             _uiController = uiController;
@@ -30,6 +33,8 @@ namespace Game.Scripts.EntryPoints
 
         public Observable<GameplayExitParams> RunScene(GameplayEnterParams gameplayEnterParams)
         {
+            _dialogData = gameplayEnterParams.DialogDataObject;
+            
             PrepareDialogUI(gameplayEnterParams);
             
             _exitSceneSignalSubj = new Subject<GameplayExitParams>();
@@ -48,12 +53,18 @@ namespace Game.Scripts.EntryPoints
 
         private void PrepareDialogUI(GameplayEnterParams gameplayEnterParams)
         {
-            _textAssetsManager.InitDialogData(gameplayEnterParams.DialogDataObject);
-            
             _uiController.OpenGameplayWindow();
-            _dialogViewModel = _uiController.OpenDialogPopup();
+            _textAssetsManager.InitDialogData(_dialogData);
+            _dialogViewModel = _uiController.OpenDialogPopup(_dialogData);
             
-            _endingStoryManager.OnStoriesEnd += () => {_dialogViewModel.CloseRequest();};
+            if (!_dialogData.financialStats.IsEmpty() 
+                || !_dialogData.balanceStats.IsEmpty() 
+                || !_dialogData.relationshipStats.IsEmpty())
+            {
+                _uiController.OpenStatsPopap(_dialogData);
+            }
+            
+            _endingStoryManager.StoriesEnd += () => {_dialogViewModel.CloseRequest();};
         }
     }
 }

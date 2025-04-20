@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Game.Scripts.PlayerStatMechanics;
 using UnityEngine;
 
 namespace Game.Scripts.DialogData
@@ -7,25 +8,23 @@ namespace Game.Scripts.DialogData
     public class DialogDataObject : ScriptableObject
     {
         [SerializeField] public List<TextAsset> defaultTextAssets;
-        //[SerializeField] public TextAsset negativeEndingTextAsset;
-        //[SerializeField] public TextAsset positiveEndingTextAsset;
-        
         [SerializeField] private List<EndingData> endingDataList;
-
-        public Dictionary<string, TextAsset> EndingsDict
-        {
-            get
-            {
+        
+        [Header("This Stats will be vusialized")]
+        [SerializeField] public List<PlayerStat> financialStats;
+        [SerializeField] public List<PlayerStat> relationshipStats;
+        [SerializeField] public List<PlayerStat> balanceStats;
+        
+        [SerializeField] private List<SpriteIndicator> spriteIndicators;
+        
+        public Dictionary<string, TextAsset> EndingsDict {
+            get {
                 if (_endingsDict == null)
                     FillEndingsDict();
                 return _endingsDict;
             }
             private set { }
         }
-
-        private Dictionary<string, TextAsset> _endingsDict;
-
-        [SerializeField] private List<SpriteIndicator> spriteIndicators;
 
         public Dictionary<string, Sprite> SpritesDict {
             get {
@@ -36,6 +35,7 @@ namespace Game.Scripts.DialogData
             private set { }
         }
 
+        private Dictionary<string, TextAsset> _endingsDict;
         private Dictionary<string, Sprite> _spritesDict;
 
         private void FillDict()

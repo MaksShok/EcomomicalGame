@@ -2,6 +2,7 @@
 using System.IO;
 using System.Xml.Serialization;
 using Game.Scripts.DialogData;
+using Game.Scripts.DialogMechanics.EndManagers;
 using Game.Scripts.PlayerStatMechanics;
 using Game.Scripts.UI.Popups.DialogPopap.DialogViewElements;
 using UnityEngine;
@@ -10,31 +11,19 @@ namespace Game.Scripts.DialogMechanics
 {
     public class TextAssetsManager
     {
-        public DialogManager DialogManager
-        {
-            get { return _dialogManager; }
-            private set { }
-        }
-        
-        public DialogDataObject DialogData
-        {
-            get { return _dialogData; }
-            private set { }
-        }
-
         private int _textAssetsCount;
         private int _index;
 
-        private DialogDataObject _dialogData;
         private readonly DialogManager _dialogManager;
-        private readonly EndingStoryManager _endingManager;
+        private readonly EndingManager _endingManager;
         private readonly PlayerStatsManager _statsManager;
+        private DialogDataObject _dialogData;
 
-        public TextAssetsManager(EndingStoryManager endingManager, PlayerStatsManager statsManager)
+        public TextAssetsManager(EndingManager endingManager, PlayerStatsManager statsManager, DialogManager dialogManager)
         {
             _endingManager = endingManager;
             _statsManager = statsManager;
-            _dialogManager = new DialogManager();
+            _dialogManager = dialogManager;
 
             ChoiceButtonViewModel.PlayerStatsManager = _statsManager;
         }
@@ -63,7 +52,6 @@ namespace Game.Scripts.DialogMechanics
                 foreach (Consequence consequence in choiceMade.Consequences)
                 {
                     _statsManager.ChangeStat(consequence.Stat, consequence.Value);
-                    Debug.Log(_statsManager.MoodCoefficient.Value);
                 }
             }
             

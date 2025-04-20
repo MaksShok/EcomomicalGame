@@ -11,10 +11,12 @@ namespace Game.Scripts.UI.Popups.DialogPopap
 {
     public class DialogViewModel : ViewModel
     {
-        public override string PrefabName => "DialogView";
+        public override string PrefabName => "DialogView2";
         
-        public ChoiceButtonViewModel FirstChoiceModel;
-        public ChoiceButtonViewModel SecondChoiceModel;
+        // public ChoiceButtonViewModel FirstChoiceModel;
+        // public ChoiceButtonViewModel SecondChoiceModel;
+        // public ChoiceButtonViewModel ThirdChoiceModel;
+        public ChoiceButtonViewModel[] ChoiceModelsArray = new ChoiceButtonViewModel[3];
         
         public Observable<string> CurrentDialogText => _currentDialogText;
         public Observable<string> CurrentSpeakerName => _currentSpeakerName;
@@ -32,11 +34,11 @@ namespace Game.Scripts.UI.Popups.DialogPopap
         private TextAssetsManager _textAssetsManager;
         private Dictionary<string, Sprite> _spritesDict;
         
-        public DialogViewModel(TextAssetsManager textAssetsManager)
+        public DialogViewModel(TextAssetsManager textAssetsManager, DialogManager dialogManager ,DialogDataObject dialogData)
         {
             _textAssetsManager = textAssetsManager;
-            _spritesDict = _textAssetsManager.DialogData.SpritesDict;
-            _dialogManager = _textAssetsManager.DialogManager;
+            _dialogManager = dialogManager;
+            _spritesDict = dialogData.SpritesDict;
 
             _textAssetsManager.StartFromFirstStory();
             
@@ -77,12 +79,15 @@ namespace Game.Scripts.UI.Popups.DialogPopap
             }
         }
 
-        private void BuildChoice(Dialog dialog) // функцию нужно изменить если будет больше 2-x выборов)
+        private void BuildChoice(Dialog dialog)
         {
-            Choice[] choicesInf = dialog.Choices;
+            Array.Clear(ChoiceModelsArray, 0, 3);
 
-            FirstChoiceModel = new ChoiceButtonViewModel(choicesInf[0]);
-            SecondChoiceModel = new ChoiceButtonViewModel(choicesInf[1]);
+            Choice[] choices = dialog.Choices;
+            for (int i = 0; i < choices.Length; i++)
+            {
+                ChoiceModelsArray[i] = new ChoiceButtonViewModel(choices[i]);
+            }
 
             _choiceIsActive.OnNext(true);
         }

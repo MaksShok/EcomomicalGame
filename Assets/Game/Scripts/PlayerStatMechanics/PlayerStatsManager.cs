@@ -6,19 +6,19 @@ namespace Game.Scripts.PlayerStatMechanics
 {
     public class PlayerStatsManager
     {
-        private Dictionary<PlayerStat, Stat> _stats;
+        public readonly Dictionary<PlayerStat, Stat> Stats;
 
-        public Stat FriendRelationship { get; } = new(0, PlayerStat.FriendsRelationship);
-        public Stat BlackDayMoney { get; } = new(0, PlayerStat.BlackDayMoney);
-        public Stat MoodCoefficient { get; } = new Stat(0, PlayerStat.Mood);
-        public Stat PresentMoney { get; } = new(0, PlayerStat.PresentMoney);
-        public Stat Health { get; } = new(100, PlayerStat.Health);
-        public Stat Money{ get; } = new(500, PlayerStat.Money);
+        public Stat FriendRelationship { get; } = new(80, PlayerStat.FriendsRelationship, 100);
+        public Stat MoodCoefficient { get; } = new(0, PlayerStat.Mood, 0, true);
+        public Stat Money{ get; } = new(500, PlayerStat.Money, 500, true);
+        public Stat BlackDayMoney { get; } = new(0, PlayerStat.BlackDayMoney, 100);
+        public Stat PresentMoney { get; } = new(0, PlayerStat.PresentMoney, 150);
+        public Stat Health { get; } = new(100, PlayerStat.Health, 100);
 
 
         public PlayerStatsManager()
         {
-            _stats = new()
+            Stats = new()
             {
                 { PlayerStat.Health, Health},
                 { PlayerStat.Money, Money},
@@ -31,25 +31,13 @@ namespace Game.Scripts.PlayerStatMechanics
         
         public void ChangeStat(PlayerStat statType, int changedValue)
         {
-            Stat stat = _stats[statType];
+            Stat stat = Stats[statType];
             stat.Value += changedValue;
-
-            if (stat.Value == 0)
-            {
-                if (stat.StatType == PlayerStat.Health)
-                {
-                    
-                }
-                else if (stat.StatType == PlayerStat.FriendsRelationship)
-                {
-                    
-                }
-            }
         }
 
         public bool CheckStat(PlayerStat statType, int minValue, int maxValue = Int32.MaxValue)
         {
-            Stat stat = _stats[statType];
+            Stat stat = Stats[statType];
             if (minValue <= stat.Value && stat.Value <= maxValue)
                 return true;
             else

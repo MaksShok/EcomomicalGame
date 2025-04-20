@@ -14,8 +14,7 @@ namespace Game.Scripts.UI.Popups.DialogPopap.DialogViewElements
         public Color Color;
         public ChoiceMood MoodType;
         public bool IsAvailable = true;
-
-
+        
         public ChoiceButtonViewModel(Choice choice)
         {
             Choice = choice;
@@ -38,14 +37,14 @@ namespace Game.Scripts.UI.Popups.DialogPopap.DialogViewElements
             {
                 Color = GetColorForRGB(133, 233, 78); // зеленый
             }
-            else if (MoodType == ChoiceMood.Refuse)
-            {
-                Color = GetColorForRGB(255, 107, 26); // оранжевый
-            }
+            // else if (MoodType == ChoiceMood.Refuse)
+            // {
+            //     Color = GetColorForRGB(255, 107, 26); // оранжевый
+            // }
             else if (MoodType != ChoiceMood.None)
             {
-                //Color = GetColorForRGB(255, 255, 153); // Светлый нейтральный
-                Color = GetColorForRGB(176,162,241);
+                Color = GetColorForRGB(255, 255, 153); // Светлый нейтральный
+                //Color = GetColorForRGB(176,162,241); // фиолетовый красивый (хз)
             }
         }
 
