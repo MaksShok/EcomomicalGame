@@ -8,7 +8,7 @@ namespace Game.Scripts.PlayerStatMechanics
     {
         public readonly Dictionary<PlayerStat, Stat> Stats;
 
-        public Stat FriendRelationship { get; } = new(80, PlayerStat.FriendsRelationship, 100);
+        public Stat FriendRelationship { get; } = new(50, PlayerStat.FriendsRelationship, 100);
         public Stat MoodCoefficient { get; } = new(0, PlayerStat.Mood, 0, true);
         public Stat Money{ get; } = new(500, PlayerStat.Money, 500, true);
         public Stat BlackDayMoney { get; } = new(0, PlayerStat.BlackDayMoney, 100);
@@ -52,12 +52,12 @@ namespace Game.Scripts.PlayerStatMechanics
 
         public void ResetStats()
         {
-            FriendRelationship.Value = 0;
-            BlackDayMoney.Value = 0;
-            MoodCoefficient.Value = 0;
-            PresentMoney.Value = 0;
-            Health.Value = 100;
-            Money.Value = 500;
+            FriendRelationship.Value = FriendRelationship.DefaultValue;
+            BlackDayMoney.Value = BlackDayMoney.DefaultValue;
+            MoodCoefficient.Value = MoodCoefficient.DefaultValue;
+            PresentMoney.Value = PresentMoney.DefaultValue;
+            Health.Value = Health.DefaultValue;
+            Money.Value = Money.DefaultValue;
         }
     }
 

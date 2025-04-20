@@ -206,7 +206,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 27382743004828850, guid: 5c6f4297113a54b40bc0d806ffe0258a, type: 3}
       propertyPath: m_Name
-      value: LevelButton
+      value: LevelButtonContainer
       objectReference: {fileID: 0}
     - target: {fileID: 2522803808703782509, guid: 5c6f4297113a54b40bc0d806ffe0258a, type: 3}
       propertyPath: m_Color.b

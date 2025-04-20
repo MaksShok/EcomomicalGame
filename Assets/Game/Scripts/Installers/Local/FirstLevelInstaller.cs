@@ -10,11 +10,11 @@ namespace Game.Scripts.Installers.Local
 {
     public class FirstLevelInstaller : MonoInstaller
     {
-        [SerializeField] private FirstLevelEntryPoint _entryPoint;
+        [SerializeField] private GameplayEntryPoint _entryPoint;
         
         public override void InstallBindings()
         {
-            Container.Bind<FirstLevelUIController>().AsSingle();
+            Container.Bind<GameplayUIController>().AsSingle();
             Container.Bind<TextAssetsManager>().AsSingle();
             Container.Bind<DialogManager>().AsSingle();
             Container.Bind<EndingManager>().To<FirstLevelEndingManager>().AsSingle();
@@ -25,10 +25,10 @@ namespace Game.Scripts.Installers.Local
 
         private void InstantiateEntryPoint()
         {
-            FirstLevelEntryPoint entryPoint = Container
-                .InstantiatePrefabForComponent<FirstLevelEntryPoint>(_entryPoint);
+            GameplayEntryPoint entryPoint = Container
+                .InstantiatePrefabForComponent<GameplayEntryPoint>(_entryPoint);
 
-            Container.Bind<FirstLevelEntryPoint>().FromInstance(entryPoint).AsSingle();
+            Container.Bind<GameplayEntryPoint>().FromInstance(entryPoint).AsSingle();
         }
     }
 }

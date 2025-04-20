@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7164a91a24194600b477448657f14661, type: 3}
-  m_Name: SaveMoneyDialogData
+  m_Name: SecondLevelDialogData
   m_EditorClassIdentifier: 
   defaultTextAssets:
   - {fileID: 4900000, guid: 98c40ec4914ba774e8e24373f0c1c762, type: 3}
@@ -19,9 +19,9 @@ MonoBehaviour:
     TextAsset: {fileID: 4900000, guid: 34e1b86205d868343812b8209de50c9e, type: 3}
   - Key: Negative
     TextAsset: {fileID: 4900000, guid: 583bc7d20c7d77047a1065ca64d367ab, type: 3}
-  financialStats: 0200000003000000
-  relationshipStats: 0400000005000000
-  balanceStats: 01000000
+  financialStats: 
+  relationshipStats: 
+  balanceStats: 
   spriteIndicators:
   - {fileID: 7115247410722311376, guid: f4db2ffe57b66e642886464868da1014, type: 3}
   - {fileID: 7115247410722311376, guid: 16fab75f2bb842a4aa9054cd2448cb74, type: 3}

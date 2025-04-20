@@ -69,18 +69,11 @@ namespace Game.Scripts.Global
             {
                 yield return null;
             }
-
-            if (sceneName == Scenes.FirstLevel)
-            {
-                FirstLevelEntryPoint entryPoint = _currentSceneEntryPointService.GetEntryPoint<FirstLevelEntryPoint>();
-                entryPoint.RunScene(gameplayEnterParams).Subscribe(gameplayExitParams 
-                    => _coroutineRunner.StartCoroutine(LoadAndStartMenuScene(gameplayExitParams?.MenuEnterParams)));
-            }
-            else if (sceneName == Scenes.SecondLevel)
-            {
-                
-            }
-
+            
+            GameplayEntryPoint entryPoint = _currentSceneEntryPointService.GetEntryPoint<GameplayEntryPoint>();
+            entryPoint.RunScene(gameplayEnterParams).Subscribe(gameplayExitParams 
+                => _coroutineRunner.StartCoroutine(LoadAndStartMenuScene(gameplayExitParams?.MenuEnterParams)));
+            
             onSceneLoaded?.Invoke();
         }
     }

@@ -127,8 +127,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5f8cd6c9c854ac59109de822119effb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startMoneySaveLevelButton: {fileID: 4492294630050642665}
-  _showMoneySaveTeoryButton: {fileID: 6202734485444418532}
+  _startFirstLevelButton: {fileID: 4492294630050642665}
+  _startSecondLevelButton: {fileID: 4596348890047154198}
+  _showFirstLevelTeoryButton: {fileID: 6202734485444418532}
+  _showSecondLevelTeoryButton: {fileID: 6308099393902831899}
   _exitToStartMenuButton: {fileID: 2133019506058615016}
 --- !u!1 &1319190738730500487
 GameObject:
@@ -723,11 +725,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1047820149209797906, guid: 13e54123fb066ee4399491f42430b67d, type: 3}
       propertyPath: m_text
-      value: "\u0418\u043D\u0432\u0435\u0441\u0442\u0438\u0446\u0438\u0438"
+      value: "\u0424\u0438\u043D\u0430\u043D\u0441\u043E\u0432\u0430\u044F \u0436\u0438\u0437\u043D\u044C"
       objectReference: {fileID: 0}
     - target: {fileID: 1306788194726787462, guid: 13e54123fb066ee4399491f42430b67d, type: 3}
       propertyPath: m_Name
-      value: ButtonsArea (1)
+      value: SecondLevelStartButton
       objectReference: {fileID: 0}
     - target: {fileID: 3848117306479499852, guid: 13e54123fb066ee4399491f42430b67d, type: 3}
       propertyPath: m_RaycastTarget
@@ -862,7 +864,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1227937805599047905, guid: 13e54123fb066ee4399491f42430b67d, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13e54123fb066ee4399491f42430b67d, type: 3}
@@ -871,6 +874,28 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8113197571878208465, guid: 13e54123fb066ee4399491f42430b67d, type: 3}
   m_PrefabInstance: {fileID: 5675891588405042550}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4596348890047154198 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8146259270485611872, guid: 13e54123fb066ee4399491f42430b67d, type: 3}
+  m_PrefabInstance: {fileID: 5675891588405042550}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6308099393902831899 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1823412121076888685, guid: 13e54123fb066ee4399491f42430b67d, type: 3}
+  m_PrefabInstance: {fileID: 5675891588405042550}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5718029527789547401
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -881,7 +906,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1306788194726787462, guid: 13e54123fb066ee4399491f42430b67d, type: 3}
       propertyPath: m_Name
-      value: ButtonsArea
+      value: FirstLevelStartButton
       objectReference: {fileID: 0}
     - target: {fileID: 6525493298373023501, guid: 13e54123fb066ee4399491f42430b67d, type: 3}
       propertyPath: m_AnchorMax.y

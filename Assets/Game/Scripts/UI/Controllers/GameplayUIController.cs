@@ -12,12 +12,12 @@ using Zenject;
 
 namespace Game.Scripts.UI.Controllers
 {
-    public class FirstLevelUIController
+    public class GameplayUIController
     {
         private readonly UIRootViewModel _rootViewModel;
         private readonly DiContainer _container;
 
-        public FirstLevelUIController(UIRootViewModel rootViewModel, DiContainer container)
+        public GameplayUIController(UIRootViewModel rootViewModel, DiContainer container)
         {
             _rootViewModel = rootViewModel;
             _container = container;
@@ -25,7 +25,7 @@ namespace Game.Scripts.UI.Controllers
 
         public GameplayWindowViewModel OpenGameplayWindow()
         {
-            GameplayWindowViewModel viewModel = new GameplayWindowViewModel(_container.Resolve<FirstLevelEntryPoint>(),
+            GameplayWindowViewModel viewModel = new GameplayWindowViewModel(_container.Resolve<GameplayEntryPoint>(),
                 _container.Resolve<TextAssetsManager>());
             _rootViewModel.OpenWindow(viewModel);
 
@@ -44,7 +44,7 @@ namespace Game.Scripts.UI.Controllers
         public NegativeEndingViewModel OpenNegativeEndingPopup()
         {
             NegativeEndingViewModel viewModel = new NegativeEndingViewModel(
-                _container.Resolve<FirstLevelEntryPoint>());
+                _container.Resolve<GameplayEntryPoint>());
             _rootViewModel.OpenPopup(viewModel);
 
             return viewModel;
@@ -53,7 +53,7 @@ namespace Game.Scripts.UI.Controllers
         public PositiveEndingViewModel OpenPositiveEndingPopup()
         {
             PositiveEndingViewModel viewModel = new PositiveEndingViewModel(
-                _container.Resolve<FirstLevelEntryPoint>());
+                _container.Resolve<GameplayEntryPoint>());
             _rootViewModel.OpenPopup(viewModel);
 
             return viewModel;

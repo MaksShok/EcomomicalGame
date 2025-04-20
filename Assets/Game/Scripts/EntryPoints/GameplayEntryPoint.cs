@@ -1,10 +1,12 @@
-﻿using Game.Scripts.DialogData;
+﻿using System.Collections.Generic;
+using Game.Scripts.DialogData;
 using Game.Scripts.DialogMechanics;
 using Game.Scripts.DialogMechanics.EndManagers;
 using Game.Scripts.EnterExitParams.GameplayScene;
 using Game.Scripts.EntryPoints.Abstract;
 using Game.Scripts.PlayerStatMechanics;
 using Game.Scripts.UI.Controllers;
+using Game.Scripts.UI.MVVM;
 using Game.Scripts.UI.Popups.DialogPopap;
 using ModestTree;
 using R3;
@@ -12,18 +14,19 @@ using Zenject;
 
 namespace Game.Scripts.EntryPoints
 {
-    public class FirstLevelEntryPoint : SceneEntryPoint
+    public class GameplayEntryPoint : SceneEntryPoint
     {
         private Subject<GameplayExitParams> _exitSceneSignalSubj;
+
+        private List<ViewModel> _openedViewModels = new();
         
-        private DialogViewModel _dialogViewModel;
         private DialogDataObject _dialogData;
-        private FirstLevelUIController _uiController;
+        private GameplayUIController _uiController;
         private EndingManager _endingStoryManager;
         private TextAssetsManager _textAssetsManager;
 
         [Inject]
-        private void Constructor(FirstLevelUIController uiController, EndingManager endingStoryManager,
+        private void Constructor(GameplayUIController uiController, EndingManager endingStoryManager,
             TextAssetsManager textAssetsManager)
         {
             _uiController = uiController;
@@ -44,6 +47,11 @@ namespace Game.Scripts.EntryPoints
         public override void FinishScene()
         {
             _endingStoryManager.StopDialog();
+            
+            foreach (ViewModel viewModel in _openedViewModels)
+            {
+                viewModel.CloseRequest();
+            } _openedViewModels.Clear();
         }
 
         public void ExitSceneRequest(GameplayExitParams exitParams = default)
@@ -55,16 +63,14 @@ namespace Game.Scripts.EntryPoints
         {
             _uiController.OpenGameplayWindow();
             _textAssetsManager.InitDialogData(_dialogData);
-            _dialogViewModel = _uiController.OpenDialogPopup(_dialogData);
+            _openedViewModels.Add(_uiController.OpenDialogPopup(_dialogData));
             
             if (!_dialogData.financialStats.IsEmpty() 
                 || !_dialogData.balanceStats.IsEmpty() 
                 || !_dialogData.relationshipStats.IsEmpty())
             {
-                _uiController.OpenStatsPopap(_dialogData);
+                _openedViewModels.Add(_uiController.OpenStatsPopap(_dialogData));
             }
-            
-            _endingStoryManager.StoriesEnd += () => {_dialogViewModel.CloseRequest();};
         }
     }
 }

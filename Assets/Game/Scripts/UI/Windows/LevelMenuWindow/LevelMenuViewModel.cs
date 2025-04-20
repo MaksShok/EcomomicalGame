@@ -25,14 +25,28 @@ namespace Game.Scripts.UI.Windows.LevelMenuWindow
 
         public void StartFirstLevelRequest()
         {
-            DialogDataObject dialogDataObject = Resources.Load<DialogDataObject>("DialogObjects/SaveMoneyDialogData");
+            DialogDataObject dialogDataObject = Resources.Load<DialogDataObject>("DialogObjects/FirstLevelDialogData");
             GameplayEnterParams gameplayEnterParams = new GameplayEnterParams(Scenes.FirstLevel ,dialogDataObject);
             MenuExitParams menuExitParams = new MenuExitParams(gameplayEnterParams);
             
             _entryPoint.ExitSceneRequest(menuExitParams);
         }
         
+        public void StartSecondLevelRequest()
+        {
+            DialogDataObject dialogDataObject = Resources.Load<DialogDataObject>("DialogObjects/SecondLevelDialogData");
+            GameplayEnterParams gameplayEnterParams = new GameplayEnterParams(Scenes.SecondLevel ,dialogDataObject);
+            MenuExitParams menuExitParams = new MenuExitParams(gameplayEnterParams);
+            
+            _entryPoint.ExitSceneRequest(menuExitParams);
+        }
+
         public void ShowFirstLevelTeoryRequest()
+        {
+            _uiController.OpenTeoryPopup();
+        }
+
+        public void ShowSecondLevelTeoryRequest()
         {
             _uiController.OpenTeoryPopup();
         }

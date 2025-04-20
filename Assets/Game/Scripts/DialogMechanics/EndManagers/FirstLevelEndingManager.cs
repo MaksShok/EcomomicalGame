@@ -9,10 +9,10 @@ namespace Game.Scripts.DialogMechanics.EndManagers
         private const string PositiveEnd = "Positive";
         private const string NegativeEnd = "Negative";
         
-        private readonly FirstLevelUIController _levelUIController;
+        private readonly GameplayUIController _levelUIController;
         private readonly PlayerStatsManager _statsManager;
 
-        public FirstLevelEndingManager(FirstLevelUIController levelUIController, PlayerStatsManager statsManager)
+        public FirstLevelEndingManager(GameplayUIController levelUIController, PlayerStatsManager statsManager)
         {
             _levelUIController = levelUIController;
             _statsManager = statsManager;

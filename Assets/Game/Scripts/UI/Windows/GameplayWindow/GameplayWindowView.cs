@@ -43,10 +43,10 @@ namespace Game.Scripts.UI.Windows.GameplayWindow
     {
         public override string PrefabName => "GameplayMainWindow";
         
-        private readonly FirstLevelEntryPoint _entryPoint;
+        private readonly GameplayEntryPoint _entryPoint;
         private readonly TextAssetsManager _textAssetsManager;
 
-        public GameplayWindowViewModel(FirstLevelEntryPoint entryPoint, TextAssetsManager textAssetsManager)
+        public GameplayWindowViewModel(GameplayEntryPoint entryPoint, TextAssetsManager textAssetsManager)
         {
             _entryPoint = entryPoint;
             _textAssetsManager = textAssetsManager;

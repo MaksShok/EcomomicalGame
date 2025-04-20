@@ -12,10 +12,10 @@ namespace Game.Scripts.DialogMechanics.EndManagers
         private const string MoneyLossEnd = "MoneyLoss";
         private const string FriendRelationshipLossEnd = "FriendRelationshipLoss";
         
-        private readonly SecondLevelUIController _levelUIController;
+        private readonly GameplayUIController _levelUIController;
         private readonly PlayerStatsManager _statsManager;
 
-        public SecondLevelEndingManager(SecondLevelUIController uiController, PlayerStatsManager statsManager)
+        public SecondLevelEndingManager(GameplayUIController uiController, PlayerStatsManager statsManager)
         {
             _levelUIController = uiController;
             _statsManager = statsManager;

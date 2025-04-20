@@ -13,7 +13,7 @@ namespace Game.Scripts.UI.Popups.DialogFinishPopup
 
         private string negativeMainText = "На практике все сложнее!";
 
-        public NegativeEndingViewModel(FirstLevelEntryPoint gameplayEntryPoint) : base(gameplayEntryPoint)
+        public NegativeEndingViewModel(GameplayEntryPoint gameplayEntryPoint) : base(gameplayEntryPoint)
         {
         }
 

@@ -10,9 +10,9 @@ namespace Game.Scripts.UI.Popups.DialogFinishPopup
         public abstract string TitleText { get; }
         public abstract string MainText { get; }
 
-        protected readonly FirstLevelEntryPoint GameplayEntryPoint;
+        protected readonly GameplayEntryPoint GameplayEntryPoint;
 
-        public LevelFinishViewModelAbstract(FirstLevelEntryPoint gameplayEntryPoint)
+        public LevelFinishViewModelAbstract(GameplayEntryPoint gameplayEntryPoint)
         {
             GameplayEntryPoint = gameplayEntryPoint;
         }
