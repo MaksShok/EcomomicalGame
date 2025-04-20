@@ -14,25 +14,29 @@ namespace Game.Scripts.PlayerStatMechanics
             set
             {
                 _value = value;
-                if (!CanLessZero && _value <= 0) _value = 0;
+                if (_value > MaxValue) _value = MaxValue;
+                else if (_value < MinValue) _value = MinValue;
+                
                 ValueChanged?.Invoke(_value);
             }
         }
 
         public PlayerStat StatType { get; }
-        public bool CanLessZero { get; }
         public int TargetValue { get; }
+        public int MinValue { get; }
+        public int MaxValue { get; }
         public float DefaultValue { get; }
 
         private float _value;
 
-        public Stat(int startValue, PlayerStat statType, int targetValue, bool canLessZero = false)
+        public Stat(int startValue, PlayerStat statType, int targetValue, int minValue, int maxValue)
         {
             _value = startValue;
             StatType = statType;
             TargetValue = targetValue;
+            MinValue = minValue;
+            MaxValue = maxValue;
             DefaultValue = startValue;
-            CanLessZero = canLessZero;
         }
     }
 }

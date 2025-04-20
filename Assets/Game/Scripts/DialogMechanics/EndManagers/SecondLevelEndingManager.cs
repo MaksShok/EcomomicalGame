@@ -33,7 +33,8 @@ namespace Game.Scripts.DialogMechanics.EndManagers
             {
                 DialogData.EndingsDict.TryGetValue(FriendRelationshipLossEnd, out endAsset);
             }
-            else if (_statsManager.PresentMoney.Value >= 150 && _statsManager.BlackDayMoney.Value >= 100)
+            else if (_statsManager.PresentMoney.Value >= _statsManager.PresentMoney.TargetValue 
+                     && _statsManager.BlackDayMoney.Value >= _statsManager.BlackDayMoney.TargetValue)
             {
                 DialogData.EndingsDict.TryGetValue(PositiveEnd, out endAsset);
             }

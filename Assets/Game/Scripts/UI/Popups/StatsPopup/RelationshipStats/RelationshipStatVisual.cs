@@ -1,7 +1,5 @@
-﻿using Game.Scripts.PlayerStatMechanics;
-using Game.Scripts.UI.Popups.StatsPopup.AbstractStatsVisual;
+﻿using Game.Scripts.UI.Popups.StatsPopup.AbstractStatsVisual;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Game.Scripts.UI.Popups.StatsPopup.RelationshipStats
@@ -13,7 +11,7 @@ namespace Game.Scripts.UI.Popups.StatsPopup.RelationshipStats
 
         protected override void UpdateMe(float newValue)
         {
-            _progress.fillAmount = newValue / Stat.TargetValue;
+            _progress.fillAmount = newValue / Stat.MaxValue;
         }
     }
 }
