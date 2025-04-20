@@ -271,7 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _buttonText: {fileID: 3638353168007090369}
   _button: {fileID: 1021045055746067710}
-  _notAvailableButtonColor: {r: 0.7106918, g: 0.7106918, b: 0.7106918, a: 0}
+  _notAvailableButtonColor: {r: 0.74213827, g: 0.7351369, b: 0.7351369, a: 1}
 --- !u!1 &5308049297227517180
 GameObject:
   m_ObjectHideFlags: 0

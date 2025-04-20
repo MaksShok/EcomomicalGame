@@ -11,9 +11,10 @@ namespace Game.Scripts.PlayerStatMechanics
         
         public float Value {
             get { return _value;}
-            set {
-                if (CanLessZero) _value += value;
-                else _value = Mathf.Max(0, _value + value);
+            set
+            {
+                _value = value;
+                if (!CanLessZero && _value <= 0) _value = 0;
                 ValueChanged?.Invoke(_value);
             }
         }

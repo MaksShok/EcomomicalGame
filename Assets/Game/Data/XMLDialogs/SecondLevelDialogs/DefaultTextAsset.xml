@@ -4,7 +4,6 @@
             <Dialog>
                 <Speaker>_</Speaker>
                 <Text>**Сцена: Утро понедельника. Ты просыпаешься и вспоминаешь, что через неделю у твоего друга день рождения.**</Text>
-                <SpriteId>00</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Player</Speaker>
@@ -12,45 +11,65 @@
             </Dialog>
             <Dialog>
                 <Speaker>Player</Speaker>
-                <Text>У меня есть 800 рублей на неделю. Хватит ли их?</Text>
+                <Text>У меня есть 500 рублей на неделю. Хватит ли их?</Text>
             </Dialog>
             <Dialog withChoice="true">
                 <Speaker>Player</Speaker>
-                <Text>Что делать? Распределить деньги сейчас или подождать до конца недели?</Text>
+                <Text>Нужно ли отложить деньги на здоровье?</Text>
                 <Choices>
-                    <Choice nextSegmentId="1" mood="Agree">
-                        <Text>Распределить деньги сейчас</Text>
+                    <Choice nextSegmentId="1" mood="Positive">
+                        <Text>Отложить 300 рублей</Text>
                         <Consequences>
-                            <Consequence stat="Savings" value="-200"/>
-                            <Consequence stat="BlackDayMoney" value="-150"/>
-                            <Consequence stat="Entertainment" value="-100"/>
-                            <Consequence stat="PresentMoney" value="-100"/>
+                            <Consequence stat="Money" value="-300"/>
+                            <Consequence stat="Health" value="+40"/>
                         </Consequences>
                     </Choice>
-                    <Choice nextSegmentId="2" mood="Refuse">
-                        <Text>Подождать до конца недели</Text>
+                    <Choice nextSegmentId="1" mood="Positive">
+                        <Text>Отложить 50 рублей</Text>
+                        <Consequences>
+                            <Consequence stat="Money" value="-50"/>
+                            <Consequence stat="Health" value="+10"/>
+                        </Consequences>
+                    </Choice>
+                    <Choice nextSegmentId="2" mood="Negative">
+                        <Text>Не откладывать деньги</Text>
+                        <Consequences>
+                            <Consequence stat="Health" value="-30"/>
+                        </Consequences>
                     </Choice>
                 </Choices>
             </Dialog>
         </Dialogs>
     </Segment>
 
-    <!-- Выбор: распределить деньги сейчас -->
-    <Segment id="1" nextId="3" mood="Agree">
+    <Segment id="1" end = "true">
         <Dialogs>
             <Dialog>
                 <Speaker>Player</Speaker>
-                <Text>Я отложил немного денег на подарок, развлечения и непредвиденные расходы.</Text>
+                <Text>Я молодец, потому что вложился в свое здоровье</Text>
             </Dialog>
-            <Dialog>
+            <Dialog withChoice="true">
                 <Speaker>Player</Speaker>
-                <Text>Теперь можно не переживать!</Text>
+                <Text>Эх...Купить бы эту BMW M5</Text>
+                <Choices>
+                    <Choice mood="Refuse">
+                        <Text>Купить машину</Text>
+                        <Conditions>
+                            <Condition stat = "Money" minValue = "1000000"/>
+                        </Conditions>
+                    </Choice>
+                    <Choice mood="Refuse">
+                        <Text>Да ну ее нахуй за такие деньги</Text>
+                        <Consequences>
+                            <Consequence stat = "FriendsRelationship" value = "-100"/>
+                        </Consequences>
+                    </Choice>
+                </Choices>
             </Dialog>
         </Dialogs>
     </Segment>
 
-    <!-- Выбор: подождать до конца недели -->
-    <Segment id="2" nextId="3" mood="Refuse">
+    <Segment id="2" end = "true">
         <Dialogs>
             <Dialog>
                 <Speaker>Player</Speaker>
@@ -59,155 +78,6 @@
             <Dialog>
                 <Speaker>Player</Speaker>
                 <Text>Но это рискованно...</Text>
-            </Dialog>
-        </Dialogs>
-    </Segment>
-
-    <!-- Общее продолжение: встреча с другом -->
-    <Segment id="3" mood="None">
-        <Dialogs>
-            <Dialog>
-                <Speaker>_</Speaker>
-                <Text>**На следующий день ты встречаешь своего друга в школе**</Text>
-                <SpriteId>30</SpriteId>
-            </Dialog>
-            <Dialog>
-                <Speaker>Friend</Speaker>
-                <Text>Привет! Пойдёшь в кино сегодня?</Text>
-            </Dialog>
-            <Dialog withChoice="true">
-                <Speaker>Player</Speaker>
-                <Text>Как ответить?</Text>
-                <Choices>
-                    <Choice nextSegmentId="4" mood="Agree">
-                        <Text>Да, пойду!</Text>
-                        <Consequences>
-                            <Consequence stat="Entertainment" value="-200"/>
-                        </Consequences>
-                    </Choice>
-                    <Choice nextSegmentId="5" mood="Refuse">
-                        <Text>Нет, не могу. Нужно экономить.</Text>
-                        <Consequences>
-                            <Consequence stat="Relationship" value="-10"/>
-                        </Consequences>
-                    </Choice>
-                </Choices>
-            </Dialog>
-        </Dialogs>
-    </Segment>
-
-    <!-- Исход: согласиться пойти в кино -->
-    <Segment id="4" mood="Agree">
-        <Dialogs>
-            <Dialog>
-                <Speaker>Player</Speaker>
-                <Text>Конечно, пойду! Это будет весело!</Text>
-            </Dialog>
-            <Dialog>
-                <Speaker>Friend</Speaker>
-                <Text>Отлично! Встречаемся после уроков.</Text>
-            </Dialog>
-        </Dialogs>
-    </Segment>
-
-    <!-- Исход: отказаться пойти в кино -->
-    <Segment id="5" mood="Refuse">
-        <Dialogs>
-            <Dialog>
-                <Speaker>Player</Speaker>
-                <Text>Извини, не могу. Нужно экономить деньги на подарок.</Text>
-            </Dialog>
-            <Dialog>
-                <Speaker>Friend</Speaker>
-                <Text>Ладно, понимаю. Может быть, в другой раз.</Text>
-            </Dialog>
-        </Dialogs>
-    </Segment>
-
-    <!-- Критическая ситуация: порванная куртка -->
-    <Segment id="6">
-        <Dialogs>
-            <Dialog>
-                <Speaker>_</Speaker>
-                <Text>**По дороге домой ты случайно рвёшь куртку о колючий забор**</Text>
-                <SpriteId>60</SpriteId>
-            </Dialog>
-            <Dialog>
-                <Speaker>Player</Speaker>
-                <Text>Что теперь делать? Без куртки я могу простудиться!</Text>
-            </Dialog>
-            <Dialog withChoice="true">
-                <Speaker>Player</Speaker>
-                <Text>Как починить куртку?</Text>
-                <Choices>
-                    <Choice nextSegmentId="7">
-                        <Text>Занять деньги у друга</Text>
-                        <Conditions>
-                            <Condition stat="Relationship" min="50"/>
-                        </Conditions>
-                        <Consequences>
-                            <Consequence stat="Money" value="-150"/>
-                            <Consequence stat="Relationship" value="-10"/>
-                        </Consequences>
-                    </Choice>
-                    <Choice nextSegmentId="8">
-                        <Text>Купить новую из отложенных денег</Text>
-                        <Conditions>
-                            <Condition stat="BlackDayMoney" min="150"/>
-                        </Conditions>
-                        <Consequences>
-                            <Consequence stat="BlackDayMoney" value="-150"/>
-                        </Consequences>
-                    </Choice>
-                    <Choice nextSegmentId="9" mood="Negative">
-                        <Text>Пойти без куртки и заболеть</Text>
-                        <Consequences>
-                            <Consequence stat="Health" value="-20"/>
-                        </Consequences>
-                    </Choice>
-                </Choices>
-            </Dialog>
-        </Dialogs>
-    </Segment>
-
-    <!-- Исход: занять деньги у друга -->
-    <Segment id="7">
-        <Dialogs>
-            <Dialog>
-                <Speaker>Friend</Speaker>
-                <Text>Ничего страшного, я одолжу тебе деньги на ремонт куртки.</Text>
-            </Dialog>
-            <Dialog>
-                <Speaker>Player</Speaker>
-                <Text>Спасибо! Я верну их как можно скорее.</Text>
-            </Dialog>
-        </Dialogs>
-    </Segment>
-
-    <!-- Исход: купить новую из отложенных денег -->
-    <Segment id="8">
-        <Dialogs>
-            <Dialog>
-                <Speaker>Player</Speaker>
-                <Text>Хорошо, что я всегда держу деньги на чёрный день!</Text>
-            </Dialog>
-            <Dialog>
-                <Speaker>Player</Speaker>
-                <Text>Новая куртка решит проблему.</Text>
-            </Dialog>
-        </Dialogs>
-    </Segment>
-
-    <!-- Исход: пойти без куртки и заболеть -->
-    <Segment id="9" mood="Negative">
-        <Dialogs>
-            <Dialog>
-                <Speaker>Player</Speaker>
-                <Text>Пойду без куртки... Надеюсь, всё будет нормально.</Text>
-            </Dialog>
-            <Dialog>
-                <Speaker>_</Speaker>
-                <Text>На следующий день ты чувствуешь себя плохо. Похоже, ты простудился.</Text>
             </Dialog>
         </Dialogs>
     </Segment>

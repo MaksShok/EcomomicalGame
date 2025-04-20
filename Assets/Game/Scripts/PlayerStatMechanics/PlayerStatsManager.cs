@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 namespace Game.Scripts.PlayerStatMechanics
@@ -8,9 +10,9 @@ namespace Game.Scripts.PlayerStatMechanics
     {
         public readonly Dictionary<PlayerStat, Stat> Stats;
 
-        public Stat FriendRelationship { get; } = new(50, PlayerStat.FriendsRelationship, 100);
+        public Stat FriendRelationship { get; } = new(80, PlayerStat.FriendsRelationship, 100);
         public Stat MoodCoefficient { get; } = new(0, PlayerStat.Mood, 0, true);
-        public Stat Money{ get; } = new(500, PlayerStat.Money, 500, true);
+        public Stat Money { get; } = new(500, PlayerStat.Money, 500, true);
         public Stat BlackDayMoney { get; } = new(0, PlayerStat.BlackDayMoney, 100);
         public Stat PresentMoney { get; } = new(0, PlayerStat.PresentMoney, 150);
         public Stat Health { get; } = new(100, PlayerStat.Health, 100);
@@ -29,10 +31,23 @@ namespace Game.Scripts.PlayerStatMechanics
             };
         }
         
-        public void ChangeStat(PlayerStat statType, int changedValue)
+        public void ChangeStat(PlayerStat statType, string changedValueString)
         {
+            char operationSymbol = changedValueString[0];
+            changedValueString = changedValueString.Substring(1);
             Stat stat = Stats[statType];
-            stat.Value += changedValue;
+            
+            if (!int.TryParse(changedValueString, out int changedValue))
+            {
+                Debug.LogError("String Value Dont Parsed!!!!");
+                return;
+            }
+            
+            if (operationSymbol == '+') stat.Value += changedValue;
+            else if (operationSymbol == '-') stat.Value -= changedValue;
+            else if (operationSymbol == '=') stat.Value = changedValue;
+            else if (operationSymbol == '*') stat.Value *= changedValue;
+            else if (operationSymbol == '/') stat.Value /= changedValue;
         }
 
         public bool CheckStat(PlayerStat statType, int minValue, int maxValue = Int32.MaxValue)
@@ -46,8 +61,11 @@ namespace Game.Scripts.PlayerStatMechanics
 
         public void DistributeMoney(PlayerStat from, PlayerStat to, int value)
         {
-            ChangeStat(from, value * -1);
-            ChangeStat(to, value);
+            Stat fromStat = Stats[from];
+            Stat toStat = Stats[to];
+
+            fromStat.Value -= value;
+            toStat.Value += value;
         }
 
         public void ResetStats()

@@ -12,7 +12,7 @@ namespace Game.Scripts.UI.Popups.DialogPopap
 {
     public class DialogViewModel : ViewModel
     {
-        public override string PrefabName => "DialogView2";
+        public override string PrefabName => "DialogView";
         
         public List<ChoiceButtonViewModel> ChoiceModelsList = new();
         

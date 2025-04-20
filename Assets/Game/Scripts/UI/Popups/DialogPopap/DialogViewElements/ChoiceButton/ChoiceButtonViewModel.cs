@@ -26,6 +26,18 @@ namespace Game.Scripts.UI.Popups.DialogPopap.DialogViewElements.ChoiceButton
             ColorizeButtons();
         }
 
+        private void CheckConditions()
+        {
+            foreach (Condition condition in Choice.Conditions)
+            {
+                if (!PlayerStatsManager.CheckStat(condition.Stat, condition.MinValue))
+                {
+                    IsAvailable = false;
+                    return;
+                }
+            }
+        }
+
         private void ColorizeButtons()
         {
             if (MoodType == ChoiceMood.Negative)
@@ -50,18 +62,6 @@ namespace Game.Scripts.UI.Popups.DialogPopap.DialogViewElements.ChoiceButton
         private Color GetColorForRGB(float r, float g, float b)
         {
             return new Color(r / 255, g / 255, b / 255);
-        }
-
-        private void CheckConditions()
-        {
-            foreach (Condition condition in Choice.Conditions)
-            {
-                if (!PlayerStatsManager.CheckStat(condition.Stat, condition.MinValue))
-                {
-                    IsAvailable = false;
-                    return;
-                }
-            }
         }
     }
 }

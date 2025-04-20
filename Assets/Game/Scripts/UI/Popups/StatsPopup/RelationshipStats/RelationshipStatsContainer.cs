@@ -18,13 +18,13 @@ namespace Game.Scripts.UI.Popups.StatsPopup.RelationshipStats
                 
                 if (StatsManager.Stats.TryGetValue(statType, out Stat stat))
                 {
-                    RelationshipStatVisual statVisual = allStatsVisualFromResources.FirstOrDefault(s
+                    RelationshipStatVisual statVisualPrefab = allStatsVisualFromResources.FirstOrDefault(s
                         => s.statType == statType);
-                    if (statVisual != null)
+                    if (statVisualPrefab != null)
                     {
-                        visualStats.Add(statVisual);
+                        RelationshipStatVisual statVisual = Instantiate(statVisualPrefab, gameObject.transform);
                         statVisual.Init(stat);
-                        Instantiate(statVisual, gameObject.transform);
+                        visualStats.Add(statVisual);
                     }
                 }
             }

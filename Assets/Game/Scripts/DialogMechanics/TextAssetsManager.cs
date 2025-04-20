@@ -52,7 +52,7 @@ namespace Game.Scripts.DialogMechanics
             {
                 foreach (Consequence consequence in choiceMade.Consequences)
                 {
-                    _statsManager.ChangeStat(consequence.Stat, consequence.Value);
+                    _statsManager.ChangeStat(consequence.Stat, consequence.ValueString);
                 }
             }
             

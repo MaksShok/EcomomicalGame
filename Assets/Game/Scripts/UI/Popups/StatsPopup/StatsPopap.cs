@@ -5,9 +5,7 @@ using Game.Scripts.UI.MVVM;
 using Game.Scripts.UI.Popups.StatsPopup.FinancialStats;
 using Game.Scripts.UI.Popups.StatsPopup.MoneyBalanceStat;
 using Game.Scripts.UI.Popups.StatsPopup.RelationshipStats;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Game.Scripts.UI.Popups.StatsPopup
 {

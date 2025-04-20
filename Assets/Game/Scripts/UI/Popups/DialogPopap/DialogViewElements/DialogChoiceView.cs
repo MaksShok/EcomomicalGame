@@ -51,7 +51,12 @@ namespace Game.Scripts.UI.Popups.DialogPopap.DialogViewElements
 
         public void OnUnBindViewModel()
         {
+            foreach (ChoiceButtonView buttonView in _instantiatedButtonsList)
+            {
+                Destroy(buttonView.gameObject);
+            }
             
+            _instantiatedButtonsList.Clear();
         }
     }
 }

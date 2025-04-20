@@ -60,13 +60,13 @@ namespace Game.Scripts.DialogMechanics
         public ChoiceMood Mood;
         
         [XmlArray("Conditions")] [XmlArrayItem("Condition")]
-        public Condition[] Conditions;//
+        public Condition[] Conditions;
 
         [XmlArray("Consequences")] [XmlArrayItem("Consequence")]
-        public Consequence[] Consequences;//
+        public Consequence[] Consequences;
     }
     
-    public class Condition//
+    public class Condition
     {
         [XmlAttribute("stat")]
         public PlayerStat Stat;
@@ -75,13 +75,13 @@ namespace Game.Scripts.DialogMechanics
         public int MinValue;
     }
     
-    public class Consequence//
+    public class Consequence
     {
         [XmlAttribute("stat")]
         public PlayerStat Stat;
         
         [XmlAttribute("value")]
-        public int Value;
+        public string ValueString;
     }
 
     public enum ChoiceMood

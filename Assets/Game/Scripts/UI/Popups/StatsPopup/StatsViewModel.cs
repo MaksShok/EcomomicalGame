@@ -22,7 +22,5 @@ namespace Game.Scripts.UI.Popups.StatsPopup
             _playerStatsManager = playerStatsManager;
             _dialogData = dialogData;
         }
-        
-        
     }
 }

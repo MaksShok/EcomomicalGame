@@ -1,4 +1,5 @@
-﻿using Game.Scripts.UI.Popups.StatsPopup.AbstractStatsVisual;
+﻿using System.Globalization;
+using Game.Scripts.UI.Popups.StatsPopup.AbstractStatsVisual;
 using TMPro;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ namespace Game.Scripts.UI.Popups.StatsPopup.MoneyBalanceStat
         
         protected override void UpdateMe(float newValue)
         {
-            _balanceValue.text = newValue.ToString();
+            _balanceValue.text = $"{newValue}";
         }
     }
 }
