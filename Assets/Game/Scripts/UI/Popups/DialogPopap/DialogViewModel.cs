@@ -4,6 +4,7 @@ using Game.Scripts.DialogData;
 using Game.Scripts.DialogMechanics;
 using Game.Scripts.UI.MVVM;
 using Game.Scripts.UI.Popups.DialogPopap.DialogViewElements;
+using Game.Scripts.UI.Popups.DialogPopap.DialogViewElements.ChoiceButton;
 using R3;
 using UnityEngine;
 
@@ -13,10 +14,7 @@ namespace Game.Scripts.UI.Popups.DialogPopap
     {
         public override string PrefabName => "DialogView2";
         
-        // public ChoiceButtonViewModel FirstChoiceModel;
-        // public ChoiceButtonViewModel SecondChoiceModel;
-        // public ChoiceButtonViewModel ThirdChoiceModel;
-        public ChoiceButtonViewModel[] ChoiceModelsArray = new ChoiceButtonViewModel[3];
+        public List<ChoiceButtonViewModel> ChoiceModelsList = new();
         
         public Observable<string> CurrentDialogText => _currentDialogText;
         public Observable<string> CurrentSpeakerName => _currentSpeakerName;
@@ -81,12 +79,11 @@ namespace Game.Scripts.UI.Popups.DialogPopap
 
         private void BuildChoice(Dialog dialog)
         {
-            Array.Clear(ChoiceModelsArray, 0, 3);
-
-            Choice[] choices = dialog.Choices;
-            for (int i = 0; i < choices.Length; i++)
+            ChoiceModelsList.Clear();
+            
+            foreach (Choice choice in dialog.Choices)
             {
-                ChoiceModelsArray[i] = new ChoiceButtonViewModel(choices[i]);
+                ChoiceModelsList.Add(new ChoiceButtonViewModel(choice));
             }
 
             _choiceIsActive.OnNext(true);

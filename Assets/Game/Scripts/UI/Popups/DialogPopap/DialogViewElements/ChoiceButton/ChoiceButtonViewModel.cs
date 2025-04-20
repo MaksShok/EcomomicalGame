@@ -1,9 +1,8 @@
-﻿using Game.Scripts.DialogData;
-using Game.Scripts.DialogMechanics;
+﻿using Game.Scripts.DialogMechanics;
 using Game.Scripts.PlayerStatMechanics;
 using UnityEngine;
 
-namespace Game.Scripts.UI.Popups.DialogPopap.DialogViewElements
+namespace Game.Scripts.UI.Popups.DialogPopap.DialogViewElements.ChoiceButton
 {
     public class ChoiceButtonViewModel
     {

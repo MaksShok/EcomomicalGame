@@ -5,6 +5,7 @@ using Game.Scripts.DialogData;
 using Game.Scripts.DialogMechanics.EndManagers;
 using Game.Scripts.PlayerStatMechanics;
 using Game.Scripts.UI.Popups.DialogPopap.DialogViewElements;
+using Game.Scripts.UI.Popups.DialogPopap.DialogViewElements.ChoiceButton;
 using UnityEngine;
 
 namespace Game.Scripts.DialogMechanics

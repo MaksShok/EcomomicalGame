@@ -1,19 +1,17 @@
-﻿using TMPro;
+﻿using System;
+using System.Collections.Generic;
+using Game.Scripts.UI.Popups.DialogPopap.DialogViewElements.ChoiceButton;
+using R3;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.UI;
 
 namespace Game.Scripts.UI.Popups.DialogPopap.DialogViewElements
 {
     public class DialogChoiceView : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI _firstTextField;
-        [SerializeField] private TextMeshProUGUI _secondTextField;
-        [SerializeField] private TextMeshProUGUI _thirdTextField;
-        [SerializeField] private Button _firstButton;
-        [SerializeField] private Button _secondButton;
-        [SerializeField] private Button _thirdButton;
-
+        [SerializeField] private ChoiceButtonView _buttonPrefab;
+        [SerializeField] private Transform _rootTransform;
+        
+        private List<ChoiceButtonView> _instantiatedButtonsList = new();
         private DialogViewModel _viewModel;
         
         public void Init(DialogViewModel viewModel)
@@ -23,20 +21,13 @@ namespace Game.Scripts.UI.Popups.DialogPopap.DialogViewElements
 
         public void BuildChoiceView()
         {
-            ChoiceButtonViewModel firstButtonViewModel = _viewModel.ChoiceModelsArray[0];
-            BuildChoiceButton(_firstButton, _firstTextField, firstButtonViewModel, FirstButtonClicked);
-
-            ChoiceButtonViewModel secondButtonViewModel = _viewModel.ChoiceModelsArray[1];
-            BuildChoiceButton(_secondButton, _secondTextField, secondButtonViewModel, SecondButtonClicked);
-
-            if (_viewModel.ChoiceModelsArray[2] != null)
+            foreach (ChoiceButtonViewModel viewModel in _viewModel.ChoiceModelsList)
             {
-                ChoiceButtonViewModel thirdButtonViewModel = _viewModel.ChoiceModelsArray[2];
-                BuildChoiceButton(_thirdButton, _thirdTextField, thirdButtonViewModel, ThirdButtonClicked);
-            }
-            else
-            {
-                _thirdButton.gameObject.SetActive(false);
+                ChoiceButtonView choiceButtonView = Instantiate(_buttonPrefab, _rootTransform);
+                choiceButtonView.Bind(viewModel).Subscribe(model
+                    => TransferChoiceResult(model));
+                
+                _instantiatedButtonsList.Add(choiceButtonView);
             }
 
             gameObject.SetActive(true);
@@ -44,49 +35,23 @@ namespace Game.Scripts.UI.Popups.DialogPopap.DialogViewElements
 
         public void DestroyChoiceView()
         {
-            _firstButton.onClick.RemoveListener(FirstButtonClicked);
-            _secondButton.onClick.RemoveListener(SecondButtonClicked);
-            _thirdButton.onClick.RemoveListener(ThirdButtonClicked);
-
+            foreach (ChoiceButtonView buttonView in _instantiatedButtonsList)
+            {
+                Destroy(buttonView.gameObject);
+            }
+            
+            _instantiatedButtonsList.Clear();
             gameObject.SetActive(false);
         }
-
-        private void FirstButtonClicked()
+        
+        private void TransferChoiceResult(ChoiceButtonViewModel choiceButtonViewModel)
         {
-            _viewModel.ChoiceIsMade(_viewModel.ChoiceModelsArray[0]);
-        }
-
-        private void SecondButtonClicked()
-        {
-            _viewModel.ChoiceIsMade(_viewModel.ChoiceModelsArray[1]);
-        }
-
-        private void ThirdButtonClicked()
-        {
-            _viewModel.ChoiceIsMade(_viewModel.ChoiceModelsArray[2]);
-        }
-
-        private void BuildChoiceButton(Button button, TextMeshProUGUI text, 
-            ChoiceButtonViewModel viewModel, UnityAction onClickAction)
-        {
-            button.gameObject.SetActive(true);
-            button.image.color = viewModel.Color;
-            text.text = viewModel.ChoiceText;
-            if (viewModel.IsAvailable) 
-            {
-                button.onClick.AddListener(onClickAction);
-            }
-            else
-            {
-                
-            }
+            _viewModel.ChoiceIsMade(choiceButtonViewModel);
         }
 
         public void OnUnBindViewModel()
         {
-            _firstButton.onClick.RemoveListener(FirstButtonClicked);
-            _secondButton.onClick.RemoveListener(SecondButtonClicked);
-            _thirdButton.onClick.RemoveListener(ThirdButtonClicked);
+            
         }
     }
 }
