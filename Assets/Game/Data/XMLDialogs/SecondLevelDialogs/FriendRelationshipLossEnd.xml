@@ -1,0 +1,38 @@
+<Story>
+    <Segment id="0" mood="Negative" end="true">
+        <Dialogs>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Придётся идти без подарка...</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Я так плохо распорядился деньгами. Что Леха подумает обо мне?</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**На следующий день, в школе**</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Леха</Speaker>
+                <Text>Саша, а где подарок? Я надеялся, что ты что-то приготовишь...</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Прости, Леха... Я не смог найти денег.</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Леха</Speaker>
+                <Text>Ну ладно... Но это немного обидно.</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**Игра завершена: Потеря дружбы**</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**Мораль: Отношения с друзьями требуют внимания и заботы.**</Text>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+</Story>

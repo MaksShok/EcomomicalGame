@@ -69,7 +69,7 @@ namespace Game.Scripts.DialogMechanics
             }
             else if (_index == _textAssetsCount - 1)
             {
-                story = Deserialize(_endingManager.GetDefineEnding());
+                story = Deserialize(_endingManager.GetDefineEnding(_dialogManager.EndKey));
             }
             else
             {

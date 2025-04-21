@@ -1,0 +1,34 @@
+<Story>
+    <Segment id="0" mood="Negative" end="true">
+        <Dialogs>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>У меня нет денег на ежедневные траты...</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Я так плохо планирую свои расходы. Теперь придется голодать и идти пешком.</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**В школе**</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Одноклассник</Speaker>
+                <Text>Эй, Саша, ты сегодня не завтракал? Выглядишь уставшим.</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Ну... да, забыл дома деньги.</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**Игра завершена: Потеря денег**</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**Мораль: Всегда держите деньги про запас на важные траты.**</Text>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+</Story>

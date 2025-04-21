@@ -1,0 +1,34 @@
+<Story>
+    <Segment id="0" mood="Negative" end="true">
+        <Dialogs>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Что-то плохо себя чувствую. Похоже я простыл....</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Если бы я купил новую куртку, этого бы не случилось...</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**На следующий день в школе**</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Леха</Speaker>
+                <Text>Саша, ты заболел? Тебя вчера не было в школе.</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Да, немного нездоровится. Надо было беречь здоровье.</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**Игра завершена: Потеря здоровья**</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**Мораль: Забота о здоровье важнее, чем экономия денег.**</Text>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+</Story>

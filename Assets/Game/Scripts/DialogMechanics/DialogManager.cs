@@ -7,17 +7,18 @@ namespace Game.Scripts.DialogMechanics
     {
         public ReadOnlyReactiveProperty<Dialog> Dialog => _dialog;
 
-        public Action GetNextStoryRequest
-        {
+        public Action GetNextStoryRequest {
             private get { return _getNextStoryRequest;}
             set { _getNextStoryRequest = value; }
         }
+
+        public string EndKey { get; private set; }
 
         private Action _getNextStoryRequest;
         private ReactiveProperty<Dialog> _dialog = new();
         private Story _story;
         private DialogSegment _dialogSegment;
-
+        
         private int _segmentId;
         private int _dialogId;
         private int _lastDialogIdInSegment;
@@ -55,6 +56,7 @@ namespace Game.Scripts.DialogMechanics
         {
             if (_dialogSegment.IsEnd)
             {
+                EndKey = _dialogSegment.EndKey;
                 GetNextStoryRequest.Invoke();
                 return;
             }

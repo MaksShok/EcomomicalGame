@@ -1,4 +1,5 @@
-﻿using Game.Scripts.PlayerStatMechanics;
+﻿using System;
+using Game.Scripts.PlayerStatMechanics;
 using Game.Scripts.UI.Controllers;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ namespace Game.Scripts.DialogMechanics.EndManagers
     public class SecondLevelEndingManager : EndingManager
     {
         private const string PositiveEnd = "Positive";
-        private const string NegativeEnd = "Negative";
+        private const string ExtraSuccessEnd = "ExtraSuccess";
         private const string HealthLossEnd = "HealthLoss";
         private const string MoneyLossEnd = "MoneyLoss";
         private const string FriendRelationshipLossEnd = "FriendRelationshipLoss";
@@ -21,30 +22,28 @@ namespace Game.Scripts.DialogMechanics.EndManagers
             _statsManager = statsManager;
         }
 
-        public override TextAsset GetDefineEnding()
+        public override TextAsset GetDefineEnding(string endKey = default)
         {
             TextAsset endAsset;
 
-            if (_statsManager.Health.Value <= 15)
+            if (!string.IsNullOrEmpty(endKey))
             {
-                DialogData.EndingsDict.TryGetValue(HealthLossEnd, out endAsset);
+                DialogData.EndingsDict.TryGetValue(endKey, out endAsset);
+                if (endKey == PositiveEnd) IsVictory = true;
+                return endAsset;
             }
-            else if (_statsManager.FriendRelationship.Value <= 10)
+            
+            if (_statsManager.Money.Value >= 110)
             {
-                DialogData.EndingsDict.TryGetValue(FriendRelationshipLossEnd, out endAsset);
+                DialogData.EndingsDict.TryGetValue(ExtraSuccessEnd, out endAsset);
             }
-            else if (_statsManager.PresentMoney.Value >= _statsManager.PresentMoney.TargetValue 
-                     && _statsManager.BlackDayMoney.Value >= _statsManager.BlackDayMoney.TargetValue)
+            else if (_statsManager.Money.Value >= 50)
             {
                 DialogData.EndingsDict.TryGetValue(PositiveEnd, out endAsset);
             }
-            else if (_statsManager.Money.Value < 0)
-            {
-                DialogData.EndingsDict.TryGetValue(MoneyLossEnd, out endAsset);
-            }
             else
             {
-                DialogData.EndingsDict.TryGetValue(NegativeEnd, out endAsset);
+                DialogData.EndingsDict.TryGetValue(MoneyLossEnd, out endAsset);
             }
 
             return endAsset;

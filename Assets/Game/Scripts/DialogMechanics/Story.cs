@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 using Game.Scripts.PlayerStatMechanics;
 using UnityEngine.UI;
 
@@ -28,6 +27,9 @@ namespace Game.Scripts.DialogMechanics
 
         [XmlAttribute("end")] 
         public bool IsEnd;
+        
+        [XmlAttribute("endKey")] 
+        public string EndKey;
     }
 
     public class Dialog
@@ -94,5 +96,6 @@ namespace Game.Scripts.DialogMechanics
         Negative = 2,
         Agree = 3,
         Refuse = 4,
+        Norm = 5,
     }
 }

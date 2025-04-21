@@ -1,0 +1,34 @@
+<Story>
+    <Segment id="0" mood="Positive" end="true">
+        <Dialogs>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Подарок куплен. Ура!</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Наконец-то я смог спланировать все свои расходы и отложить деньги на подарок.</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**На следующий день, в школе**</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Леха</Speaker>
+                <Text>Саша, это потрясающе! Это именно то, что я хотел!</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Я рад, что угадал с подарком. С Днем Рождения, друг!</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**Игра завершена: Успешное завершение**</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**Мораль: Грамотное планирование помогает достичь целей.**</Text>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+</Story>

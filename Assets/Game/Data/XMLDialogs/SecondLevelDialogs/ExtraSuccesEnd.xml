@@ -1,0 +1,34 @@
+<Story>
+    <Segment id="0" mood="Positive" end="true">
+        <Dialogs>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>У меня остались лишние деньги после покупки подарка!</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Я даже смогу купить себе что-нибудь приятное!</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**На следующий день, в школе**</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Леха</Speaker>
+                <Text>Саша, спасибо за классный подарок! Ты лучший друг!</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Рад, что тебе понравилось! И у меня еще остались деньги на мороженое.</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**Игра завершена: Успех с излишками**</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**Мораль: Хорошее планирование может принести не только успех, но и бонусы.**</Text>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+</Story>

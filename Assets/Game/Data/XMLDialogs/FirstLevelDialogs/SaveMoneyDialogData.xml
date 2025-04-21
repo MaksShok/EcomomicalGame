@@ -113,7 +113,7 @@
                     <Choice nextSegmentId="4" mood="Positive">
                         <Text>Не покупать</Text>
                         <Consequences>
-                            <Consequence stat="Mood" value="1"/>
+                            <Consequence stat="Mood" value="+1"/>
                         </Consequences>
                     </Choice>
                     <Choice nextSegmentId="4" mood="Negative">

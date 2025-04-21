@@ -1,50 +1,196 @@
 <Story>
+    <!-- Первый день -->
     <Segment id="0" mood="None">
         <Dialogs>
             <Dialog>
                 <Speaker>_</Speaker>
-                <Text>**Сцена: Утро понедельника. Ты просыпаешься и вспоминаешь, что через неделю у твоего друга день рождения.**</Text>
+                <Text>**Утро понедельника. Саша просыпается дома**</Text>
             </Dialog>
             <Dialog>
-                <Speaker>Player</Speaker>
-                <Text>Ох, совсем забыл про день рождения друга! Нужно подготовиться.</Text>
+                <Speaker>Саша</Speaker>
+                <Text>Через неделю у друга день рождения... Что подарить?</Text>
             </Dialog>
-            <Dialog changeStats="true">
-                <Speaker>Player</Speaker>
-                <Text>У меня есть 500 рублей на неделю. Хватит ли их?</Text>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Леха увлекается боксом, может боксерские перчатки? Или новую игру</Text>
             </Dialog>
             <Dialog withChoice="true">
-                <Speaker>Player</Speaker>
-                <Text>Что сделать с деньгами?</Text>
+                <Speaker>Саша</Speaker>
+                <Text>Леха увлекается боксом, может боксерские перчатки? Или новую игру</Text>
                 <Choices>
-                    <Choice nextSegmentId="1" mood="Positive">
-                        <Text>Отложить 300 рублей</Text>
-                        <Conditions>
-                            <Condition stat="Money" minValue="300"/>
-                        </Conditions>
+                    <Choice mood="Agree">
+                        <Text>Боксерские перчатки</Text>
+                    </Choice>
+                    <Choice mood="Norm">
+                        <Text>Новую игру</Text>
+                    </Choice>
+                </Choices>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Ну вот и определился с подарком</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**Саша идет на кухню**</Text>
+            </Dialog>
+            <Dialog withChoice="true">
+                <Speaker>Саша</Speaker>
+                <Text>Завтракать или нет?</Text>
+                <Choices>
+                    <Choice nextSegmentId="1" mood="Agree">
+                        <Text>Завтракать</Text>
                         <Consequences>
-                            <Consequence stat="Money" value="-300"/>
-                            <Consequence stat="Health" value="-5"/>
-                            <Consequence stat="FriendsRelationship" value="-60"/>
+                            <Consequence stat="Health" value="+10"/>
                         </Consequences>
                     </Choice>
-                    <Choice nextSegmentId="1" mood="Positive">
-                        <Text>Отложить 50 рублей</Text>
+                    <Choice nextSegmentId="2" mood="Refuse">
+                        <Text>Не завтракать</Text>
+                        <Consequences>
+                            <Consequence stat="Health" value="-5"/>
+                        </Consequences>
+                    </Choice>
+                </Choices>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+
+    <Segment id="1" nextId="3" mood="Agree">
+        <Dialogs>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Любимые мамины котлеты, какая вкуснятина.</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Ладно, пора собиратся в школу...</Text>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+
+    <Segment id="2" nextId="3" mood="Refuse">
+        <Dialogs>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Обойдусь без завтрака.</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Не очень люблю мамины котлеты</Text>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+
+    <Segment id="3" mood="None">
+        <Dialogs>
+            <Dialog>
+                <Speaker>Мама</Speaker>
+                <Text>Саша, не забудь купить еду в школу и положить деньги на проезной!</Text>
+            </Dialog>
+            <Dialog withChoice="true">
+                <Speaker>Мама</Speaker>
+                <Text>Держи 80 рублей</Text>
+                <Choices>
+                    <Choice mood="Positive">
+                        <Text>Взять деньги</Text>
+                        <Consequences>
+                            <Consequence stat="Money" value="+80"/>
+                        </Consequences>
+                    </Choice>
+                </Choices>
+            </Dialog>
+            <Dialog withChoice="true">
+                <Speaker>Саша</Speaker>
+                <Text>Эх, каждый день на эту карту кладу...</Text>
+                <Choices>
+                    <Choice nextSegmentId="4" mood="Positive">
+                        <Text>Купить еду и пополнить проездной</Text>
+                        <Conditions>
+                            <Condition stat="Money" minValue="80"/>
+                        </Conditions>
+                        <Consequences>
+                            <Consequence stat="Money" value="-80"/>
+                        </Consequences>
+                    </Choice>
+                </Choices>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+
+    <Segment id="4" nextId="6" mood="Positive">
+        <Dialogs>
+            <Dialog>
+                <Speaker>Саша **Говорит про себя**</Speaker>
+                <Text>Я уже взростый, нужно следить за своими деньгами</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша **Говорит про себя**</Speaker>
+                <Text>Щас еще и каждый день тратить на еду с проездом</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша **Говорит про себя**</Speaker>
+                <Text>Вот откоплю чуть денег и куплю для Лехи тАААкой подарок!!!</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**Размышляет Саша по дороге в школу**</Text>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+
+    <!-- Концовка когда не можешь оплатить проездной и еду -->
+    <Segment id="5" mood="Negative" end="true" endKey="MoneyLoss">
+        <Dialogs>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>У меня нет денег на ежедневные траты...</Text>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+
+    <!-- Второй день -->
+    <Segment id="6" mood="None">
+        <Dialogs>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**Начало вторника**</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Так, у меня есть немного денег, нужно их распределить</Text>
+            </Dialog>
+            <Dialog changeStats="true">
+                <Speaker>_</Speaker>
+                <Text> </Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**Бабушка звонит Саше**</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Бабушка</Speaker>
+                <Text>Сашенька, приезжай ко мне в гости сегодня вечером!</Text>
+            </Dialog>
+            <Dialog withChoice="true">
+                <Speaker>Саша **Думает**</Speaker>
+                <Text>На чем поехать?</Text>
+                <Choices>
+                    <Choice nextSegmentId="7" mood="Norm">
+                        <Text>Автобус (50 рублей)</Text>
                         <Conditions>
                             <Condition stat="Money" minValue="50"/>
                         </Conditions>
                         <Consequences>
                             <Consequence stat="Money" value="-50"/>
-                            <Consequence stat="Health" value="+10"/>
                         </Consequences>
                     </Choice>
-                    <Choice nextSegmentId="2" mood="Negative">
-                        <Text>Не откладывать деньги</Text>
+                    <Choice nextSegmentId="8" mood="Norm">
+                        <Text>Заказать такси (100 рублей)</Text>
                         <Conditions>
-                            <Condition stat="Health" minValue="30"/>
+                            <Condition stat="Money" minValue="100"/>
                         </Conditions>
                         <Consequences>
-                            <Consequence stat="Health" value="-30"/>
+                            <Consequence stat="Money" value="-100"/>
                         </Consequences>
                     </Choice>
                 </Choices>
@@ -52,26 +198,92 @@
         </Dialogs>
     </Segment>
 
-    <Segment id="1" end = "true">
+    <Segment id="7" nextId="9" mood="Norm">
         <Dialogs>
             <Dialog>
-                <Speaker>Player</Speaker>
-                <Text>Я молодец, потому что вложился в свое здоровье</Text>
+                <Speaker>Саша</Speaker>
+                <Text>Во сколько там 34 автобус отступает...</Text>
             </Dialog>
-            <Dialog withChoice="true" changeStats="true">
-                <Speaker>Player</Speaker>
-                <Text>Эх...Купить бы эту BMW M5</Text>
+        </Dialogs>
+    </Segment>
+
+    <Segment id="8" nextId="9" mood="Norm">
+        <Dialogs>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>И так редко бабушку навещаю, можно и такси вызвать!</Text>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+
+    <Segment id="9" nextId="10" mood="Norm">
+        <Dialogs>
+            <Dialog>
+                <Speaker>Бабушка</Speaker>
+                <Text>Ну хорошо сыночек, я услышала тебя</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Бабушка</Speaker>
+                <Text>Давай в школу, а потом сразу ко мне. Жду</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Хорошо бабуль. Пока</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**Саша собирается и выходит в школу**</Text>
+            </Dialog>
+            <Dialog withChoice="true">
+                <Speaker>_</Speaker>
+                <Text>Нужно положить деньги на проездной и купить еду</Text>
                 <Choices>
-                    <Choice mood="Refuse">
-                        <Text>Купить машину</Text>
+                    <Choice nextSegmentId="10" mood="Positive">
+                        <Text>Оплатить</Text>
                         <Conditions>
-                            <Condition stat = "Money" minValue = "1000000"/>
+                            <Condition stat="Money" minValue="80"/>
                         </Conditions>
-                    </Choice>
-                    <Choice mood="Refuse">
-                        <Text>Да ну ее нахуй за такие деньги</Text>
                         <Consequences>
-                            <Consequence stat = "FriendsRelationship" value = "-100"/>
+                            <Consequence stat="Money" value="-80"/>
+                        </Consequences>
+                    </Choice>
+                    <Choice nextSegmentId="5" mood="Negative">
+                        <Text>Не оплачивать</Text>
+                    </Choice>
+                </Choices>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+
+    <!-- Третий день -->
+    <Segment id="10" mood="None">
+        <Dialogs>
+            <Dialog>
+                <Speaker>**Утро среды**</Speaker>
+                <Text>Что же, новый день</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Леха</Speaker>
+                <Text>Саша, пойдём погуляем?</Text>
+            </Dialog>
+            <Dialog withChoice="true">
+                <Speaker>Саша</Speaker>
+                <Text>Куда пойдём?</Text>
+                <Choices>
+                    <Choice nextSegmentId="11" mood="Norm">
+                        <Text>В парк. Просто погуляем</Text>
+                        <Consequences>
+                            <Consequence stat="FriendsRelationship" value="+10"/>
+                        </Consequences>
+                    </Choice>
+                    <Choice nextSegmentId="12" mood="Norm">
+                        <Text>В кафе</Text>
+                        <Conditions>
+                            <Condition stat="Money" minValue="50"/>
+                        </Conditions>
+                        <Consequences>
+                            <Consequence stat="Money" value="-50"/>
+                            <Consequence stat="FriendsRelationship" value="+20"/>
                         </Consequences>
                     </Choice>
                 </Choices>
@@ -79,15 +291,342 @@
         </Dialogs>
     </Segment>
 
-    <Segment id="2" end = "true">
-        <Dialogs changeStats="true">
+    <Segment id="11" nextId="13" mood="Norm">
+        <Dialogs>
             <Dialog>
-                <Speaker>Player</Speaker>
-                <Text>Ну ладно, может быть, я смогу найти деньги позже.</Text>
+                <Speaker>Саша</Speaker>
+                <Text>Отлично, прогуляемся в парке.</Text>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+
+    <Segment id="12" nextId="13" mood="Norm">
+        <Dialogs>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Пошли в кафе!</Text>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+
+    <Segment id="13">
+        <Dialogs>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>Саша встретился с другом</Text>
+            </Dialog>
+            <Dialog withChoice="true">
+                <Speaker>**Пока друзья шли, у прохожего впереди упало 50 рублей**</Speaker>
+                <Text>Что сделать?</Text>
+                <Choices>
+                    <Choice nextSegmentId="14" mood="Positive">
+                        <Text>Подобрать и предупредить человека о потере</Text>
+                    </Choice>
+                    <Choice nextSegmentId="15" mood="Negative">
+                        <Text>Тихо забрать деньги</Text>
+                        <Consequences>
+                            <Consequence stat="Money" value="+50"/>
+                            <Consequence stat="FriendsRelationship" value="-15"/>
+                        </Consequences>
+                    </Choice>
+                </Choices>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+
+    <Segment id="14" nextId="16" mood="Positive">
+        <Dialogs>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>ИЗВИНИТЕ, У ВАС УПАЛИ 50 РУБЛЕЙ</Text>
             </Dialog>
             <Dialog>
-                <Speaker>Player</Speaker>
-                <Text>Но это рискованно...</Text>
+                <Speaker>Леха</Speaker>
+                <Text>Саша, ты молодец! Правильно поступил</Text>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+
+    <Segment id="15" nextId="16" mood="Negative">
+        <Dialogs>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Смотри, 50 рублей уронил. Я возьму себе</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Леха</Speaker>
+                <Text>Ээх, Саша, я не ожидал от тебя такого, но дело твое</Text>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+
+    <!-- Четвертый день -->
+    <Segment id="16" mood="None">
+        <Dialogs>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**Утро вторника**</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Нужно распределить мои деньги</Text>
+            </Dialog>
+            <Dialog changeStats="true">
+                <Speaker>_</Speaker>
+                <Text> </Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Леха</Speaker>
+                <Text>Саша, помоги собрать шкаф. Приедешь помочь?</Text>
+            </Dialog>
+            <Dialog withChoice="true">
+                <Speaker>Саша</Speaker>
+                <Text>Что делать?</Text>
+                <Choices>
+                    <Choice nextSegmentId="17" mood="Agree">
+                        <Text>Помочь</Text>
+                        <Consequences>
+                            <Consequence stat="FriendsRelationship" value="+30"/>
+                        </Consequences>
+                    </Choice>
+                    <Choice nextSegmentId="18" mood="Refuse">
+                        <Text>Не помогать</Text>
+                        <Consequences>
+                            <Consequence stat="FriendsRelationship" value="-30"/>
+                        </Consequences>
+                    </Choice>
+                </Choices>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+
+    <Segment id="17" nextId="19" mood="Agree">
+        <Dialogs>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Хорошо, Лех, Щас приеду конечно)</Text>
+            </Dialog>
+            <Dialog withChoice="true">
+                <Speaker>Саша</Speaker>
+                <Text>Нужно положить деньги на проездной и купить еду</Text>
+                <Choices>
+                    <Choice nextSegmentId="19" mood="Positive">
+                        <Text>Оплатить</Text>
+                        <Conditions>
+                            <Condition stat="Money" minValue="80"/>
+                        </Conditions>
+                        <Consequences>
+                            <Consequence stat="Money" value="-80"/>
+                        </Consequences>
+                    </Choice>
+                    <Choice nextSegmentId="5" mood="Negative">
+                        <Text>Не оплачивать</Text>
+                    </Choice>
+                </Choices>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+
+    <Segment id="18" nextId="19" mood="Refuse">
+        <Dialogs>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Извини, не могу помочь.</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Леха</Speaker>
+                <Text>Пожалуйста, саша</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Леха</Speaker>
+                <Text>Я редко прошу помощи</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Лааадно</Text>
+            </Dialog>
+            <Dialog withChoice="true">
+                <Speaker>Саша</Speaker>
+                <Text>Нужно положить деньги на проездной и купить еду</Text>
+                <Choices>
+                    <Choice nextSegmentId="19" mood="Positive">
+                        <Text>Оплатить</Text>
+                        <Conditions>
+                            <Condition stat="Money" minValue="80"/>
+                        </Conditions>
+                        <Consequences>
+                            <Consequence stat="Money" value="-80"/>
+                        </Consequences>
+                    </Choice>
+                    <Choice nextSegmentId="5" mood="Negative">
+                        <Text>Не оплачивать</Text>
+                    </Choice>
+                </Choices>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+
+    <Segment id="19" mood="Positive">
+        <Dialogs>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**По дороге к другу у Саши порвалась куртка**</Text>
+            </Dialog>
+            <Dialog withChoice="true">
+                <Speaker>Саша</Speaker>
+                <Text>Что делать с курткой?</Text>
+                <Choices>
+                    <Choice nextSegmentId="20" mood="Norm">
+                        <Text>Купить новую (150 рублей)</Text>
+                        <Conditions>
+                            <Condition stat="BlackDayMoney" minValue="150"/>
+                        </Conditions>
+                        <Consequences>
+                            <Consequence stat="BlackDayMoney" value="-150"/>
+                        </Consequences>
+                    </Choice>
+                    <Choice nextSegmentId="21" mood="Negative">
+                        <Text>Остаться без куртки</Text>
+                        <Consequences>
+                            <Consequence stat="Health" value="-60"/>
+                        </Consequences>
+                    </Choice>
+                </Choices>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+
+    <Segment id="20" nextId="22" mood="Norm">
+        <Dialogs>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Купил новую куртку. Теперь можно идти дальше.</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**Друзья увиделись**</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**Через 2 часа**</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Леха</Speaker>
+                <Text>Спасибо за помощь, Саша!</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Не за что, дружище!</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**Саша помог другу и добрался до дома**</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Хорошо, что купил новую куртку, а то так бы точно простыл</Text>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+
+    <Segment id="21" mood="Negative" end="true" endKey="HealthLoss">
+        <Dialogs>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Буду без куртки. Надеюсь, не заболею.</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**Друзья увиделись**</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Леха</Speaker>
+                <Text>Е-Мае, Саша, ты чего дез куртки</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Щас расскажу....</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**Через 2 часа**</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Леха</Speaker>
+                <Text>Спасибо за помощь, Саша!</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Не за что, дружище!</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>А у тебя не будет куртки, моя порвалась?</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Леха</Speaker>
+                <Text>Да, вот, бери эту...(Старая куртка с меховым капюшоном)</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**Саша добрался до дома**</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Что-то плохо себя чувствую. Похоже я простыл....</Text>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+
+    <!-- Пятый день -->
+    <Segment id="22" mood="None">
+        <Dialogs>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**Утро пятницы**</Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Пора купить подарок другу.</Text>
+            </Dialog>
+            <Dialog withChoice="true">
+                <Speaker>Саша</Speaker>
+                <Text>Нужно проверить копилку</Text>
+                <Choices>
+                    <Choice nextSegmentId="23" mood="Positive">
+                        <Text>Денег хватает, купить подарок</Text>
+                        <Conditions>
+                            <Condition stat="PresentMoney" minValue="250"/>
+                        </Conditions>
+                        <Consequences>
+                            <Consequence stat="PresentMoney" value="-250"/>
+                        </Consequences>
+                    </Choice>
+                    <Choice nextSegmentId="24" mood="Negative">
+                        <Text>Не хватает...придётся идти без подарка</Text>
+                        <Consequences>
+                            <Consequence stat="FriendsRelationship" value="-60"/>
+                        </Consequences>
+                    </Choice>
+                </Choices>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+
+    <Segment id="23" end="true" mood="Positive">
+        <Dialogs>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Подарок куплен. Ура!</Text>
+            </Dialog>
+        </Dialogs>
+    </Segment>
+
+    <Segment id="24" end="true" mood="Negative" endKey="FriendRelationshipLoss">
+        <Dialogs>
+            <Dialog>
+                <Speaker>Саша</Speaker>
+                <Text>Придётся идти без подарка...</Text>
             </Dialog>
         </Dialogs>
     </Segment>

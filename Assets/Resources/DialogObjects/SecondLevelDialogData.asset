@@ -15,8 +15,16 @@ MonoBehaviour:
   defaultTextAssets:
   - {fileID: 4900000, guid: f7fd62a79e418404b97892c909c420db, type: 3}
   endingDataList:
+  - Key: ExtraSuccess
+    TextAsset: {fileID: 4900000, guid: 218301b656c292342a2664ab6b391b0c, type: 3}
   - Key: FriendRelationshipLoss
-    TextAsset: {fileID: 4900000, guid: 34e1b86205d868343812b8209de50c9e, type: 3}
+    TextAsset: {fileID: 4900000, guid: 47845e60dc72c9949a3b1a5f61531aa0, type: 3}
+  - Key: HealthLoss
+    TextAsset: {fileID: 4900000, guid: 812b6b6b234bec54a8b348bc5d54803b, type: 3}
+  - Key: MoneyLoss
+    TextAsset: {fileID: 4900000, guid: c49e9542d7cc97e4baba086b2cf0f44b, type: 3}
+  - Key: Positive
+    TextAsset: {fileID: 4900000, guid: fc52df682b394b84abc6cf4376ca05c6, type: 3}
   financialStats:
   - {fileID: -8488739166251397927, guid: f1b4f82180fa3c943a9ee69a9368c3f8, type: 3}
   - {fileID: 7954894274646500836, guid: ba435c10ab5455a48bed595cdb196336, type: 3}

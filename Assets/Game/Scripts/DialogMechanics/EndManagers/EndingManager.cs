@@ -13,7 +13,7 @@ namespace Game.Scripts.DialogMechanics.EndManagers
         protected LevelFinishViewModelAbstract LevelFinishViewModel;
         protected bool IsVictory;
 
-        public abstract TextAsset GetDefineEnding();
+        public abstract TextAsset GetDefineEnding(string endKey = default);
         
         public void InitDialogData(DialogDataObject dialogData) 
             => DialogData = dialogData;

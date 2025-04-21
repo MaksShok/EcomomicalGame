@@ -1,4 +1,5 @@
-﻿using Game.Scripts.PlayerStatMechanics;
+﻿using System;
+using Game.Scripts.PlayerStatMechanics;
 using Game.Scripts.UI.Controllers;
 using UnityEngine;
 
@@ -18,10 +19,10 @@ namespace Game.Scripts.DialogMechanics.EndManagers
             _statsManager = statsManager;
         }
 
-        public override TextAsset GetDefineEnding()
+        public override TextAsset GetDefineEnding(string endKey = default)
         {
             TextAsset endAsset;
-            
+
             if (_statsManager.MoodCoefficient.Value >= 0)
             {
                 IsVictory = true;
