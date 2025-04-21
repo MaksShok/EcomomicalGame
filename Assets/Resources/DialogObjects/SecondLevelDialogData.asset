@@ -13,15 +13,18 @@ MonoBehaviour:
   m_Name: SecondLevelDialogData
   m_EditorClassIdentifier: 
   defaultTextAssets:
-  - {fileID: 4900000, guid: 98c40ec4914ba774e8e24373f0c1c762, type: 3}
+  - {fileID: 4900000, guid: f7fd62a79e418404b97892c909c420db, type: 3}
   endingDataList:
-  - Key: Positive
+  - Key: FriendRelationshipLoss
     TextAsset: {fileID: 4900000, guid: 34e1b86205d868343812b8209de50c9e, type: 3}
-  - Key: Negative
-    TextAsset: {fileID: 4900000, guid: 583bc7d20c7d77047a1065ca64d367ab, type: 3}
-  financialStats: 
-  relationshipStats: 
-  balanceStats: 
+  financialStats:
+  - {fileID: -8488739166251397927, guid: f1b4f82180fa3c943a9ee69a9368c3f8, type: 3}
+  - {fileID: 7954894274646500836, guid: ba435c10ab5455a48bed595cdb196336, type: 3}
+  relationshipStats:
+  - {fileID: 413168849833761800, guid: 2167f52a3e2524a44b110d69f22f6013, type: 3}
+  - {fileID: 5743034298589849405, guid: 640c465214ab70447987592d1ab444ac, type: 3}
+  balanceStats:
+  - {fileID: 3048378891265091566, guid: d072c9a4cef592646989aa22fa2de523, type: 3}
   spriteIndicators:
   - {fileID: 7115247410722311376, guid: f4db2ffe57b66e642886464868da1014, type: 3}
   - {fileID: 7115247410722311376, guid: 16fab75f2bb842a4aa9054cd2448cb74, type: 3}

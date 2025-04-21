@@ -7,20 +7,13 @@ namespace Game.Scripts.UI.Popups.StatsPopup.MoneyBalanceStat
 {
     public class BalanceStatsContainer : StatsContainer<BalanceStatVisual>
     {
-        protected override string PathToResources => "Prefabs/Stats/BalanceStats/";
-        
         protected override void ShowStats()
         {
-            foreach (PlayerStat statType in DialogData.balanceStats)
+            foreach (BalanceStatVisual statVisualPrefab in DialogData.balanceStats)
             {
-                BalanceStatVisual[] allStatsVisualFromResources = Resources
-                    .LoadAll<BalanceStatVisual>(PathToResources);
-                
-                if (StatsManager.Stats.TryGetValue(statType, out Stat stat))
+                if (StatsManager.Stats.TryGetValue(statVisualPrefab.statType, out Stat stat))
                 {
-                    BalanceStatVisual statVisualPrefab = allStatsVisualFromResources.FirstOrDefault(s
-                        => s.statType == statType);
-                    if (statVisualPrefab != null)
+                    if (stat != null)
                     {
                         BalanceStatVisual statVisual = Instantiate(statVisualPrefab, gameObject.transform);
                         statVisual.Init(stat);

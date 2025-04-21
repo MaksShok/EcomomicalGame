@@ -22,7 +22,7 @@ namespace Game.Scripts.DialogMechanics
         private int _dialogId;
         private int _lastDialogIdInSegment;
 
-        public void StartStory(Story story) 
+        public void StartStory(Story story)
         {
             _dialogId = 0;
             _segmentId = 0;

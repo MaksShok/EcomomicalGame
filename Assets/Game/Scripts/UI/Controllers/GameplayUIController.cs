@@ -4,10 +4,10 @@ using Game.Scripts.EntryPoints;
 using Game.Scripts.PlayerStatMechanics;
 using Game.Scripts.UI.Popups.DialogFinishPopup;
 using Game.Scripts.UI.Popups.DialogPopap;
+using Game.Scripts.UI.Popups.DistributeStatsPopap;
 using Game.Scripts.UI.Popups.StatsPopup;
 using Game.Scripts.UI.Root;
 using Game.Scripts.UI.Windows.GameplayWindow;
-using UnityEngine.Rendering;
 using Zenject;
 
 namespace Game.Scripts.UI.Controllers
@@ -61,7 +61,17 @@ namespace Game.Scripts.UI.Controllers
 
         public StatsViewModel OpenStatsPopap(DialogDataObject dialogData)
         {
-            StatsViewModel viewModel = new StatsViewModel(_container.Resolve<PlayerStatsManager>(), dialogData);
+            StatsViewModel viewModel = new StatsViewModel(_container.Resolve<PlayerStatsManager>(), dialogData,
+                this, _container.Resolve<DialogManager>());
+            _rootViewModel.OpenPopup(viewModel);
+
+            return viewModel;
+        }
+
+        public DistributeStatsViewModel OpenDistributeStatsPopap(DialogDataObject dialogData)
+        {
+            DistributeStatsViewModel viewModel =
+                new DistributeStatsViewModel(_container.Resolve<PlayerStatsManager>(), dialogData);
             _rootViewModel.OpenPopup(viewModel);
 
             return viewModel;

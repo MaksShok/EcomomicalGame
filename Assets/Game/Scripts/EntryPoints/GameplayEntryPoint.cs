@@ -70,6 +70,7 @@ namespace Game.Scripts.EntryPoints
                 || !_dialogData.relationshipStats.IsEmpty())
             {
                 _openedViewModels.Add(_uiController.OpenStatsPopap(_dialogData));
+                //_uiController.OpenDistributeStatsPopap(_dialogData);
             }
         }
     }

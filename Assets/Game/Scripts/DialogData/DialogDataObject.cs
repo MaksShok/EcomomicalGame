@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
 using Game.Scripts.PlayerStatMechanics;
+using Game.Scripts.UI.Popups.StatsPopup.FinancialStats;
+using Game.Scripts.UI.Popups.StatsPopup.MoneyBalanceStat;
+using Game.Scripts.UI.Popups.StatsPopup.RelationshipStats;
 using UnityEngine;
 
 namespace Game.Scripts.DialogData
@@ -11,9 +14,9 @@ namespace Game.Scripts.DialogData
         [SerializeField] private List<EndingData> endingDataList;
         
         [Header("This Stats will be vusialized")]
-        [SerializeField] public List<PlayerStat> financialStats;
-        [SerializeField] public List<PlayerStat> relationshipStats;
-        [SerializeField] public List<PlayerStat> balanceStats;
+        [SerializeField] public List<FinancialStatVisual> financialStats;
+        [SerializeField] public List<RelationshipStatVisual> relationshipStats;
+        [SerializeField] public List<BalanceStatVisual> balanceStats;
         
         [SerializeField] private List<SpriteIndicator> spriteIndicators;
         

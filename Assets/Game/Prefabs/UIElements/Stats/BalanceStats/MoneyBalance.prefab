@@ -184,6 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f7c9da7ef64b3abebd1c3bc4aadd62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statVisualizedName: "\u0414\u0435\u043D\u044C\u0433\u0438 \u0432 \u043A\u043E\u0448\u0435\u043B\u044C\u043A\u0435"
   statType: 1
   _balanceValue: {fileID: 7890314448164649376}
 --- !u!1 &7109142229934577571

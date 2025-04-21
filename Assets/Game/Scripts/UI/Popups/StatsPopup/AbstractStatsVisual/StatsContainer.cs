@@ -10,8 +10,6 @@ namespace Game.Scripts.UI.Popups.StatsPopup.AbstractStatsVisual
 {
     public abstract class StatsContainer<TStatVisual> : MonoBehaviour where TStatVisual : StatVisual
     {
-        protected abstract string PathToResources { get; }
-
         public List<TStatVisual> visualStats = new();
         
         protected DialogDataObject DialogData;

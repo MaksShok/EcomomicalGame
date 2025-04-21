@@ -141,6 +141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cc62c862e484c6d83939d81757b9834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statVisualizedName: "\u0414\u0435\u043D\u044C\u0433\u0438 \u043D\u0430 \u043D\u0435\u043F\u0440\u0435\u0434\u0432\u0438\u0434\u0435\u043D\u043D\u044B\u0435
+    \u0440\u0430\u0441\u0445\u043E\u0434\u044B"
   statType: 2
   _value: {fileID: 6084017991729850575}
 --- !u!114 &6084017991729850575 stripped

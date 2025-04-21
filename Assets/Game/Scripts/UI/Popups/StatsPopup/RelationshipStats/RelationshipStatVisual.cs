@@ -11,7 +11,7 @@ namespace Game.Scripts.UI.Popups.StatsPopup.RelationshipStats
 
         protected override void UpdateMe(float newValue)
         {
-            _progress.fillAmount = newValue / Stat.MaxValue;
+            if (_progress != null) _progress.fillAmount = newValue / Stat.MaxValue;
         }
     }
 }

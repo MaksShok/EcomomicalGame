@@ -46,6 +46,9 @@ namespace Game.Scripts.DialogMechanics
 
         [XmlAttribute("withChoice")]
         public bool WithChoice;
+
+        [XmlAttribute("changeStats")]
+        public bool ChangeStats;
     }
 
     public class Choice

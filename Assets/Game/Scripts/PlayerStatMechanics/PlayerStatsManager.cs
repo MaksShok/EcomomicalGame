@@ -10,7 +10,7 @@ namespace Game.Scripts.PlayerStatMechanics
 
         public Stat FriendRelationship { get; } = new(80, PlayerStat.FriendsRelationship, 100, 0, 100);
         public Stat MoodCoefficient { get; } = new(0, PlayerStat.Mood, 0, Int32.MinValue, Int32.MaxValue);
-        public Stat Money { get; } = new(500, PlayerStat.Money, 0, -1000, Int32.MaxValue);
+        public Stat Money { get; } = new(500, PlayerStat.Money, 0, -1, Int32.MaxValue);
         public Stat BlackDayMoney { get; } = new(0, PlayerStat.BlackDayMoney, 100, 0, Int32.MaxValue);
         public Stat PresentMoney { get; } = new(0, PlayerStat.PresentMoney, 150, 0, Int32.MaxValue);
         public Stat Health { get; } = new(100, PlayerStat.Health, 100, 0, 100);
@@ -58,11 +58,16 @@ namespace Game.Scripts.PlayerStatMechanics
 
         public void DistributeMoney(PlayerStat from, PlayerStat to, int value)
         {
+            if (from == to) return;
+            
             Stat fromStat = Stats[from];
             Stat toStat = Stats[to];
 
-            fromStat.Value -= value;
-            toStat.Value += value;
+            if (fromStat.MinValue <= fromStat.Value - value && toStat.MaxValue >= toStat.Value + value)
+            {
+                fromStat.Value -= value;
+                toStat.Value += value; 
+            }
         }
 
         public void ResetStats()
