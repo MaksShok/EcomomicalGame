@@ -34,16 +34,65 @@ MonoBehaviour:
   balanceStats:
   - {fileID: 3048378891265091566, guid: d072c9a4cef592646989aa22fa2de523, type: 3}
   spriteIndicators:
-  - {fileID: 7115247410722311376, guid: f4db2ffe57b66e642886464868da1014, type: 3}
-  - {fileID: 7115247410722311376, guid: 16fab75f2bb842a4aa9054cd2448cb74, type: 3}
-  - {fileID: 7115247410722311376, guid: d1c8b29192883a74ab7083b97078837b, type: 3}
-  - {fileID: 7115247410722311376, guid: 2778e713f41adcb4f85792094974690a, type: 3}
-  - {fileID: 7115247410722311376, guid: d32585eb6063aba43806f37b325bb085, type: 3}
-  - {fileID: 7115247410722311376, guid: 4c5e3d901a25c444b88084b2b1389899, type: 3}
-  - {fileID: 7115247410722311376, guid: 6d0d4b0319c65ca4490f38d07148cae2, type: 3}
-  - {fileID: 7115247410722311376, guid: f4d29284ebfe2404a8979b96d348e0de, type: 3}
-  - {fileID: 7115247410722311376, guid: 8a64c5ef488ba994caef01b96c8126a2, type: 3}
-  - {fileID: 7115247410722311376, guid: efda5f5c7f507c349a48314c7398287f, type: 3}
-  - {fileID: 7115247410722311376, guid: 4f16f6b0546c9fa4180f1f22787de946, type: 3}
-  - {fileID: 7115247410722311376, guid: 66b04df378e51ee4db9a4d8c062fb7fe, type: 3}
-  - {fileID: 7115247410722311376, guid: 39a4e3d6b1aff094dbe7a3b4ca5aebce, type: 3}
+  - Sprite: {fileID: 21300000, guid: a2a3ff4a4e5b9954bb2383f15572cf27, type: 3}
+    SpriteId: 00
+  - Sprite: {fileID: 21300000, guid: ab4a0f8fdb8761640ada7156c5e1e7d1, type: 3}
+    SpriteId: 01
+  - Sprite: {fileID: 21300000, guid: 286a45a4b875ac840b5ee11369128630, type: 3}
+    SpriteId: 02
+  - Sprite: {fileID: 21300000, guid: 168eb0a6fe556a249864a2ad0d4c1437, type: 3}
+    SpriteId: 10
+  - Sprite: {fileID: 21300000, guid: 1aa47ac7292c94f48bb339ad477e5704, type: 3}
+    SpriteId: 20
+  - Sprite: {fileID: 21300000, guid: 31b66823ce4b3d04aa02c47867313e49, type: 3}
+    SpriteId: 30
+  - Sprite: {fileID: 21300000, guid: 02b050eaf836ea84da2cdeb063a4e682, type: 3}
+    SpriteId: 31
+  - Sprite: {fileID: 21300000, guid: 31429594df64e4b459aab8bb84e85e1e, type: 3}
+    SpriteId: 32
+  - Sprite: {fileID: 21300000, guid: bb6a07e150ce9e64986d926550acc0b2, type: 3}
+    SpriteId: 40
+  - Sprite: {fileID: 21300000, guid: ac2301a15d319064db934dd399373b3a, type: 3}
+    SpriteId: 50
+  - Sprite: {fileID: 21300000, guid: 34ced32879cd23945b71a878bc330338, type: 3}
+    SpriteId: 60
+  - Sprite: {fileID: 21300000, guid: 2fc6c831434710946be7e21bbcf2a45f, type: 3}
+    SpriteId: 61
+  - Sprite: {fileID: 21300000, guid: aef8da1ef3f1ee94eb770c06dc61f355, type: 3}
+    SpriteId: 62
+  - Sprite: {fileID: 21300000, guid: ec4f1ee9012897a40a556f893a45da29, type: 3}
+    SpriteId: 90
+  - Sprite: {fileID: 21300000, guid: 96cdd8df1bca2a04381a80cfd933a1cf, type: 3}
+    SpriteId: 91
+  - Sprite: {fileID: 21300000, guid: e51c702d801b33343b3353f2d2a8d7e1, type: 3}
+    SpriteId: 100
+  - Sprite: {fileID: 21300000, guid: 743d91d298e5c5a4084e5b97aabe1ff9, type: 3}
+    SpriteId: 130
+  - Sprite: {fileID: 21300000, guid: 73957bb7095c73f4bb40a243bd133b49, type: 3}
+    SpriteId: 131
+  - Sprite: {fileID: 21300000, guid: 943c7ce950128234c85d3402a9d0e5fa, type: 3}
+    SpriteId: 140
+  - Sprite: {fileID: 21300000, guid: 520973062e536c54c9a2ff7cb8732f64, type: 3}
+    SpriteId: 150
+  - Sprite: {fileID: 21300000, guid: 1ba19266e3acbe148a5568b07516d9dd, type: 3}
+    SpriteId: 170
+  - Sprite: {fileID: 21300000, guid: 4df81d3a8855bb543bef41c4a6a43ce3, type: 3}
+    SpriteId: 190
+  - Sprite: {fileID: 21300000, guid: 83bc6e0b751cf3f4692204115e49362a, type: 3}
+    SpriteId: 200
+  - Sprite: {fileID: 21300000, guid: bed7428562fbf2948a2ae1695433b54f, type: 3}
+    SpriteId: 202
+  - Sprite: {fileID: 21300000, guid: dff4962bebe74b140b7af4f536973f1a, type: 3}
+    SpriteId: 203
+  - Sprite: {fileID: 21300000, guid: 8baf166c10502e14eb35746c8d59d28d, type: 3}
+    SpriteId: 204
+  - Sprite: {fileID: 21300000, guid: 9bd4e1bcc365e8d40aa41ea798f209d8, type: 3}
+    SpriteId: 212
+  - Sprite: {fileID: 21300000, guid: d8cf9890d3aad2740990fca5d3797f85, type: 3}
+    SpriteId: 213
+  - Sprite: {fileID: 21300000, guid: c1f1db7f5d0f668448610ce800749661, type: 3}
+    SpriteId: 220
+  - Sprite: {fileID: 21300000, guid: d5edd481475576a4ead478d10f1dbf76, type: 3}
+    SpriteId: 230
+  - Sprite: {fileID: 21300000, guid: e1771795e0d882b4ab1eec605d2bd5c6, type: 3}
+    SpriteId: 240

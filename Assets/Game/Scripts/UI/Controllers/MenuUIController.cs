@@ -35,9 +35,17 @@ namespace Game.Scripts.UI.Controllers
             return viewModel;
         }
 
-        public TeoryPopupViewModel OpenTeoryPopup()
+        public FirstLevelTeoryPopupViewModel OpenFirstTeoryPopup()
         {
-            TeoryPopupViewModel viewModel = new TeoryPopupViewModel();
+            FirstLevelTeoryPopupViewModel viewModel = new FirstLevelTeoryPopupViewModel();
+            _rootViewModel.OpenPopup(viewModel);
+
+            return viewModel;
+        }
+        
+        public SecondLevelTeoryPopupViewModel OpenSecondTeoryPopup()
+        {
+            SecondLevelTeoryPopupViewModel viewModel = new SecondLevelTeoryPopupViewModel();
             _rootViewModel.OpenPopup(viewModel);
 
             return viewModel;

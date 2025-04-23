@@ -43,12 +43,12 @@ namespace Game.Scripts.UI.Windows.LevelMenuWindow
 
         public void ShowFirstLevelTeoryRequest()
         {
-            _uiController.OpenTeoryPopup();
+            _uiController.OpenFirstTeoryPopup();
         }
 
         public void ShowSecondLevelTeoryRequest()
         {
-            _uiController.OpenTeoryPopup();
+            _uiController.OpenSecondTeoryPopup();
         }
 
         public void ExitToStartMenuRequest()

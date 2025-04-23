@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Game.Scripts.DialogData
 {
-    public class SpriteIndicator : MonoBehaviour
+    [Serializable]
+    public class SpriteIndicator
     {
         [SerializeField] public Sprite Sprite;
         [SerializeField] public string SpriteId;

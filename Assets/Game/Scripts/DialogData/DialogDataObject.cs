@@ -32,7 +32,7 @@ namespace Game.Scripts.DialogData
         public Dictionary<string, Sprite> SpritesDict {
             get {
                 if (_spritesDict == null)
-                    FillDict();
+                    FillSpritesDict();
                 return _spritesDict;
             } 
             private set { }
@@ -41,7 +41,7 @@ namespace Game.Scripts.DialogData
         private Dictionary<string, TextAsset> _endingsDict;
         private Dictionary<string, Sprite> _spritesDict;
 
-        private void FillDict()
+        private void FillSpritesDict()
         {
             _spritesDict = new Dictionary<string, Sprite>();
             foreach (SpriteIndicator indicator in spriteIndicators)

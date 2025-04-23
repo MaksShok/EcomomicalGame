@@ -5,10 +5,12 @@
             <Dialog>
                 <Speaker>_</Speaker>
                 <Text>**Утро понедельника. Саша просыпается дома**</Text>
+                <SpriteId>00</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Саша</Speaker>
                 <Text>Через неделю у друга день рождения... Что подарить?</Text>
+                <SpriteId>01</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Саша</Speaker>
@@ -33,6 +35,7 @@
             <Dialog>
                 <Speaker>_</Speaker>
                 <Text>**Саша идет на кухню**</Text>
+                <SpriteId>02</SpriteId>
             </Dialog>
             <Dialog withChoice="true">
                 <Speaker>Саша</Speaker>
@@ -60,6 +63,7 @@
             <Dialog>
                 <Speaker>Саша</Speaker>
                 <Text>Любимые мамины котлеты, какая вкуснятина.</Text>
+                <SpriteId>10</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Саша</Speaker>
@@ -73,6 +77,7 @@
             <Dialog>
                 <Speaker>Саша</Speaker>
                 <Text>Обойдусь без завтрака.</Text>
+                <SpriteId>20</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Саша</Speaker>
@@ -86,10 +91,11 @@
             <Dialog>
                 <Speaker>Мама</Speaker>
                 <Text>Саша, не забудь купить еду в школу и положить деньги на проезной!</Text>
+                <SpriteId>30</SpriteId>
             </Dialog>
             <Dialog withChoice="true">
                 <Speaker>Мама</Speaker>
-                <Text>Держи 80 рублей</Text>
+                <Text>Держи 80 рублей **Протягивает купюру**</Text>
                 <Choices>
                     <Choice mood="Positive">
                         <Text>Взять деньги</Text>
@@ -98,6 +104,11 @@
                         </Consequences>
                     </Choice>
                 </Choices>
+            </Dialog>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**Саша стоит в на остановке у терминала**</Text>
+                <SpriteId>31</SpriteId>
             </Dialog>
             <Dialog withChoice="true">
                 <Speaker>Саша</Speaker>
@@ -122,6 +133,7 @@
             <Dialog>
                 <Speaker>Саша **Говорит про себя**</Speaker>
                 <Text>Я уже взростый, нужно следить за своими деньгами</Text>
+                <SpriteId>40</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Саша **Говорит про себя**</Speaker>
@@ -144,6 +156,7 @@
             <Dialog>
                 <Speaker>Саша</Speaker>
                 <Text>У меня нет денег на ежедневные траты...</Text>
+                <SpriteId>50</SpriteId>
             </Dialog>
         </Dialogs>
     </Segment>
@@ -154,10 +167,12 @@
             <Dialog>
                 <Speaker>_</Speaker>
                 <Text>**Начало вторника**</Text>
+                <SpriteId>60</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Саша</Speaker>
                 <Text>Так, у меня есть немного денег, нужно их распределить</Text>
+                <SpriteId>61</SpriteId>
             </Dialog>
             <Dialog changeStats="true">
                 <Speaker>_</Speaker>
@@ -166,6 +181,7 @@
             <Dialog>
                 <Speaker>_</Speaker>
                 <Text>**Бабушка звонит Саше**</Text>
+                <SpriteId>62</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Бабушка</Speaker>
@@ -202,7 +218,7 @@
         <Dialogs>
             <Dialog>
                 <Speaker>Саша</Speaker>
-                <Text>Во сколько там 34 автобус отступает...</Text>
+                <Text>Во сколько там 34 автобус отступает...?</Text>
             </Dialog>
         </Dialogs>
     </Segment>
@@ -221,6 +237,7 @@
             <Dialog>
                 <Speaker>Бабушка</Speaker>
                 <Text>Ну хорошо сыночек, я услышала тебя</Text>
+                <SpriteId>90</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Бабушка</Speaker>
@@ -233,10 +250,12 @@
             <Dialog>
                 <Speaker>_</Speaker>
                 <Text>**Саша собирается и выходит в школу**</Text>
+                <SpriteId>91</SpriteId>
             </Dialog>
             <Dialog withChoice="true">
                 <Speaker>_</Speaker>
                 <Text>Нужно положить деньги на проездной и купить еду</Text>
+                <SpriteId>31</SpriteId>
                 <Choices>
                     <Choice nextSegmentId="10" mood="Positive">
                         <Text>Оплатить</Text>
@@ -261,6 +280,17 @@
             <Dialog>
                 <Speaker>**Утро среды**</Speaker>
                 <Text>Что же, новый день</Text>
+                <SpriteId>00</SpriteId>
+            </Dialog>
+            <Dialog withChoice="true">
+                <Speaker>_</Speaker>
+                <Text>**Сашу отвлекает от выполения ДЗ телефонный звонок**</Text>
+                <SpriteId>100</SpriteId>
+                <Choices>
+                    <Choice mood="Norm">
+                        <Text>Ответить на звонок</Text>
+                    </Choice>
+                </Choices>
             </Dialog>
             <Dialog>
                 <Speaker>Леха</Speaker>
@@ -314,10 +344,12 @@
             <Dialog>
                 <Speaker>_</Speaker>
                 <Text>Саша встретился с другом</Text>
+                <SpriteId>130</SpriteId>
             </Dialog>
             <Dialog withChoice="true">
                 <Speaker>**Пока друзья шли, у прохожего впереди упало 50 рублей**</Speaker>
                 <Text>Что сделать?</Text>
+                <SpriteId>131</SpriteId>
                 <Choices>
                     <Choice nextSegmentId="14" mood="Positive">
                         <Text>Подобрать и предупредить человека о потере</Text>
@@ -339,6 +371,7 @@
             <Dialog>
                 <Speaker>Саша</Speaker>
                 <Text>ИЗВИНИТЕ, У ВАС УПАЛИ 50 РУБЛЕЙ</Text>
+                <SpriteId>140</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Леха</Speaker>
@@ -352,6 +385,7 @@
             <Dialog>
                 <Speaker>Саша</Speaker>
                 <Text>Смотри, 50 рублей уронил. Я возьму себе</Text>
+                <SpriteId>150</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Леха</Speaker>
@@ -366,6 +400,7 @@
             <Dialog>
                 <Speaker>_</Speaker>
                 <Text>**Утро вторника**</Text>
+                <SpriteId>60</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Саша</Speaker>
@@ -374,6 +409,11 @@
             <Dialog changeStats="true">
                 <Speaker>_</Speaker>
                 <Text> </Text>
+            </Dialog>
+            <Dialog>
+                <Speaker>_</Speaker>
+                <Text>**Телефонный звонок. Саша берет трубку**</Text>
+                <SpriteId>100</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Леха</Speaker>
@@ -409,6 +449,7 @@
             <Dialog withChoice="true">
                 <Speaker>Саша</Speaker>
                 <Text>Нужно положить деньги на проездной и купить еду</Text>
+                <SpriteId>31</SpriteId>
                 <Choices>
                     <Choice nextSegmentId="19" mood="Positive">
                         <Text>Оплатить</Text>
@@ -448,6 +489,7 @@
             <Dialog withChoice="true">
                 <Speaker>Саша</Speaker>
                 <Text>Нужно положить деньги на проездной и купить еду</Text>
+                <SpriteId>31</SpriteId>
                 <Choices>
                     <Choice nextSegmentId="19" mood="Positive">
                         <Text>Оплатить</Text>
@@ -471,6 +513,7 @@
             <Dialog>
                 <Speaker>_</Speaker>
                 <Text>**По дороге к другу у Саши порвалась куртка**</Text>
+                <SpriteId>190</SpriteId>
             </Dialog>
             <Dialog withChoice="true">
                 <Speaker>Саша</Speaker>
@@ -501,18 +544,22 @@
             <Dialog>
                 <Speaker>Саша</Speaker>
                 <Text>Купил новую куртку. Теперь можно идти дальше.</Text>
+                <SpriteId>200</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>_</Speaker>
                 <Text>**Друзья увиделись**</Text>
+                <SpriteId>201</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>_</Speaker>
                 <Text>**Через 2 часа**</Text>
+                <SpriteId>202</SpriteId> // покажи здесь рабочий процесс починки шкафа
             </Dialog>
             <Dialog>
                 <Speaker>Леха</Speaker>
                 <Text>Спасибо за помощь, Саша!</Text>
+                <SpriteId>203</SpriteId> // мальчики жмут руки
             </Dialog>
             <Dialog>
                 <Speaker>Саша</Speaker>
@@ -520,7 +567,8 @@
             </Dialog>
             <Dialog>
                 <Speaker>_</Speaker>
-                <Text>**Саша помог другу и добрался до дома**</Text>
+                <Text>**Саша добрался до дома**</Text>
+                <SpriteId>204</SpriteId> // Саша дома снимает уличную одежду
             </Dialog>
             <Dialog>
                 <Speaker>Саша</Speaker>
@@ -538,6 +586,7 @@
             <Dialog>
                 <Speaker>_</Speaker>
                 <Text>**Друзья увиделись**</Text>
+                <SpriteId>201</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Леха</Speaker>
@@ -550,10 +599,12 @@
             <Dialog>
                 <Speaker>_</Speaker>
                 <Text>**Через 2 часа**</Text>
+                <SpriteId>202</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Леха</Speaker>
                 <Text>Спасибо за помощь, Саша!</Text>
+                <SpriteId>203</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Саша</Speaker>
@@ -562,6 +613,7 @@
             <Dialog>
                 <Speaker>Саша</Speaker>
                 <Text>А у тебя не будет куртки, моя порвалась?</Text>
+                <SpriteId>212</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Леха</Speaker>
@@ -570,10 +622,12 @@
             <Dialog>
                 <Speaker>_</Speaker>
                 <Text>**Саша добрался до дома**</Text>
+                <SpriteId>204</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Саша</Speaker>
                 <Text>Что-то плохо себя чувствую. Похоже я простыл....</Text>
+                <SpriteId>213</SpriteId>
             </Dialog>
         </Dialogs>
     </Segment>
@@ -584,10 +638,12 @@
             <Dialog>
                 <Speaker>_</Speaker>
                 <Text>**Утро пятницы**</Text>
+                <SpriteId>00</SpriteId>
             </Dialog>
             <Dialog>
                 <Speaker>Саша</Speaker>
                 <Text>Пора купить подарок другу.</Text>
+                <SpriteId>220</SpriteId> // показать копилку саши
             </Dialog>
             <Dialog withChoice="true">
                 <Speaker>Саша</Speaker>
@@ -596,10 +652,10 @@
                     <Choice nextSegmentId="23" mood="Positive">
                         <Text>Денег хватает, купить подарок</Text>
                         <Conditions>
-                            <Condition stat="PresentMoney" minValue="250"/>
+                            <Condition stat="PresentMoney" minValue="150"/>
                         </Conditions>
                         <Consequences>
-                            <Consequence stat="PresentMoney" value="-250"/>
+                            <Consequence stat="PresentMoney" value="-150"/>
                         </Consequences>
                     </Choice>
                     <Choice nextSegmentId="24" mood="Negative">
@@ -618,6 +674,7 @@
             <Dialog>
                 <Speaker>Саша</Speaker>
                 <Text>Подарок куплен. Ура!</Text>
+                <SpriteId>230</SpriteId> // Саша в магазине держит в руках коробку с подарком
             </Dialog>
         </Dialogs>
     </Segment>
@@ -627,6 +684,7 @@
             <Dialog>
                 <Speaker>Саша</Speaker>
                 <Text>Придётся идти без подарка...</Text>
+                <SpriteId>240</SpriteId> // Саша в магазине смотрит в кошелек и понимает что денег не хватает
             </Dialog>
         </Dialogs>
     </Segment>

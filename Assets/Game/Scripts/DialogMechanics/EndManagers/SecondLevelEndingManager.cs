@@ -35,10 +35,12 @@ namespace Game.Scripts.DialogMechanics.EndManagers
             
             if (_statsManager.Money.Value >= 110)
             {
+                IsVictory = true;
                 DialogData.EndingsDict.TryGetValue(ExtraSuccessEnd, out endAsset);
             }
             else if (_statsManager.Money.Value >= 50)
             {
+                IsVictory = true;
                 DialogData.EndingsDict.TryGetValue(PositiveEnd, out endAsset);
             }
             else
