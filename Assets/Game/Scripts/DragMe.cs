@@ -31,6 +31,7 @@ namespace Game.Scripts
         public void OnEndDrag(PointerEventData eventData)
         {
             transform.localScale = new Vector3(1, 1, 0);
+            Debug.Log("11111");
         }
     }
 }
